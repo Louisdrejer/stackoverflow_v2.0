@@ -6,6 +6,85 @@
   height: 40vmin;
   pointer-events: none;
 }
+.Leftcontainer{
+  background-color: rgb(53, 54, 58);
+  margin: 10px;
+  width: 20%;
+  min-height: 100vh;
+  border-radius: 5px;
+  position: relative;
+
+}
+.logo_name_left{
+color: white;
+padding-top:  15px;
+display: flex;
+width: 100%;
+justify-content:space-between;
+}
+.logo{
+  margin-left: 10%;
+}
+.name{
+  margin-right: 10%;
+}
+
+.findAnswers{
+  color: white;
+  font-weight: bolder;
+  margin-top: 20px;
+  margin-left: 10%;
+}
+.searchPage{
+  color: white;
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+.activity{
+  color: white;
+  font-weight: bolder;
+  margin-left: 10%;
+}
+.questions_answers{
+  color: white;
+  margin-left: 10%;
+}
+.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+}
+.userLogo {
+  background-color: rgb(90, 101, 234);
+  border: 2px solid rgb(58, 60, 82); 
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  position: relative; 
+}
+.smallUserLogo{
+  background-color: rgb(90, 101, 234);
+  border: 1px solid white; 
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.profileName{
+color: white;
+}
+.profileEmail{
+  color: white;
+
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
