@@ -1,0 +1,106 @@
+.mainContainerLogin{
+    background-color: rgb(35, 36, 40);
+    flex-direction: column;
+    height:100vh;
+  }
+
+form {
+    color: white;
+    width: 12%;
+    min-width: 240px;
+  }
+
+.textField {
+    width: 100%;
+    color: white;
+    background-color:  rgb(35, 36, 40);
+    background: rgba(255, 0, 0, 0);
+    font-family: "Inter";
+    text-decoration: none;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+.topBar{
+    height: 10%;
+}
+
+.mainContainerLoginRow{
+    background-color: rgb(35, 36, 40);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75%;
+  }
+
+.formContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Login {
+    display: flex;
+    flex-direction: column;
+    padding-top: 32px;
+    align-items: center
+}
+
+.LoginButton {
+    background-color: rgb(90, 101, 234);
+    color: white;
+    width: 50%;
+    height: 32px;
+    font-family: "Inter";
+    font-weight: bolder;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+}
+
+.headLine{
+    font-family: "Inter";
+    font-weight: bolder;
+    font-size: 16px;
+
+}
+
+.LinkForgotPasswordDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    padding-top: 4px;
+}
+
+.LinkForgotPassword{
+    color: white;
+    font-family: "Inter";
+    font-size: 12px;
+}
+
+.inputField {
+    padding-top: 16px;
+}
+
+.loginIcon {
+    max-width: 150px;
+}
+
+.loginIconDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+
+.LoginLogo { 
+    color: white;
+    font-family: "Inter";
+    font-size: 32px;
+    font-weight: bolder;
+
+    background-color: rgb(90, 101, 234);
+    color: white;
+    padding: 32px;
+    text-align: center;
+}
