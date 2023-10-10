@@ -2,20 +2,21 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 import "./Login.css"
-import logo from '../../img/loginIcon.png';
+import logo from '../../img/Logo.png';
+import profileIcon from '../../img/loginIcon.png';
 
 export default function Login() {
   
     return (
         <div className="mainContainerLogin">
             <div className="topBar">
-                <label className='LoginLogo'>LOGO</label>
+                <img src={logo} alt="Logo" style={{padding: "16px", maxWidth: "440px"}}/>
             </div>
             <div className="mainContainerLoginRow">
                 <div className="formContainer">
                     <form>
                         <div className='loginIconDiv'>
-                            <img className="loginIcon" src={logo} alt="Logo" />
+                            <img className="loginIcon" src={profileIcon} alt="Logo" />
                         </div>
                         <div className='inputField'>
                             <label className="headLine">Username</label>
