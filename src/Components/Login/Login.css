@@ -6,12 +6,10 @@
 
 form {
     color: white;
-    width: 12%;
-    max-width: 340px;
-    min-width: 240px;
+    width: 20%;
     border: 2px solid #ccc;
     border-radius: 16px;
-    padding: 32px;
+    padding: 12px 24px 12px 24px;
     background-color: rgb(53, 54, 58);
   }
 
@@ -23,20 +21,9 @@ form {
     text-decoration: none;
     border: none;
     border-bottom: 1px solid white;
-    font-size: 24px;
+    font-size: 14px;
 }
 
-.topBar{
-    height: 15%;
-}
-
-.mainContainerLoginRow{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 70%;
-    width: 100€;
-  }
 
 .formContainer{
     display: flex;
@@ -47,7 +34,7 @@ form {
 .Login {
     display: flex;
     flex-direction: column;
-    padding-top: 32px;
+    padding-top: 20px;
     align-items: center
 }
 
@@ -58,7 +45,7 @@ form {
     height: 48px;
     font-family: "Inter";
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 14px;
     border-radius: 8px;
     text-decoration: none;
     border: none;
@@ -67,7 +54,8 @@ form {
 .headLine{
     font-family: "Inter";
     font-weight: bolder;
-    font-size: 24px;
+    font-size: 20px;
+    padding-bottom: 2px;
 
 }
 
@@ -81,15 +69,15 @@ form {
 .LinkForgotPassword{
     color: white;
     font-family: "Inter";
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .inputField {
-    padding-top: 32px;
+    padding-top: 16px;
 }
 
 .loginIcon {
-    max-width: 150px;
+    width: 66%;
 }
 
 .loginIconDiv {
@@ -97,4 +85,9 @@ form {
     flex-direction: row;
     justify-content: center;
     padding-bottom: 8px;
+}
+
+.LogoLogin {
+  width: 22%;
+  padding: 1%;
 }
