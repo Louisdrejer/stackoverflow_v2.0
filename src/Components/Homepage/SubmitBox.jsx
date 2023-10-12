@@ -59,42 +59,7 @@ export default function SubmitBox() {
       </div>
 
     </div>
-    <div className="newQustionBox">
-      <div className="newQustionHeader">
-        <div className="Headline">Headline</div>
-        <div className="userQ">
-        <div className="smallUserLogo2"></div>
-        <div className="username">Username</div>
-        </div>
-      </div>
-      <div className="newQuestionBody">
-        <div className="newQuestionBodyText">Body text</div>
-      </div>
-      <div className="newQuestionTags">
-        <div className="NQtag">Tags</div>
-        <div className="NQtag">Tags</div>
-        <div className="NQtag">Tags</div>
-      </div>
 
-    </div>
-    <div className="newQustionBox">
-      <div className="newQustionHeader">
-        <div className="Headline">Headline</div>
-        <div className="userQ">
-        <div className="smallUserLogo2"></div>
-        <div className="username">Username</div>
-        </div>
-      </div>
-      <div className="newQuestionBody">
-        <div className="newQuestionBodyText">Body text</div>
-      </div>
-      <div className="newQuestionTags">
-        <div className="NQtag">Tags</div>
-        <div className="NQtag">Tags</div>
-        <div className="NQtag">Tags</div>
-      </div>
-
-    </div>
  
   </div>
   )
