@@ -18,11 +18,12 @@
     background-color: rgb(53, 54, 58);
     margin: 10px;
     width: 20%;
-    height: 100vh;
+    max-height: 545px;
     border-radius: 5px;
     position: relative;
     position: sticky;
     top: 5px;
+    margin-bottom: 20px;
   }
   .logo_name_left{
   color: white;
@@ -225,11 +226,10 @@ font-size: 12px;
   .submitButton{
     background: #5A65EA;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-border-radius: 5px;
-width: 120px;
+    border-radius: 5px;
+    width: 120px;
     color: white;
     border: none;
-    vertical-align: text-top;
     margin-left: auto;
     margin-top: 5px;
     font-family: 'Inter';
