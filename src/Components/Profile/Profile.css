@@ -1,0 +1,133 @@
+.profileBackground{
+    background-color: rgb(35, 36, 40);
+    padding: 1px;
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/*--------ProfileHeaderBox.jsx-----------------*/
+.userInfoBox{
+border: 1px solid white;
+border-radius: 5px;
+width: 78%;
+height: 100px;
+display: flex;
+margin-top: 10px;
+
+
+}
+.userInfo{
+color: white;
+display: flex;
+align-items: center;
+}
+.profileUsername{
+margin-left: 10%;
+margin-right: 20px;
+}
+.profileUsernametext{
+border: 1px inset white;
+padding: 2px;
+padding-right: 80px ;
+}
+.profileEmail{
+    margin-left: 10%;
+    margin-right: 30px;
+}
+.profileEmailText{
+border: 1px inset white;
+padding: 2px;
+padding-right: 80px ;
+
+}
+.profilePassword{
+    margin-left: 10%;
+    margin-right: 30px;
+
+}
+.profilePasswordtext{
+    margin-right: 20px;
+    border: 1px inset white;
+    padding: 2px;
+padding-right: 80px ;
+
+}
+
+
+/*--------ProfileOverview.jsx-----------------*/
+.profileOverviewBox{
+    height: 450px;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.profileOverviewProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    margin-top: 15px;
+  }
+
+.profileOverviewUserLogo {
+    background-color: none;
+    border: 2px solid white; 
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    position: relative; 
+  }
+  .profileOverviewSmallUserLogo{
+    background-color: white;
+    border: 2px solid rgb(35, 36, 40); 
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+ .profileOverviewProfileName{
+  color: white;
+  }
+  .profileOverviewProfileEmail{
+    color: white;
+  }
+
+.profileOverviewInfo{
+    display: flex;
+    flex-direction: column;
+}
+.profileOverviewQuestionLine{
+display: flex;
+margin-top: 160px;
+color:white;
+
+}
+.PO_Question{
+    margin-right: 153px;
+}
+
+.profileOverviewAnswersLine{
+    display: flex;
+    margin-top: 10px;
+    color:white;
+    
+    }
+.PO_Answers{
+    margin-right: 159px;
+    }
+.profileOverviewPLLine{
+        display: flex;
+        margin-top: 10px;
+        color:white;
+        
+        }
+.PO_PL{
+  margin-right: 40px;
+        }
