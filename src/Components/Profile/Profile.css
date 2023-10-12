@@ -10,11 +10,11 @@
 .userInfoBox{
 border: 1px solid white;
 border-radius: 5px;
-width: 78%;
 height: 100px;
 display: flex;
 margin-top: 10px;
-
+margin-left: 10px;
+margin-right: 10px;
 
 }
 .userInfo{
@@ -65,6 +65,7 @@ padding-right: 80px ;
     justify-content: center;
     margin-top: 10px;
     margin-left: 10px;
+    margin-right: 10px;
 }
 .profileOverviewProfile{
     display: flex;
@@ -110,7 +111,7 @@ color:white;
 
 }
 .PO_Question{
-    margin-right: 153px;
+    margin-right: 143px;
 }
 
 .profileOverviewAnswersLine{
@@ -120,14 +121,129 @@ color:white;
     
     }
 .PO_Answers{
-    margin-right: 159px;
+    margin-right: 149px;
     }
 .profileOverviewPLLine{
-        display: flex;
-        margin-top: 10px;
-        color:white;
-        
-        }
+display: flex;
+margin-top: 10px;
+color:white;
+}
 .PO_PL{
-  margin-right: 40px;
+  margin-right: 30px;
         }
+/*--------ProfilePL_Overview.jsx-----------------*/
+
+.profilePLBox{
+border: 1px solid white;
+border-radius: 5px;
+height: 450px;
+width: 100%;
+margin-top: 10px;
+margin-right: 10px;
+}
+
+.profilePLArea{
+    width: 70%;
+    margin-top: 10px;
+    margin-left: 15%;
+}
+.profilePLTitle{
+    color: white
+}
+.PLAndSkillLevel{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.ProgrammingLanguages{
+    color: white;
+}
+.Languagesnr{
+    margin-bottom: 10px;
+
+}
+.SkillLevel{
+color:white;
+}
+.SkillLevelHeader{
+    margin-bottom: 10px;
+}
+
+.PLdropdown {
+    position: relative;
+    display: inline-block;
+    border: 1px solid white;
+    color:white;
+    padding: 2px;
+    padding-right: 80px;
+    margin-top: 5px;
+    margin-right: 15px;
+  }
+  
+  .PLdropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin: -5px;
+  }
+  
+  .PLdropdown:hover .PLdropdown-content {
+    display: block;
+    margin-top: 2px;
+  }
+  .PLarrow-down {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 20px;
+    margin-bottom: 3px;
+  }
+  .SkillLvldropdown {
+    position: relative;
+    display: inline-block;
+    border: 1px solid white;
+    color:white;
+    padding: 2px;
+    padding-right: 80px;
+    margin-top: 5px;
+    margin-right: 15px;
+    min-width: 160px;
+  }
+  
+  .SkillLvldropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin: -5px;
+  }
+  
+  .SkillLvldropdown:hover .SkillLvldropdown-content {
+    display: block;
+    margin-top: 2px;
+  }
+   .Skillarrow-down {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 80px;
+    margin-bottom: 3px;
+  }
+/*-------------------------*/
+.profileOverviewDisplay{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+.profileOverviewDisplay2{
+    display: flex;
+}

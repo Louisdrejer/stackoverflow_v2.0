@@ -1,12 +1,12 @@
 
 import React from 'react'
 import "./Homepage.css"
+import logo from '../../img/Logo.png';
 export default function LeftNav() {
   return (
     <div className="Leftcontainer">
     <div className="logo_name_left">
-      <div className="logo">logo</div>
-      <div className="name">StackIT</div>
+    <img src={logo} alt="Logo" style={{maxWidth: "70%", marginLeft: "15%"}}/>
     </div>
     <hr style={{ width: "80%", border: "1.8px solid white", marginTop: "10px" }} />
     <div className="findAnswers">
