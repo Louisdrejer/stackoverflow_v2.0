@@ -6,8 +6,8 @@ import SubmitBox from './SubmitBox';
 export default function Homepage() {
   return (
     <div className="maincontainer">
-    <LeftNav/>
-    <SubmitBox/>
-  </div>
+      <LeftNav />
+      <SubmitBox />
+    </div>
   )
 }

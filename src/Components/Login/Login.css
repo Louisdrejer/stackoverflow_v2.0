@@ -1,8 +1,8 @@
-.mainContainerLogin{
+.mainContainerLogin {
     background-color: rgb(35, 36, 40);
     flex-direction: column;
-    height:100vh;
-  }
+    height: 100vh;
+}
 
 form {
     color: white;
@@ -11,7 +11,7 @@ form {
     border-radius: 16px;
     padding: 12px 24px 12px 24px;
     background-color: rgb(53, 54, 58);
-  }
+}
 
 .textField {
     width: 100%;
@@ -25,7 +25,7 @@ form {
 }
 
 
-.formContainer{
+.formContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -51,7 +51,7 @@ form {
     border: none;
 }
 
-.headLine{
+.headLine {
     font-family: "Inter";
     font-weight: bolder;
     font-size: 20px;
@@ -59,14 +59,14 @@ form {
 
 }
 
-.LinkForgotPasswordDiv{
+.LinkForgotPasswordDiv {
     display: flex;
     flex-direction: row;
     justify-content: right;
     padding-top: 4px;
 }
 
-.LinkForgotPassword{
+.LinkForgotPassword {
     color: white;
     font-family: "Inter";
     font-size: 12px;
@@ -88,6 +88,6 @@ form {
 }
 
 .LogoLogin {
-  width: 22%;
-  padding: 1%;
+    width: 22%;
+    padding: 1%;
 }

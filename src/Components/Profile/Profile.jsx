@@ -8,14 +8,14 @@ import ProfilePL_Overview from './ProfilePL_Overview'
 export default function Profile() {
   return (
     <div className="profileBackground">
-    <LeftNav/>
-    <div className="profileOverviewDisplay">
-    <ProfileHeaderBox/>
-    <div className="profileOverviewDisplay2">
-    <ProfileOverview/>
-    <ProfilePL_Overview/>
-    </div>
-    </div>
+      <LeftNav />
+      <div className="profileOverviewDisplay">
+        <ProfileHeaderBox />
+        <div className="profileOverviewDisplay2">
+          <ProfileOverview />
+          <ProfilePL_Overview />
+        </div>
+      </div>
 
 
     </div>

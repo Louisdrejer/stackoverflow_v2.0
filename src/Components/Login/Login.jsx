@@ -6,15 +6,15 @@ import logo from '../../img/Logo.png';
 import profileIcon from '../../img/loginIcon.png';
 
 export default function Login() {
-  
+
     return (
         <div className="mainContainerLogin">
-            <img className='LogoLogin' src={logo} alt="Logo"/>
+            <img className='LogoLogin' src={logo} alt="Logo" />
             <div className="formContainer">
                 <form>
                     <div className='loginIconDiv'>
                         <img className="loginIcon" src={profileIcon} alt="Logo" />
-                        </div>
+                    </div>
                     <div className='inputField'>
                         <label className="headLine">Username</label>
                         <input className="textField" type="text" />
@@ -27,9 +27,9 @@ export default function Login() {
                         <Link className="LinkForgotPassword">Forgot Password?</Link>
                     </div>
                     <div className='Login'>
-                        <input type="submit" value="Login" className='LoginButton'/>
-                        <label style={{ padding: "4px"}}>or</label>
-                        <Link className="LinkForgotPassword" style={{ paddingTop: "4px"}}>Create New Account</Link>
+                        <input type="submit" value="Login" className='LoginButton' />
+                        <label style={{ padding: "4px" }}>or</label>
+                        <Link className="LinkForgotPassword" style={{ paddingTop: "4px" }}>Create New Account</Link>
                     </div>
                 </form>
             </div>

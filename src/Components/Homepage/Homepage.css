@@ -4,133 +4,149 @@
   /* Add more variations (bold, italic, etc.) if needed */
 }
 
-.Inter{
+.Inter {
   font-family: Inter;
 }
-.maincontainer{
-    background-color: rgb(35, 36, 40);
-    padding: 1px;
-    display: flex;
-    min-height: 200vh;
-  
-  }
-  .Leftcontainer{
-    background-color: rgb(53, 54, 58);
-    margin: 10px;
-    width: 25%;
-    max-height: 545px;
-    border-radius: 5px;
-    position: relative;
-    position: sticky;
-    top: 5px;
-    margin-bottom: 20px;
-  }
-  .logo_name_left{
+
+.maincontainer {
+  background-color: rgb(35, 36, 40);
+  padding: 1px;
+  display: flex;
+  min-height: 200vh;
+
+}
+
+.Leftcontainer {
+  background-color: rgb(53, 54, 58);
+  margin: 10px;
+  width: 25%;
+  max-height: 545px;
+  border-radius: 5px;
+  position: relative;
+  position: sticky;
+  top: 5px;
+  margin-bottom: 20px;
+}
+
+.logo_name_left {
   color: white;
-  padding-top:  15px;
+  padding-top: 15px;
   display: flex;
   width: 100%;
-  justify-content:space-between;
-  }
-  .logo{
-    margin-left: 10%;
-  }
-  .name{
-    margin-right: 10%;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-  }
-  
-  .findAnswers{
-    color: white;
-  
-    margin-top: 20px;
-    margin-left: 10%;
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-  }
-  .searchPage{
-    color: white;
-    margin-left: 10%;
-    margin-bottom: 20px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  }
-  .activity{
-    color: white;
-    margin-left: 10%;
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-  }
-  .questions_answers{
-    color: white;
-    margin-left: 10%;
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-  }
-  .profile{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    bottom: 10px;
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-  }
-  .userLogo {
-    background-color: rgb(90, 101, 234);
-    border: 2px solid rgb(58, 60, 82); 
-    width: 50px;
-    height: 50px;
-    border-radius: 100px;
-    position: relative; 
-  }
-  .smallUserLogo{
-    background-color: rgb(90, 101, 234);
-    border: 1px solid white; 
-    width: 10px;
-    height: 10px;
-    border-radius: 100px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  
-  .profileName{
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 10%;
+}
+
+.name {
+  margin-right: 10%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+}
+
+.findAnswers {
+  color: white;
+
+  margin-top: 20px;
+  margin-left: 10%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.searchPage {
+  color: white;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.activity {
+  color: white;
+  margin-left: 10%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.questions_answers {
+  color: white;
+  margin-left: 10%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  /* Center horizontally */
+  transform: translateX(-50%);
+  /* Center horizontally */
+}
+
+.userLogo {
+  background-color: rgb(90, 101, 234);
+  border: 2px solid rgb(58, 60, 82);
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  position: relative;
+}
+
+.smallUserLogo {
+  background-color: rgb(90, 101, 234);
+  border: 1px solid white;
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.profileName {
   color: white;
   font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  }
-  .profileEmailHomepage{
-    color: white;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  
-  }
-  .submitAQuestionContainer{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.profileEmailHomepage {
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+
+}
+
+.submitAQuestionContainer {
   background-color: rgb(53, 54, 58);
   width: 100%;
   height: 200px;
   margin-top: 10px;
   margin-right: 10px;
   border-radius: 5px;
-  
-  }
-  .submitAQuestionHeader{
+
+}
+
+.submitAQuestionHeader {
   color: white;
   font-family: 'Inter';
   font-style: normal;
@@ -138,191 +154,206 @@ font-size: 12px;
   font-size: 30px;
   margin-top: 10px;
   margin-left: 10px;
-  
-  }
-  .inputQuestion{
-    width: 80%;
-    margin-left: 10%;
-  }
-  .submitAQuestiontitle{
+
+}
+
+.inputQuestion {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.submitAQuestiontitle {
   color: white;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  }
-  .inputQuestionTitle{
-    background-color: rgb(53, 54, 58);
-    color: white;
-    border: 1px solid white;
-    width: 100%;
-    border-radius: 2px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  
-  }
-  .inputPlaintext{
-    background-color: rgb(53, 54, 58);
-    color: white;
-    border: 1px solid white;
-    width: 100%;
-    border-radius: 2px;
-    padding-bottom: 50px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    border: 1px solid white;
-    color:white;
-    padding: 5px;
-    margin-top: 5px;
-    margin-right: 15px;
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: black;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-    margin: -5px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-    margin-top: 2px;
-  }
-  
-  .arrow-down {
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(45deg);
-    margin-left: 20px;
-    margin-bottom: 3px;
-  }
-  .menubox{
-    display: flex;
-    padding: -1px;
-  }
-  
-  .submitButton{
-    background: #5A65EA;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    width: 120px;
-    color: white;
-    border: none;
-    margin-left: auto;
-    margin-top: 5px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    letter-spacing: 0.12em;
-  }
-  .newQustion{
-    color: white;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-      margin-top: 40px;
-      margin-left: 10px;
-      margin-bottom: 10px;
-  }
-  .newQustionBox{
-    border: 1px solid white;
-    border-radius: 5px;
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 20px;
-  }
-  
-  .newQustionHeader{
-    display: flex;
-    color: white;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    width: 90%;
-    margin-left: 5%;
-  }
-  .Headline{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
+}
+
+.inputQuestionTitle {
+  background-color: rgb(53, 54, 58);
+  color: white;
+  border: 1px solid white;
+  width: 100%;
+  border-radius: 2px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
   font-size: 12px;
-  }
-  .smallUserLogo2{
-    background-color: rgb(90, 101, 234);
-    border: 1px solid white; 
-    width: 10px;
-    height: 10px;
-    border-radius: 100px;
-    margin-right: 10px;
-  }
-  .username{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
+
+}
+
+.inputPlaintext {
+  background-color: rgb(53, 54, 58);
+  color: white;
+  border: 1px solid white;
+  width: 100%;
+  border-radius: 2px;
+  padding-bottom: 50px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
   font-size: 12px;
-  
-  }
-  .userQ{
-    display: flex;
-    align-items: center; 
-  }
-  .newQuestionBody{
-    border: 1px solid white;
-    border-radius: 5px;
-    width: 90%;
-    margin-left: 5%;
-    height: 100px;
-    margin-bottom: 10px;
-  }
-  .newQuestionBodyText{
-    color: white;
-    margin-left: 5px;
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 12px;
-  }
-  .newQuestionTags{
-    color: white;
-    display: flex;
-    width: 90%;
-    margin-left: 5%;
-    margin-bottom: 10px;
-  }
-  .NQtag{
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border: 1px solid white;
+  color: white;
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin: -5px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  margin-top: 2px;
+}
+
+.arrow-down {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  margin-left: 20px;
+  margin-bottom: 3px;
+}
+
+.menubox {
+  display: flex;
+  padding: -1px;
+}
+
+.submitButton {
+  background: #5A65EA;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 120px;
+  color: white;
+  border: none;
+  margin-left: auto;
+  margin-top: 5px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+}
+
+.newQustion {
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.newQustionBox {
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+
+.newQustionHeader {
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.Headline {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.smallUserLogo2 {
+  background-color: rgb(90, 101, 234);
+  border: 1px solid white;
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+  margin-right: 10px;
+}
+
+.username {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+
+}
+
+.userQ {
+  display: flex;
+  align-items: center;
+}
+
+.newQuestionBody {
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.newQuestionBodyText {
+  color: white;
+  margin-left: 5px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.newQuestionTags {
+  color: white;
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 10px;
+}
+
+.NQtag {
   border: 1px solid white;
   border-radius: 30px;
   margin-right: 20px;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 2px;
-  padding-bottom:2px ;
+  padding-bottom: 2px;
   font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-  }
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}

@@ -1,4 +1,4 @@
-.profileBackground{
+.profileBackground {
     background-color: rgb(35, 36, 40);
     padding: 1px;
     display: flex;
@@ -7,63 +7,48 @@
 
 
 /*--------ProfileHeaderBox.jsx-----------------*/
-.userInfoBox{
-border: 1px solid white;
-border-radius: 5px;
-height: 100px;
-display: flex;
-margin-top: 10px;
-margin-left: 10px;
-margin-right: 10px;
+.userInfoBox {
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 100px;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 
 }
-.userInfo{
-color: white;
-display: flex;
-align-items: center;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-}
-.profileUsername{
-margin-left: 10%;
-margin-right: 20px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-}
-.profileUsernametext{
-border: 1px inset white;
-padding: 2px;
-min-width: 135px;
-max-width: 135px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-}
-.profileEmail{
-    margin-left: 10%;
-    margin-right: 30px;
+
+.userInfo {
+    color: white;
+    display: flex;
+    align-items: center;
     font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
 }
-.profileEmailText{
-border: 1px inset white;
-padding: 2px;
-min-width: 135px;
-max-width: 135px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
 
+.profileUsername {
+    margin-left: 10%;
+    margin-right: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
 }
-.profilePassword{
+
+.profileUsernametext {
+    border: 1px inset white;
+    padding: 2px;
+    min-width: 135px;
+    max-width: 135px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.profileEmail {
     margin-left: 10%;
     margin-right: 30px;
     font-family: 'Inter';
@@ -71,7 +56,29 @@ font-size: 12px;
     font-weight: 400;
     font-size: 14px;
 }
-.profilePasswordtext{
+
+.profileEmailText {
+    border: 1px inset white;
+    padding: 2px;
+    min-width: 135px;
+    max-width: 135px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+
+}
+
+.profilePassword {
+    margin-left: 10%;
+    margin-right: 30px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.profilePasswordtext {
     margin-right: 20px;
     border: 1px inset white;
     padding: 2px;
@@ -82,7 +89,7 @@ font-size: 12px;
 
 
 /*--------ProfileOverview.jsx-----------------*/
-.profileOverviewBox{
+.profileOverviewBox {
     height: 420px;
     border: 1px solid white;
     border-radius: 5px;
@@ -93,121 +100,133 @@ font-size: 12px;
     margin-left: 10px;
     margin-right: 10px;
 }
-.profileOverviewProfile{
+
+.profileOverviewProfile {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     margin-top: 15px;
-  }
+}
 
 .profileOverviewUserLogo {
     background-color: none;
-    border: 2px solid white; 
+    border: 2px solid white;
     width: 50px;
     height: 50px;
     border-radius: 100px;
-    position: relative; 
-  }
-  .profileOverviewSmallUserLogo{
+    position: relative;
+}
+
+.profileOverviewSmallUserLogo {
     background-color: white;
-    border: 2px solid rgb(35, 36, 40); 
+    border: 2px solid rgb(35, 36, 40);
     width: 10px;
     height: 10px;
     border-radius: 100px;
     position: absolute;
     bottom: 0;
     right: 0;
-  }
- .profileOverviewProfileName{
-  color: white;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  margin-top: 10px;
-  }
+}
 
-  .profileOverviewProfileEmail{
+.profileOverviewProfileName {
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.profileOverviewProfileEmail {
     color: white;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     margin-top: 5px;
-  }
+}
 
-.profileOverviewInfo{
+.profileOverviewInfo {
     display: flex;
     flex-direction: column;
 }
-.profileOverviewQuestionLine{
-display: flex;
-margin-top: 160px;
-color:white;
+
+.profileOverviewQuestionLine {
+    display: flex;
+    margin-top: 160px;
+    color: white;
 
 }
-.PO_Question{
+
+.PO_Question {
     margin-right: 135px;
     font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
 }
 
-.profileOverviewAnswersLine{
+.profileOverviewAnswersLine {
     display: flex;
     margin-top: 10px;
-    color:white;
-    
-    }
-.PO_Answers{
+    color: white;
+
+}
+
+.PO_Answers {
     margin-right: 138px;
     font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-    }
-.profileOverviewPLLine{
-display: flex;
-margin-top: 10px;
-color:white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
 }
-.PO_PL{
-  margin-right: 30px;
-  font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-        }
+
+.profileOverviewPLLine {
+    display: flex;
+    margin-top: 10px;
+    color: white;
+}
+
+.PO_PL {
+    margin-right: 30px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
 /*--------ProfilePL_Overview.jsx-----------------*/
 
-.profilePLBox{
-border: 1px solid white;
-border-radius: 5px;
-height: 420px;
-width: 100%;
-margin-top: 10px;
-margin-right: 10px;
+.profilePLBox {
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 420px;
+    width: 100%;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
-.profilePLArea{
+.profilePLArea {
     width: 70%;
     margin-top: 10px;
     margin-left: 15%;
 }
-.profilePLTitle{
+
+.profilePLTitle {
     color: white;
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
 }
-.PLAndSkillLevel{
+
+.PLAndSkillLevel {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
-.ProgrammingLanguages{
+
+.ProgrammingLanguages {
     color: white;
     font-family: 'Inter';
     font-style: normal;
@@ -215,48 +234,48 @@ font-size: 14px;
     font-size: 12px;
 
 }
-.Languagesnr{
 
-}
-.SkillLevel{
-color:white;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-}
-.SkillLevelHeader{
+.Languagesnr {}
 
+.SkillLevel {
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
 }
+
+.SkillLevelHeader {}
 
 .PLdropdown {
     position: relative;
     display: inline-block;
     border: 1px solid white;
-    color:white;
+    color: white;
     padding: 2px;
     margin-top: 5px;
     margin-right: 15px;
     min-width: 135px;
     max-width: 135px;
-  }
-  
-  .PLdropdown-content {
+}
+
+.PLdropdown-content {
     display: none;
     position: absolute;
     background-color: black;
     min-width: 100%;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     margin: -5px;
-  }
-  
-  .PLdropdown:hover .PLdropdown-content {
+}
+
+.PLdropdown:hover .PLdropdown-content {
     display: block;
     margin-top: 3px;
     margin-left: -2px;
-  }
-  .PLarrow-down {
+}
+
+.PLarrow-down {
     border: solid white;
     border-width: 0 3px 3px 0;
     display: inline-block;
@@ -264,35 +283,37 @@ font-size: 12px;
     transform: rotate(45deg);
     margin-left: 80px;
     margin-bottom: 3px;
-  }
-  .SkillLvldropdown {
+}
+
+.SkillLvldropdown {
     position: relative;
     display: inline-block;
     border: 1px solid white;
-    color:white;
+    color: white;
     padding: 2px;
     margin-top: 5px;
     margin-right: 15px;
     min-width: 135px;
     max-width: 135px;
-  }
-  
-  .SkillLvldropdown-content {
+}
+
+.SkillLvldropdown-content {
     display: none;
     position: absolute;
     background-color: black;
     min-width: 100%;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     margin: -5px;
-  }
-  
-  .SkillLvldropdown:hover .SkillLvldropdown-content {
+}
+
+.SkillLvldropdown:hover .SkillLvldropdown-content {
     display: block;
     margin-top: 3px;
     margin-left: -2px;
-  }
-   .Skillarrow-down {
+}
+
+.Skillarrow-down {
     border: solid white;
     border-width: 0 3px 3px 0;
     display: inline-block;
@@ -301,9 +322,10 @@ font-size: 12px;
     margin-left: 49px;
     margin-right: 5px;
     margin-bottom: 3px;
-    
-  }
-  .discardButton{
+
+}
+
+.discardButton {
     font-size: smaller;
     padding-left: 2px;
     padding-top: 0px;
@@ -311,17 +333,20 @@ font-size: 12px;
     padding-right: 2px;
     vertical-align: text-bottom;
     margin-left: 75px;
-  }
-  .addNewLanguages{
+}
+
+.addNewLanguages {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .addNewLanguagesButton {
+}
+
+.addNewLanguagesButton {
     margin-top: 50px;
     display: inline-block;
     text-align: center;
-    line-height: 35px; /* Set the same value as the height to center vertically */
+    line-height: 35px;
+    /* Set the same value as the height to center vertically */
     background-color: rgb(90, 101, 234);
     border: none;
     width: 50px;
@@ -331,22 +356,24 @@ font-size: 12px;
     font-weight: 100;
     color: #fff;
     cursor: pointer;
-  }
-  .addNewLanguagesText{
-color: white;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-margin-top: 10px;
-  }
- 
+}
+
+.addNewLanguagesText {
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
 /*-------------------------*/
-.profileOverviewDisplay{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-.profileOverviewDisplay2{
+.profileOverviewDisplay {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.profileOverviewDisplay2 {
     display: flex;
 }
