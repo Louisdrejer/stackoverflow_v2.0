@@ -30,7 +30,7 @@ export default function LeftNav() {
       <div className="profileName">
         ITUCPH
       </div>
-      <div className="profileEmail">
+      <div className="profileEmailHomepage">
         itucph@email.dk
       </div>
     </div>

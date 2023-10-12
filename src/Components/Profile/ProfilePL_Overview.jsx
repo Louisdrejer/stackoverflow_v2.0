@@ -29,11 +29,15 @@ export default function ProfilePL_Overview() {
           </div>
           <div className="Skillarrow-down"></div>
         </div>
+        <button className='discardButton'>x</button>
             </div>
+           
         </div>
-
-
-
+        <div className="addNewLanguages">
+        <div className="addNewLanguagesButton">+
+        </div>
+        <div className="addNewLanguagesText">Add A New Language</div>
+        </div>
         </div>
     </div>
   )
