@@ -90,7 +90,7 @@
 
 /*--------ProfileOverview.jsx-----------------*/
 .profileOverviewBox {
-    height: 420px;
+    min-height: 420px;
     border: 1px solid white;
     border-radius: 5px;
     width: 30%;
@@ -99,6 +99,7 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 12px;    
 }
 
 .profileOverviewProfile {
@@ -201,10 +202,11 @@
 .profilePLBox {
     border: 1px solid white;
     border-radius: 5px;
-    height: 420px;
+    min-height: 420px;
     width: 100%;
     margin-top: 10px;
     margin-right: 10px;
+    margin-bottom: 12px;
 }
 
 .profilePLArea {

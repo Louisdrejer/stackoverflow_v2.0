@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import './Profile.css';
 
 export default function ProfilePl_OverviewAddLang({ user, onDiscard, onApprove }) {
-  const [selectedLanguage, setSelectedLanguage] = useState('Choose languages');
-  const [selectedSkillLevel, setSelectedSkillLevel] = useState('Your skillLevel');
+  const defaultLanguage = 'Choose languages';
+  const defaultSkillLevel = 'Your skillLevel';
+
+  const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
+  const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -14,20 +17,47 @@ export default function ProfilePl_OverviewAddLang({ user, onDiscard, onApprove }
   };
 
   const handleDiscard = () => {
-    onDiscard(); // Call the function passed from the parent to remove this component
+    onDiscard();
   };
 
   const handleApprove = () => {
-    // Call the function passed from the parent to add the new language to the user's profile
-    onApprove({
-      languages: selectedLanguage,
-      skillLevel: selectedSkillLevel,
-    });
-    onDiscard(); // Remove this component after approving
+    if (selectedLanguage === defaultLanguage || selectedSkillLevel === defaultSkillLevel) {
+      // Display an alert if the language is still the default message
+      alert('Please select a language and skill level before approving.');
+      return;
+    }
+
+    // Check if the language already exists in the user's programming languages
+    const existingLanguageIndex = user.programmingLanguages.findIndex(
+      (lang) => lang.languages === selectedLanguage
+    );
+
+    if (existingLanguageIndex !== -1) {
+      // If the language already exists
+      const existingSkillLevel = user.programmingLanguages[existingLanguageIndex].skillLevel;
+
+      if (existingSkillLevel === selectedSkillLevel) {
+        // Display an alert if the skill level is the same as before
+        alert('You are trying to change a language to a skill level you already have.');
+      } else {
+        // Update the skill level
+        const updatedLanguages = [...user.programmingLanguages];
+        updatedLanguages[existingLanguageIndex].skillLevel = selectedSkillLevel;
+
+      }
+    } else {
+      // If the language doesn't exist, add the new language to the user's profile
+      onApprove({
+        languages: selectedLanguage,
+        skillLevel: selectedSkillLevel,
+      });
+    }
+
+    onDiscard();
   };
 
   return (
-    <div>
+    <div style={{ marginBottom: '100px' }}>
       <div className="PLAndSkillLevel">
         <div className="ProgrammingLanguages">
           <div className="Languagesnr">Languages</div>
@@ -64,15 +94,14 @@ export default function ProfilePl_OverviewAddLang({ user, onDiscard, onApprove }
             </div>
             <div className="Skillarrow-down"></div>
           </div>
-          </div>
-          <div className="profileButton">
+        </div>
+        <div className="profileButton">
           <button className='ApprovedButton' onClick={handleApprove}>
-              &#10003;
-            </button>
-            <button className="addProfilediscardButton" onClick={handleDiscard}>
-              x
-            </button>
-          
+            &#10003;
+          </button>
+          <button className="addProfilediscardButton" onClick={handleDiscard}>
+            x
+          </button>
         </div>
       </div>
     </div>
