@@ -1,44 +1,77 @@
-import React from 'react'
-import "./Profile.css"
-export default function ProfilePL_Overview() {
+import React, { useState } from 'react';
+import './Profile.css';
+import ProfilePl_OverviewAddLang from './ProfilePL_OverviewAddLang';
+import AddNewLanguages from './AddNewLanguages';
+
+export default function ProfilePL_Overview({ user, setUser }) {
+    const handleDiscard = async (index) => {
+        //   const userId = user.id;
+
+        // try {
+        // const response = await fetch(`http://localhost:7000/users/${userId}/programmingLanguages`, {
+        // method: 'DELETE',
+        //headers: {
+        //       'Content-Type': 'application/json',
+        //   },
+        // });
+
+        // if (response.ok) {
+        const updatedUser = { ...user };
+        updatedUser.programmingLanguages.splice(index, 1);
+        setUser(updatedUser);
+        //  } else {
+        // Handle error, maybe revert the state change
+        //  console.error('Failed to delete data on the server');
+        // You might want to add some error handling logic here
+        //   }
+        //} catch (error) {
+        // console.error('Error occurred during fetch:', error);
+        // }
+    };
+
+    const [isAddLanguageVisible, setAddLanguageVisible] = useState(false);
+
+    const handleAddLanguageClick = () => {
+        setAddLanguageVisible(true);
+    };
+
     return (
         <div className="profilePLBox">
             <div className="profilePLArea">
                 <div className="profilePLTitle">Programming Languages</div>
-                <div className="PLAndSkillLevel">
-                    <div className="ProgrammingLanguages">
-                        <div className="Languagesnr">Languages #1</div>
-                        <div className="PLdropdown">
-                            <span>Python</span>
-                            <div className="PLdropdown-content">
-                                <p>Menu Item 1</p>
-                                <p>Menu Item 2</p>
-                                <p>Menu Item 3</p>
-                            </div>
-                            <div className="PLarrow-down"></div>
-                        </div>
-                    </div>
-                    <div className="SkillLevel">
-                        <div className="SkillLevelHeader">Skill Level</div>
-                        <div className="SkillLvldropdown">
-                            <span>Intermediate</span>
-                            <div className="SkillLvldropdown-content">
-                                <p>Menu Item 1</p>
-                                <p>Menu Item 2</p>
-                                <p>Menu Item 3</p>
-                            </div>
-                            <div className="Skillarrow-down"></div>
-                        </div>
-                        <button className='discardButton'>x</button>
-                    </div>
 
-                </div>
-                <div className="addNewLanguages">
-                    <div className="addNewLanguagesButton">+
-                    </div>
-                    <div className="addNewLanguagesText">Add A New Language</div>
+                {user.programmingLanguages &&
+                    user.programmingLanguages.map((language, index) => (
+                        <div key={index} className="PLAndSkillLevel">
+                            <div className="ProgrammingLanguages">
+                                <div className="Languagesnr">{`Languages #${index + 1}`}</div>
+                                <div className="PLdropdown">
+                                    <span>{language.languages}</span>
+                                </div>
+                            </div>
+                            <div className="SkillLevel">
+                                <div className="SkillLevelHeader">Skill Level</div>
+                                <div className="SkillLvldropdown">
+                                    <span>{language.skillLevel}</span>
+                                </div>
+                                <button
+                                    className="discardButton"
+                                    onClick={() => handleDiscard(index)}
+                                >
+                                    x
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+
+                <div>
+                    <AddNewLanguages onClick={handleAddLanguageClick} />
+
+                    {isAddLanguageVisible && (
+                        <ProfilePl_OverviewAddLang user={user} onDiscard={() => setAddLanguageVisible(false)} />
+                    )}
                 </div>
             </div>
         </div>
-    )
+    );
 }

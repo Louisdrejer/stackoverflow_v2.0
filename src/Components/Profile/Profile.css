@@ -246,7 +246,6 @@
 }
 
 .SkillLevelHeader {}
-
 .PLdropdown {
     position: relative;
     display: inline-block;
@@ -280,10 +279,12 @@
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
-    transform: rotate(45deg);
-    margin-left: 80px;
-    margin-bottom: 3px;
+    transform: rotate(45deg) translate(50%, -50%);
+    position: absolute;
+    top: 20%;
+    right: 12px; 
 }
+
 
 .SkillLvldropdown {
     position: relative;
@@ -318,14 +319,23 @@
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
-    transform: rotate(45deg);
-    margin-left: 49px;
-    margin-right: 5px;
-    margin-bottom: 3px;
-
+    transform: rotate(45deg) translate(50%, -50%);
+    position: absolute;
+    top: 20%;
+    right: 12px; 
 }
 
+
 .discardButton {
+    font-size: smaller;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: -1px;
+    padding-right: 2px;
+    vertical-align: text-bottom;
+    margin-left: 75px;
+}
+.ApprovedButton{
     font-size: smaller;
     padding-left: 2px;
     padding-top: 0px;
