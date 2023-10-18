@@ -90,7 +90,7 @@
 
 /*--------ProfileOverview.jsx-----------------*/
 .profileOverviewBox {
-    height: 420px;
+    min-height: 420px;
     border: 1px solid white;
     border-radius: 5px;
     width: 30%;
@@ -99,6 +99,7 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 12px;    
 }
 
 .profileOverviewProfile {
@@ -201,10 +202,11 @@
 .profilePLBox {
     border: 1px solid white;
     border-radius: 5px;
-    height: 420px;
+    min-height: 420px;
     width: 100%;
     margin-top: 10px;
     margin-right: 10px;
+    margin-bottom: 12px;
 }
 
 .profilePLArea {
@@ -246,7 +248,6 @@
 }
 
 .SkillLevelHeader {}
-
 .PLdropdown {
     position: relative;
     display: inline-block;
@@ -280,10 +281,12 @@
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
-    transform: rotate(45deg);
-    margin-left: 80px;
-    margin-bottom: 3px;
+    transform: rotate(45deg) translate(50%, -50%);
+    position: absolute;
+    top: 20%;
+    right: 12px; 
 }
+
 
 .SkillLvldropdown {
     position: relative;
@@ -318,21 +321,50 @@
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
-    transform: rotate(45deg);
-    margin-left: 49px;
-    margin-right: 5px;
-    margin-bottom: 3px;
-
+    transform: rotate(45deg) translate(50%, -50%);
+    position: absolute;
+    top: 20%;
+    right: 12px; 
 }
 
+
 .discardButton {
+    font-size: smaller;
+    padding-left: 3px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-right: 3px;
+    vertical-align: text-bottom;
+    margin-left: 75px;
+    cursor: pointer;
+}
+
+.addProfilediscardButton {
+    font-size: smaller;
+    padding-left: 3px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-right: 3px;
+    vertical-align: text-bottom;
+    margin-left: 80px;
+    cursor: pointer;
+}
+.ApprovedButton{
     font-size: smaller;
     padding-left: 2px;
     padding-top: 0px;
     padding-bottom: -1px;
     padding-right: 2px;
     vertical-align: text-bottom;
-    margin-left: 75px;
+    margin-right: -65px;
+    cursor: pointer;
+}
+.profileButton{
+    display: flex;
+    align-items: center;
+    font: small-caption;
+    margin-top: 18px;
+    margin-left: -72px;
 }
 
 .addNewLanguages {
