@@ -336,6 +336,7 @@
     padding-right: 3px;
     vertical-align: text-bottom;
     margin-left: 75px;
+    cursor: pointer;
 }
 
 .addProfilediscardButton {
@@ -346,6 +347,7 @@
     padding-right: 3px;
     vertical-align: text-bottom;
     margin-left: 80px;
+    cursor: pointer;
 }
 .ApprovedButton{
     font-size: smaller;
@@ -355,6 +357,7 @@
     padding-right: 2px;
     vertical-align: text-bottom;
     margin-right: -65px;
+    cursor: pointer;
 }
 .profileButton{
     display: flex;
