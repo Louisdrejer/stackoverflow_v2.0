@@ -11,11 +11,14 @@ export default function Profile() {
 
   useEffect(() => {
     const dataFetch = () => {
-      fetch('http://localhost:7000/users')
+      fetch('/api/users') // Use the proxy path
         .then((res) => res.json())
         .then((data) => {
           const userWithId = data.find((userData) => userData.id === 0);
           setUser(userWithId);
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
         });
     };
     dataFetch();
