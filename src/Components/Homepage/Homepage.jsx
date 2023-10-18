@@ -6,8 +6,16 @@ import SubmitBox from './SubmitBox';
 export default function Homepage() {
   return (
     <div className="maincontainer">
+<<<<<<< HEAD
     <LeftNav/>
     <SubmitBox/>
   </div>
   )
 }
+=======
+      <LeftNav />
+      <SubmitBox />
+    </div>
+  )
+}
+>>>>>>> Louis_dev2
