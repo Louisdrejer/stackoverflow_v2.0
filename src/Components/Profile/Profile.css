@@ -328,12 +328,22 @@
 
 .discardButton {
     font-size: smaller;
-    padding-left: 2px;
-    padding-top: 0px;
-    padding-bottom: -1px;
-    padding-right: 2px;
+    padding-left: 3px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-right: 3px;
     vertical-align: text-bottom;
     margin-left: 75px;
+}
+
+.addProfilediscardButton {
+    font-size: smaller;
+    padding-left: 3px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-right: 3px;
+    vertical-align: text-bottom;
+    margin-left: 80px;
 }
 .ApprovedButton{
     font-size: smaller;
@@ -342,7 +352,14 @@
     padding-bottom: -1px;
     padding-right: 2px;
     vertical-align: text-bottom;
-    margin-left: 75px;
+    margin-right: -65px;
+}
+.profileButton{
+    display: flex;
+    align-items: center;
+    font: small-caption;
+    margin-top: 18px;
+    margin-left: -72px;
 }
 
 .addNewLanguages {

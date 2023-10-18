@@ -34,6 +34,12 @@ export default function ProfilePL_Overview({ user, setUser }) {
     const handleAddLanguageClick = () => {
         setAddLanguageVisible(true);
     };
+    const handleApprove = (newLanguage) => {
+        // Logic to add the new language to the user's profile
+        const updatedUser = { ...user };
+        updatedUser.programmingLanguages.push(newLanguage);
+        setUser(updatedUser);
+      };
 
     return (
         <div className="profilePLBox">
@@ -67,8 +73,13 @@ export default function ProfilePL_Overview({ user, setUser }) {
                 <div>
                     <AddNewLanguages onClick={handleAddLanguageClick} />
 
-                    {isAddLanguageVisible && (
-                        <ProfilePl_OverviewAddLang user={user} onDiscard={() => setAddLanguageVisible(false)} />
+                   
+          {isAddLanguageVisible && (
+            <ProfilePl_OverviewAddLang
+              user={user}
+              onDiscard={() => setAddLanguageVisible(false)}
+              onApprove={handleApprove}
+            />
                     )}
                 </div>
             </div>
