@@ -1,92 +1,3 @@
-<<<<<<< HEAD
-  .maincontainer{
-    background-color: rgb(35, 36, 40);
-    padding: 1px;
-    display: flex;
-    min-height: 200vh;
-  
-  }
-  .Leftcontainer{
-    background-color: rgb(53, 54, 58);
-    margin: 10px;
-    width: 20%;
-    height: 100vh;
-    border-radius: 5px;
-    position: relative;
-    position: sticky;
-    top: 5px;
-  }
-  .logo_name_left{
-  color: white;
-  padding-top:  15px;
-  display: flex;
-  width: 100%;
-  justify-content:space-between;
-  }
-  .logo{
-    margin-left: 10%;
-  }
-  .name{
-    margin-right: 10%;
-  }
-  
-  .findAnswers{
-    color: white;
-    font-weight: bolder;
-    margin-top: 20px;
-    margin-left: 10%;
-  }
-  .searchPage{
-    color: white;
-    margin-left: 10%;
-    margin-bottom: 20px;
-  }
-  .activity{
-    color: white;
-    font-weight: bolder;
-    margin-left: 10%;
-  }
-  .questions_answers{
-    color: white;
-    margin-left: 10%;
-  }
-  .profile{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    bottom: 10px;
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-  }
-  .userLogo {
-    background-color: rgb(90, 101, 234);
-    border: 2px solid rgb(58, 60, 82); 
-    width: 50px;
-    height: 50px;
-    border-radius: 100px;
-    position: relative; 
-  }
-  .smallUserLogo{
-    background-color: rgb(90, 101, 234);
-    border: 1px solid white; 
-    width: 10px;
-    height: 10px;
-    border-radius: 100px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  
-  .profileName{
-  color: white;
-  }
-  .profileEmail{
-    color: white;
-  
-  }
-  .submitAQuestionContainer{
-=======
 @font-face {
   font-family: Inter;
   src: url("../../Font/Inter-Regular.ttf");
@@ -226,155 +137,12 @@
 }
 
 .submitAQuestionContainer {
->>>>>>> Louis_dev2
   background-color: rgb(53, 54, 58);
   width: 100%;
   height: 200px;
   margin-top: 10px;
   margin-right: 10px;
   border-radius: 5px;
-<<<<<<< HEAD
-  }
-  .submitAQuestionHeader{
-  color: white;
-  font-weight: bolder;
-  margin-top: 10px;
-  margin-left: 10px;
-  
-  }
-  .inputQuestion{
-    width: 80%;
-    margin-left: 10%;
-  }
-  .submitAQuestiontitle{
-  color: white;
-  }
-  .inputQuestionTitle{
-    background-color: rgb(53, 54, 58);
-    color: white;
-    border: 1px solid white;
-    width: 100%;
-    border-radius: 2px;
-  
-  }
-  .inputPlaintext{
-    background-color: rgb(53, 54, 58);
-    color: white;
-    border: 1px solid white;
-    width: 100%;
-    border-radius: 2px;
-    padding-bottom: 50px;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    border: 1px solid white;
-    color:white;
-    padding: 5px;
-    margin-top: 5px;
-    margin-right: 15px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: black;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-    margin: -5px;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-    margin-top: 2px;
-  }
-  
-  .arrow-down {
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(45deg);
-    margin-left: 20px;
-    margin-bottom: 3px;
-  }
-  .menubox{
-    display: flex;
-    padding: -1px;
-  }
-  
-  .submitButton{
-    background-color:  rgb(53, 54, 58);
-    color: white;
-    border: 1px solid white;
-    vertical-align: text-top;
-    margin-left: auto;
-    margin-top: 5px;
-  }
-  .newQustion{
-    color: white;
-    font-weight: bolder;
-      margin-top: 40px;
-      margin-left: 10px;
-      margin-bottom: 10px;
-  }
-  .newQustionBox{
-    border: 1px solid white;
-    border-radius: 5px;
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 20px;
-  }
-  
-  .newQustionHeader{
-    display: flex;
-    color: white;
-    justify-content: space-between;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-  .Headline{
-  }
-  .smallUserLogo2{
-    background-color: rgb(90, 101, 234);
-    border: 1px solid white; 
-    width: 10px;
-    height: 10px;
-    border-radius: 100px;
-    margin-right: 10px;
-  }
-  .username{
-  
-  }
-  .userQ{
-    display: flex;
-    align-items: center; 
-  }
-  .newQuestionBody{
-    border: 1px solid white;
-    border-radius: 5px;
-    width: 90%;
-    margin-left: 5%;
-    height: 100px;
-    margin-bottom: 10px;
-  }
-  .newQuestionBodyText{
-    color: white;
-    margin-left: 5px;
-  }
-  .newQuestionTags{
-    color: white;
-    display: flex;
-    width: 90%;
-    margin-left: 5%;
-    margin-bottom: 10px;
-  }
-  .NQtag{
-=======
 
 }
 
@@ -577,21 +345,15 @@
 }
 
 .NQtag {
->>>>>>> Louis_dev2
   border: 1px solid white;
   border-radius: 30px;
   margin-right: 20px;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 2px;
-<<<<<<< HEAD
-  padding-bottom:2px ;
-  }
-=======
   padding-bottom: 2px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
 }
->>>>>>> Louis_dev2
