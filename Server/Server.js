@@ -104,22 +104,21 @@ app.get('/api/users/:userId/programmingLanguages/:languageId', (req, res) => {
 });
 
 // Get the number of questions for a specific user
-app.get('/api/users/:userId/questions/count', (req, res) => {
-  const userId = parseInt(req.params.userId);
-  const user = users.find((u) => u.id === userId);
+//app.get('/api/users/:userId/questions/count', (req, res) => {
+//  const userId = parseInt(req.params.userId);
+//  const user = users.find((u) => u.id === userId);
+//  if (!user) {
+//    res.status(404).json({ error: 'User not found' });
+//  } else {
+//    const questionCount = user.Question ? user.Question.length : 0;
+//    res.json({ questionCount });
+//  }
+//});
 
-  if (!user) {
-    res.status(404).json({ error: 'User not found' });
-  } else {
-    const questionCount = user.Question ? user.Question.length : 0;
-    res.json({ questionCount });
-  }
-});
 
 app.post('/api/users/:userId/programmingLanguages', (req, res) => {
   const userId = parseInt(req.params.userId);
   const { languages, skillLevel } = req.body;
-
   const user = users.find((u) => u.id === userId);
 
   if (!user) {
