@@ -116,6 +116,28 @@ app.get('/api/users/:userId/questions/count', (req, res) => {
   }
 });
 
+app.post('/api/users/:userId/programmingLanguages', (req, res) => {
+  const userId = parseInt(req.params.userId);
+  const { languages, skillLevel } = req.body;
+
+  const user = users.find((u) => u.id === userId);
+
+  if (!user) {
+    res.status(404).json({ error: 'User not found' });
+  } else {
+    const newLanguage = {
+      id: user.programmingLanguages.length, // Generate a new ID (you might want to use a more robust method)
+      languages,
+      skillLevel,
+    };
+
+    user.programmingLanguages.push(newLanguage);
+
+    res.json(newLanguage);
+  }
+});
+
+
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
