@@ -140,7 +140,7 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
           </div>
         </div>
         <div className="profileButton">
-          <button className='ApprovedButton' onClick={handleApprove2}>
+          <button className='ApprovedButton' onClick={handleApprove}>
             &#10003;
           </button>
           <button className="addProfilediscardButton" onClick={handleDiscard}>
