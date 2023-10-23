@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Profile.css';
 
-export default function ProfilePl_OverviewAddLang({ user, onDiscard, onApprove }) {
+export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, onApprove }) {
   const defaultLanguage = 'Choose languages';
   const defaultSkillLevel = 'Your skillLevel';
 
@@ -57,6 +57,49 @@ export default function ProfilePl_OverviewAddLang({ user, onDiscard, onApprove }
     onDiscard();
   };
 
+  const handleApprove2 = async () => {
+    const userId = user.id || 0;
+  
+    try {
+      const response = await fetch(`http://localhost:8000/api/users/${userId}/programmingLanguages`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId,  // Include the userId in the request body
+          languages: 'NewLanguage',
+          skillLevel: 'Advanced',
+        }),
+      });
+  
+      if (!response.ok) {
+        // Handle the error and log details
+        const errorMessage = await response.text();
+        console.error(`Failed to add a new language. Status: ${response.status}, Error: ${errorMessage}`);
+        return;
+      }
+  
+      const newLanguage = await response.json();
+      console.log('New language added:', newLanguage);
+  
+      // Update the user state with the new language
+      setUser((prevUser) => {
+        const updatedUser = { ...prevUser };
+        updatedUser.programmingLanguages.push(newLanguage);
+        return updatedUser;
+      });
+  
+      // Manually update the client-side state (for testing purposes)
+  
+      // Optionally, you can perform additional actions after adding the language
+      // For example, close a modal or perform any other UI update
+    } catch (error) {
+      console.error('Error occurred during fetch:', error);
+    }
+  };
+  
+  
   return (
     <div style={{ marginBottom: '100px' }}>
       <div className="PLAndSkillLevel">
@@ -97,7 +140,7 @@ export default function ProfilePl_OverviewAddLang({ user, onDiscard, onApprove }
           </div>
         </div>
         <div className="profileButton">
-          <button className='ApprovedButton' onClick={handleApprove}>
+          <button className='ApprovedButton' onClick={handleApprove2}>
             &#10003;
           </button>
           <button className="addProfilediscardButton" onClick={handleDiscard}>

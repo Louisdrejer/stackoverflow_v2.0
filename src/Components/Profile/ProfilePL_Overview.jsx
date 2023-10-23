@@ -77,6 +77,7 @@ export default function ProfilePL_Overview({ user, setUser }) {
           {isAddLanguageVisible && (
             <ProfilePl_OverviewAddLang
               user={user}
+              setUser={setUser}
               onDiscard={() => setAddLanguageVisible(false)}
               onApprove={handleApprove}
             />
