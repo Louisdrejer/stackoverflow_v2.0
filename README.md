@@ -1,4 +1,4 @@
-StackIT: a safer for new programmers to ask and learn!
+StackIT: a safer platform for new programmers to ask and learn!
 
 Project for Technical Interaction Design Autumn 2023 @ITU
 
