@@ -1,10 +1,10 @@
 // Profile.js
 import React, { useState, useEffect } from 'react';
-import LeftNav from '../Homepage/LeftNav';
+import LeftNav from '../../Components/LeftNav';
 import './Profile.css';
-import ProfileHeaderBox from './ProfileHeaderBox';
-import ProfileOverview from './ProfileOverview';
-import ProfilePL_Overview from './ProfilePL_Overview';
+import ProfileHeaderBox from '../../Components/ProfileHeaderBox';
+import ProfileOverview from '../../Components/ProfileOverview';
+import ProfilePL_Overview from '../../Components/ProfilePL_Overview';
 
 export default function Profile() {
   const [user, setUser] = useState({});

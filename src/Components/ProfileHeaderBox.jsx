@@ -1,5 +1,4 @@
 import React from 'react';
-import './Profile.css';
 
 export default function ProfileHeaderBox({ user }) {
   const maskPassword = (password) => (password ? '*'.repeat(password.length) : '');

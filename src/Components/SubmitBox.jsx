@@ -1,5 +1,4 @@
 import React from 'react'
-import "./Homepage.css"
 export default function SubmitBox() {
   return (
     <div className="submitAQuestionContainer">

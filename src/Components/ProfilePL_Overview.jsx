@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Profile.css';
 import ProfilePl_OverviewAddLang from './ProfilePL_OverviewAddLang';
 import AddNewLanguages from './AddNewLanguages';
 

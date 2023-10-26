@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Homepage from './Components/Homepage/Homepage';
-import Login from "./Components/Login/Login"
-import Profile from "./Components/Profile/Profile"
+import Homepage from './Pages/Homepage/Homepage';
+import Login from "./Pages/Login/Login"
+import Profile from "./Pages/Profile/Profile"
 
 function App() {
   return (

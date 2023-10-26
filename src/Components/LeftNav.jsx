@@ -1,7 +1,6 @@
 
 import React from 'react'
-import "./Homepage.css"
-import logo from '../../img/Logo.png';
+import logo from '../img/Logo.png';
 export default function LeftNav() {
   return (
     <div className="Leftcontainer">

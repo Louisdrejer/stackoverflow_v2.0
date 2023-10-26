@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './Profile.css';
 
 export default function ProfileOverview({ user }) {
   const getNumberOfQuestions = () => {

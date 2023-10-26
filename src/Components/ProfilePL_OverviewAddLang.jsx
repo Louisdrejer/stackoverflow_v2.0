@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Profile.css';
 
 export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, onApprove }) {
   const defaultLanguage = 'Choose languages';
