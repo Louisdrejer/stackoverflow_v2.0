@@ -1,4 +1,6 @@
 import React from 'react'
+import SmallQuestionBox from './SmallQuestionBox'
+
 export default function SubmitBox() {
   return (
     <div className="submitAQuestionContainer">
@@ -39,61 +41,9 @@ export default function SubmitBox() {
         </div>
       </div>
       <div className="newQustion">New Question</div>
-      <div className="newQustionBox">
-        <div className="newQustionHeader">
-          <div className="Headline">Headline</div>
-          <div className="userQ">
-            <div className="smallUserLogo2"></div>
-            <div className="username">Username</div>
-          </div>
-        </div>
-        <div className="newQuestionBody">
-          <div className="newQuestionBodyText">Body text</div>
-        </div>
-        <div className="newQuestionTags">
-          <div className="NQtag">Tags</div>
-          <div className="NQtag">Tags</div>
-          <div className="NQtag">Tags</div>
-        </div>
-
-      </div>
-      <div className="newQustionBox">
-        <div className="newQustionHeader">
-          <div className="Headline">Headline</div>
-          <div className="userQ">
-            <div className="smallUserLogo2"></div>
-            <div className="username">Username</div>
-          </div>
-        </div>
-        <div className="newQuestionBody">
-          <div className="newQuestionBodyText">Body text</div>
-        </div>
-        <div className="newQuestionTags">
-          <div className="NQtag">Tags</div>
-          <div className="NQtag">Tags</div>
-          <div className="NQtag">Tags</div>
-        </div>
-
-      </div>
-      <div className="newQustionBox">
-        <div className="newQustionHeader">
-          <div className="Headline">Headline</div>
-          <div className="userQ">
-            <div className="smallUserLogo2"></div>
-            <div className="username">Username</div>
-          </div>
-        </div>
-        <div className="newQuestionBody">
-          <div className="newQuestionBodyText">Body text</div>
-        </div>
-        <div className="newQuestionTags">
-          <div className="NQtag">Tags</div>
-          <div className="NQtag">Tags</div>
-          <div className="NQtag">Tags</div>
-        </div>
-
-      </div>
-
+      <SmallQuestionBox name="User123" title="This is a question"/>
+      <SmallQuestionBox name="Louis" title="This is also a question"/>
+      <SmallQuestionBox name="SomeOneElse" title="This is a question"/>
     </div>
   )
 }
