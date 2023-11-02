@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "stackoverflow_v2.0",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -35,5 +35,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "StackIT: a safer platform for new programmers to ask and learn!",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
 }
