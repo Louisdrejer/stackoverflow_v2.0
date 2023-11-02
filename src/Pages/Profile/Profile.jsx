@@ -34,6 +34,7 @@ export default function Profile() {
           <ProfileOverview user={user}/>
              {/* Remove this comment to se the overview component*/}
              <ProfilePL_Overview user={user} setUser={setUser}/> 
+             {/**/}
         </div>
       </div>
     </div>
