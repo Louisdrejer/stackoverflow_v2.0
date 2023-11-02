@@ -28,12 +28,14 @@ export default function ProfileOverview({ user }) {
   const [numberOfAnswers, setNumberOfAnswers] = useState(0);
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   const [numberOfPL, setNumberOfPL] = useState(0);
+  const [numberOfNewMessages, setNumberOfNewMessages] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       const answers = await getNumberOfAnswers();
       const questions = getNumberOfQuestions(); // No need for async here
       setNumberOfAnswers(answers);
+      setNumberOfNewMessages(answers);
       setNumberOfQuestions(questions);
     };
 
@@ -50,7 +52,9 @@ export default function ProfileOverview({ user }) {
     <div className="profileOverviewBox">
       <div className="profileOverviewProfile">
         <div className="profileOverviewUserLogo">
-          <div className="profileOverviewSmallUserLogo"></div>
+          <div className="profileOverviewSmallUserLogo">
+            <div className='PL_NewMessages'>+{numberOfNewMessages}</div>
+          </div>
         </div>
         <div className="profileOverviewProfileName">{user.username}</div>
         <div className="profileOverviewProfileEmail">{user.email}</div>
@@ -67,6 +71,10 @@ export default function ProfileOverview({ user }) {
         <div className="profileOverviewPLLine">
           <div className="PO_PL">Programming Languages</div>
           <div className="PO_PLNumber">{numberOfPL}</div>
+        </div>
+        <div className="profileOverviewNewMessagesLine">
+          <div className="PO_NewMes">New messages</div>
+          <div className="PO_NewMesNumber">{numberOfNewMessages}</div>
         </div>
       </div>
     </div>

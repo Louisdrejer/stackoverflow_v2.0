@@ -32,7 +32,9 @@ export default function Profile() {
         <ProfileHeaderBox user={user} />
         <div className="profileOverviewDisplay2">
           <ProfileOverview user={user}/>
-          <ProfilePL_Overview user={user} setUser={setUser}/>
+             {/* Remove this comment to se the overview component
+             <ProfilePL_Overview user={user} setUser={setUser}/>*/} 
+          <ProfilePL_MyAnswers user={user} />
         </div>
       </div>
     </div>

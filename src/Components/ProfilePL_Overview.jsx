@@ -50,13 +50,13 @@ export default function ProfilePL_Overview({ user, setUser }) {
                         <div key={index} className="PLAndSkillLevel">
                             <div className="ProgrammingLanguages">
                                 <div className="Languagesnr">{`Languages #${index + 1}`}</div>
-                                <div className="PLdropdown">
+                                <div className="PL">
                                     <span>{language.languages}</span>
                                 </div>
                             </div>
                             <div className="SkillLevel">
                                 <div className="SkillLevelHeader">Skill Level</div>
-                                <div className="SkillLvldropdown">
+                                <div className="SkillLvl">
                                     <span>{language.skillLevel}</span>
                                 </div>
                                 <button
