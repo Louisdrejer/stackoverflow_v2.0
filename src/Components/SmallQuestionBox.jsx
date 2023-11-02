@@ -14,9 +14,11 @@ export default function SmallQuestionBox(props) {
         <div className="newQuestionBodyText">Body text</div>
         </div>
         <div className="newQuestionTags">
-        <div className="NQtag">Tags</div>
-        <div className="NQtag">Tags</div>
-        <div className="NQtag">Tags</div>
+        {
+          props.tags.map((tag) => (
+              <div style={{backgroundColor: tag.color, color:"black"}} className="NQtag">{tag.name}</div>
+          ))
+        }
         </div>
     </div>
   )
