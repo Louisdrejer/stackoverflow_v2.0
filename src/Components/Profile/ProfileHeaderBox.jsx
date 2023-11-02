@@ -7,15 +7,16 @@ export default function ProfileHeaderBox({ user }) {
   const maskedPassword = maskPassword(user.password);
 
   return (
+    <><div className="profileHeaderText">PROFILE</div>
     <div className="userInfoBox">
       <div className="userInfo">
-            <div className="profileUsername">Username</div>
-            <div className="profileUsernametext">{user.username}</div>
-            <div className="profileEmail">Email</div>
-            <div className="profileEmailText">{user.email}</div>
-            <div className="profilePassword">Password</div>
-            <div className="profilePasswordtext">{maskedPassword}</div>
+        <div className="profileUsername">Username</div>
+        <div className="profileUsernametext">{user.username}</div>
+        <div className="profileEmail">Email</div>
+        <div className="profileEmailText">{user.email}</div>
+        <div className="profilePassword">Password</div>
+        <div className="profilePasswordtext">{maskedPassword}</div>
       </div>
-    </div>
+    </div></>
   );
 }
