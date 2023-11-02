@@ -1,6 +1,7 @@
 .profileBackground {
     background-color: rgb(35, 36, 40);
     padding: 1px;
+    padding-left: 10px;
     display: flex;
     min-height: 100vh;
 }
