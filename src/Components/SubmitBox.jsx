@@ -41,9 +41,9 @@ export default function SubmitBox() {
         </div>
       </div>
       <div className="newQustion">New Question</div>
-      <SmallQuestionBox name="User123" title="This is a question"/>
-      <SmallQuestionBox name="Louis" title="This is also a question"/>
-      <SmallQuestionBox name="SomeOneElse" title="This is a question"/>
+      <SmallQuestionBox name="User123" title="This is a question" tags={[{name: "tag1", color: "red"}, {name: "tag2", color: "yellow"}]}/>
+      <SmallQuestionBox name="Louis" title="This is also a question" tags={[{name: "tag3", color: "green"}, {name: "tag5", color: "purple"}]}/>
+      <SmallQuestionBox name="SomeOneElse" title="This is a question" tags={[{name: "tag5", color: "blue"}, {name: "tag6", color: "white"}]}/>
     </div>
   )
 }
