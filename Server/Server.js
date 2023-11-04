@@ -6,7 +6,24 @@ const port = 8000
 
 app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.json());
-
+const pages= [
+  {
+      "id": 0,
+      "name": "Questions"
+  },
+  {
+      "id": 1,
+      "name": "Answers"
+  },
+  {
+      "id": 2,
+      "name": "Search"
+  },
+  {
+      "id": 3,
+      "name": "Profile"
+  }
+]
 const users = [
   {
     id: 0,
@@ -70,6 +87,9 @@ const users = [
 // Get all users
 app.get('/api/users', (req, res) => {
   res.json(users);
+});
+app.get('/api/pages', (req, res) => {
+  res.json(pages);
 });
 
 // Get programming languages for a specific user

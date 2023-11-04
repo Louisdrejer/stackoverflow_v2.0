@@ -9,10 +9,16 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
+    if (selectedSkillLevel !== defaultSkillLevel){
+      handleApprove()
+    }
   };
 
   const handleSkillLevelChange = (skillLevel) => {
     setSelectedSkillLevel(skillLevel);
+    if (selectedLanguage !== defaultLanguage){
+      handleApprove()
+    }
   };
 
   const handleDiscard = () => {
@@ -20,11 +26,6 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
   };
 
   const handleApprove = () => {
-    if (selectedLanguage === defaultLanguage || selectedSkillLevel === defaultSkillLevel) {
-      // Display an alert if the language is still the default message
-      alert('Please select a language and skill level before approving.');
-      return;
-    }
 
     // Check if the language already exists in the user's programming languages
     const existingLanguageIndex = user.programmingLanguages.findIndex(
@@ -56,51 +57,10 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
     onDiscard();
   };
 
-  const handleApprove2 = async () => {
-    const userId = user.id || 0;
-  
-    try {
-      const response = await fetch(`http://localhost:8000/api/users/${userId}/programmingLanguages`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId,  // Include the userId in the request body
-          languages: 'NewLanguage',
-          skillLevel: 'Advanced',
-        }),
-      });
-  
-      if (!response.ok) {
-        // Handle the error and log details
-        const errorMessage = await response.text();
-        console.error(`Failed to add a new language. Status: ${response.status}, Error: ${errorMessage}`);
-        return;
-      }
-  
-      const newLanguage = await response.json();
-      console.log('New language added:', newLanguage);
-  
-      // Update the user state with the new language
-      setUser((prevUser) => {
-        const updatedUser = { ...prevUser };
-        updatedUser.programmingLanguages.push(newLanguage);
-        return updatedUser;
-      });
-  
-      // Manually update the client-side state (for testing purposes)
-  
-      // Optionally, you can perform additional actions after adding the language
-      // For example, close a modal or perform any other UI update
-    } catch (error) {
-      console.error('Error occurred during fetch:', error);
-    }
-  };
   
   
   return (
-    <div style={{ marginBottom: '100px' }}>
+    <div >
       <div className="PLAndSkillLevel">
         <div className="ProgrammingLanguages">
           <div className="Languagesnr">Languages</div>
@@ -137,15 +97,11 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
             </div>
             <div className="Skillarrow-down"></div>
           </div>
-        </div>
-        <div className="profileButton">
-          <button className='ApprovedButton' onClick={handleApprove}>
-            &#10003;
-          </button>
-          <button className="addProfilediscardButton" onClick={handleDiscard}>
+          <button className="discardButton" onClick={handleDiscard}>
             x
           </button>
         </div>
+  
       </div>
     </div>
   );

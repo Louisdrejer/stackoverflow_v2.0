@@ -31,9 +31,24 @@
 .logo_name_left {
   color: white;
   padding-top: 15px;
+  padding-bottom: 10px;
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+.quickSearchBox{
+  display: flex;
+    justify-content: center;
+}
+.quickSearch{
+  background-color: black;
+  color: white;
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  height: 25px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .logo {
@@ -47,44 +62,21 @@
   font-weight: 800;
   font-size: 30px;
 }
-
-.findAnswers {
-  color: white;
-
+.pageTitle{
   margin-top: 20px;
-  margin-left: 10%;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.searchPage {
-  color: white;
-  margin-left: 10%;
   margin-bottom: 20px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
+  margin-left: 10%; 
 }
-
-.activity {
+.pageTitle a{
   color: white;
-  margin-left: 10%;
+  text-decoration-line: none;
+  margin-right: 10%;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.questions_answers {
-  color: white;
-  margin-left: 10%;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .profile {

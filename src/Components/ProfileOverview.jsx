@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import ProfilePL_Overview from './ProfilePL_ProgrammingLanguages';
+import ProfilePL_Overview_copy from './ProfilePL_Answers';
+import ProfilePL_Overview_copy_2 from './ProfilePL_Questions';
+import ProfilePL_Overview_copy_3 from './ProfilePL_NewMessages';
 
-export default function ProfileOverview({ user }) {
+export default function ProfileOverview({ user, setUser, onComponentChange }) {
   const getNumberOfQuestions = () => {
     if (user && user.Question) {
       return user.Question.length;
@@ -29,6 +33,7 @@ export default function ProfileOverview({ user }) {
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   const [numberOfPL, setNumberOfPL] = useState(0);
   const [numberOfNewMessages, setNumberOfNewMessages] = useState(0);
+  const [clickedLine, setClickedLine] = useState('Questions'); // 'Questions' is set as default
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,31 +53,67 @@ export default function ProfileOverview({ user }) {
     setNumberOfPL(PL);
   }, [user.programmingLanguages]); // Trigger the effect when programmingLanguages changes
 
+  const handleClick = (line) => {
+    setClickedLine(line === clickedLine ? 'Questions' : line);
+    onComponentChange(line);
+  };
+
+  const renderProfilePLOverview = () => {
+    switch (clickedLine) {
+      case 'Questions':
+        return <ProfilePL_Overview user={user} setUser={setUser} />;
+      case 'Answers':
+        return <ProfilePL_Overview_copy user={user} setUser={setUser} />;
+      case 'ProgrammingLanguages':
+        return <ProfilePL_Overview_copy_2 user={user} setUser={setUser} />;
+      case 'NewMessages':
+        return <ProfilePL_Overview_copy_3 user={user} setUser={setUser} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="profileOverviewBox">
       <div className="profileOverviewProfile">
         <div className="profileOverviewUserLogo">
           <div className="profileOverviewSmallUserLogo">
-            <div className='PL_NewMessages'>+{numberOfNewMessages}</div>
+            <div className="PL_NewMessages">+{numberOfNewMessages}</div>
           </div>
         </div>
-        <div className="profileOverviewProfileName">{user.username}</div>
-        <div className="profileOverviewProfileEmail">{user.email}</div>
+        <div className="profileOverviewProfileName">
+          {user.username}
+        </div>
+        <div className="profileOverviewProfileEmail">
+          {user.email}
+        </div>
       </div>
       <div className="profileOverviewInfo">
-        <div className="profileOverviewQuestionLine">
+        <div
+          className={`profileOverviewQuestionLine ${clickedLine === 'Questions' ? 'clicked' : ''}`}
+          onClick={() => handleClick('Questions')}
+        >
           <div className="PO_Question">Question</div>
           <div className="PO_QuestionNumber">{numberOfQuestions}</div>
         </div>
-        <div className="profileOverviewAnswersLine">
+        <div
+          className={`profileOverviewAnswersLine ${clickedLine === 'Answers' ? 'clicked' : ''}`}
+          onClick={() => handleClick('Answers')}
+        >
           <div className="PO_Answers">Answers</div>
           <div className="PO_AnswersNumber">{numberOfAnswers}</div>
         </div>
-        <div className="profileOverviewPLLine">
+        <div
+          className={`profileOverviewPLLine ${clickedLine === 'ProgrammingLanguages' ? 'clicked' : ''}`}
+          onClick={() => handleClick('ProgrammingLanguages')}
+        >
           <div className="PO_PL">Programming Languages</div>
           <div className="PO_PLNumber">{numberOfPL}</div>
         </div>
-        <div className="profileOverviewNewMessagesLine">
+        <div
+          className={`profileOverviewNewMessagesLine ${clickedLine === 'NewMessages' ? 'clicked' : ''}`}
+          onClick={() => handleClick('NewMessages')}
+        >
           <div className="PO_NewMes">New messages</div>
           <div className="PO_NewMesNumber">{numberOfNewMessages}</div>
         </div>

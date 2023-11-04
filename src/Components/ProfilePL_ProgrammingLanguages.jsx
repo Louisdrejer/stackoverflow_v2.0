@@ -38,7 +38,7 @@ export default function ProfilePL_Overview({ user, setUser }) {
         const updatedUser = { ...user };
         updatedUser.programmingLanguages.push(newLanguage);
         setUser(updatedUser);
-      };
+    };
 
     return (
         <div className="profilePLBox">
@@ -70,17 +70,17 @@ export default function ProfilePL_Overview({ user, setUser }) {
                     ))}
 
                 <div>
+                    {isAddLanguageVisible && (
+                        <ProfilePl_OverviewAddLang
+                            user={user}
+                            setUser={setUser}
+                            onDiscard={() => setAddLanguageVisible(false)}
+                            onApprove={handleApprove}
+                        />
+                    )}
                     <AddNewLanguages onClick={handleAddLanguageClick} />
 
-                   
-          {isAddLanguageVisible && (
-            <ProfilePl_OverviewAddLang
-              user={user}
-              setUser={setUser}
-              onDiscard={() => setAddLanguageVisible(false)}
-              onApprove={handleApprove}
-            />
-                    )}
+
                 </div>
             </div>
         </div>
