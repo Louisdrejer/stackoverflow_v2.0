@@ -80,7 +80,9 @@ export default function ProfileOverview({ user, setUser, onComponentChange }) {
           <div className="profileOverviewSmallUserLogo">
             <div className="PL_NewMessages">+{numberOfNewMessages}</div>
           </div>
+          
         </div>
+        
         <div className="profileOverviewProfileName">
           {user.username}
         </div>
@@ -88,7 +90,9 @@ export default function ProfileOverview({ user, setUser, onComponentChange }) {
           {user.email}
         </div>
       </div>
+    
       <div className="profileOverviewInfo">
+      <hr style={{ width: "129%", border: "1px solid white", marginLeft: "-30px" , marginTop:"150px", marginBottom:"-130px"}} />
         <div
           className={`profileOverviewQuestionLine ${clickedLine === 'Questions' ? 'clicked' : ''}`}
           onClick={() => handleClick('Questions')}
@@ -117,7 +121,10 @@ export default function ProfileOverview({ user, setUser, onComponentChange }) {
           <div className="PO_NewMes">New messages</div>
           <div className="PO_NewMesNumber">{numberOfNewMessages}</div>
         </div>
+        
       </div>
+      
     </div>
+    
   );
 }

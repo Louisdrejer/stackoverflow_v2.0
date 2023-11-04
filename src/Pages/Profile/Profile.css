@@ -120,7 +120,7 @@
     background-color: rgb(81, 83, 89);
     min-height: 560px;
     border-radius: 5px;
-    width: 30%;
+    min-width: 22%;
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -134,7 +134,7 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .profileOverviewUserLogo {
@@ -196,6 +196,7 @@
     font-weight: 400;
     font-size: 12px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .PO_Question {
@@ -205,12 +206,14 @@
 .profileOverviewAnswersLine {
     display: flex;
     margin-top: 10px;
+    margin-bottom: 10px;
     color: white;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     cursor: pointer;
+
 
 }
 
@@ -221,6 +224,7 @@
 .profileOverviewPLLine {
     display: flex;
     margin-top: 10px;
+    margin-bottom: 10px;
     color: white;
     font-family: 'Inter';
     font-style: normal;
@@ -236,6 +240,7 @@
 .profileOverviewNewMessagesLine{
     display: flex;
     margin-top: 10px;
+    margin-bottom: 10px;
     color: white;
     font-family: 'Inter';
     font-style: normal;
