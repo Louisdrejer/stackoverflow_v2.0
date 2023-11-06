@@ -34,7 +34,6 @@ export default function Profile() {
 
   return (
     <div className="profileBackground">
-      <LeftNav />
       <div className="profileOverviewDisplay">
         <ProfileHeaderBox user={user} />
         <div className="profileOverviewDisplay2">

@@ -33,11 +33,6 @@ export default function LeftNav() {
     }
   };
 
-  const navItemStyle = {
-    fontWeight: 'bold',
-    color: 'white',
-    background: '#39bc73',
-  };
 
   return (
     <div className="Leftcontainer">
@@ -65,7 +60,7 @@ export default function LeftNav() {
             background: isActive ? "rgb(60, 62, 116)" : "",
             marginLeft: isActive ? "-5px" : "",
             padding: isActive ? "5px" : "",
-            paddingRight: isActive ? "min(120px, 60%)": "",
+            paddingRight: isActive ? "max(60%, 10px)": "",
             borderRadius: isActive ? "5px" : "",
 
           })}

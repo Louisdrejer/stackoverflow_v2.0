@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Homepage.css"
+import "../Homepage/Homepage.css"
 
 import LeftNav from '../../Components/LeftNav';
 import SubmitBox from '../../Components/SubmitBox';

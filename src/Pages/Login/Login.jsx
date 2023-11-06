@@ -17,11 +17,11 @@ export default function Login() {
                     </div>
                     <div className='inputField'>
                         <label className="headLine">Username</label>
-                        <input className="textField" type="text" />
+                        <input className="textField" type="text" placeholder='Enter your username'/>
                     </div>
                     <div className='inputField'>
                         <label className="headLine">Password</label>
-                        <input className="textField" type="password" />
+                        <input className="textField" type="password" placeholder='Enter your password' />
                     </div>
                     <div className="LinkForgotPasswordDiv">
                         <Link className="LinkForgotPassword">Forgot Password?</Link>

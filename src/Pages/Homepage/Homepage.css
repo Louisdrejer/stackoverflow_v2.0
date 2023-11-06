@@ -13,13 +13,15 @@
   padding: 1px;
   display: flex;
   min-height: 200vh;
+  width: 100%;
 
 }
 
 .Leftcontainer {
   background-color: rgb(53, 54, 58);
   margin: 10px;
-  width: 25%;
+  max-width: 20%;
+  min-width: 20%;
   max-height: 545px;
   border-radius: 5px;
   position: relative;

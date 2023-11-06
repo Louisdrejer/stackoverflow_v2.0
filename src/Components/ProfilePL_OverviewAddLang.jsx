@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, onApprove }) {
   const defaultLanguage = 'Choose languages';
@@ -7,18 +7,19 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
 
+  useEffect(() => {
+    // This effect will run after every render
+    if (selectedSkillLevel !== defaultSkillLevel && selectedLanguage !== defaultLanguage  ) {
+      handleApprove();
+    }
+  }, [selectedLanguage, selectedSkillLevel]); // Run the effect when either selectedLanguage or selectedSkillLevel changes
+
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
-    if (selectedSkillLevel !== defaultSkillLevel){
-      handleApprove()
-    }
   };
 
   const handleSkillLevelChange = (skillLevel) => {
     setSelectedSkillLevel(skillLevel);
-    if (selectedLanguage !== defaultLanguage){
-      handleApprove()
-    }
   };
 
   const handleDiscard = () => {
@@ -38,7 +39,7 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
 
       if (existingSkillLevel === selectedSkillLevel) {
         // Display an alert if the skill level is the same as before
-        alert('You are trying to change a language to a skill level you already have.');
+        alert('You are trying to change a language or a skill level you already have.');
         return;
       } else {
         // Update the skill level
