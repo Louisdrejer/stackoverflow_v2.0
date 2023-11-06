@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-import LeftNav from '../../Components/LeftNav';
 import './SearchPage.css'
 export default function SearchPage() {
     const defaultTopic = 'TOPIC';
@@ -41,7 +40,6 @@ export default function SearchPage() {
   };
   return (
     <div className="profileBackground">
-     
       <div className="profileBackground2">
       <div className="SearchHeader">DISCOVER ANSWERS</div>
       <div className="SearchPageDropDown">

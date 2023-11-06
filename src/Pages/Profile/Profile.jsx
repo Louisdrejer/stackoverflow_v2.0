@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import LeftNav from '../../Components/LeftNav';
 import './Profile.css';
 import ProfileHeaderBox from '../../Components/ProfileHeaderBox';
 import ProfileOverview from '../../Components/ProfileOverview';
-import ProfilePL_ProgrammingLanguages from '../../Components/ProfilePL_ProgrammingLanguages';
-import ProfilePL_Answers from '../../Components/ProfilePL_Answers';
-import ProfilePL_Questions from '../../Components/ProfilePL_Questions';
-import ProfilePL_NewMessages from '../../Components/ProfilePL_NewMessages';
+import ProfilePLProgrammingLanguages from '../../Components/ProfilePL_ProgrammingLanguages';
+import ProfilePLAnswers from '../../Components/ProfilePL_Answers';
+import ProfilePLQuestions from '../../Components/ProfilePL_Questions';
+import ProfilePLNewMessages from '../../Components/ProfilePL_NewMessages';
 
 export default function Profile() {
   const [user, setUser] = useState({});
@@ -38,10 +37,10 @@ export default function Profile() {
         <ProfileHeaderBox user={user} />
         <div className="profileOverviewDisplay2">
           <ProfileOverview user={user} setUser={setUser} onComponentChange={handleComponentChange} />
-          {selectedComponent === 'Questions' && <ProfilePL_Questions user={user} setUser={setUser} />}
-          {selectedComponent === 'Answers' && <ProfilePL_Answers user={user} setUser={setUser} />}
-          {selectedComponent === 'ProgrammingLanguages' && <ProfilePL_ProgrammingLanguages user={user} setUser={setUser} />}
-          {selectedComponent === 'NewMessages' && <ProfilePL_NewMessages user={user} setUser={setUser} />}
+          {selectedComponent === 'Questions' && <ProfilePLQuestions user={user} setUser={setUser} />}
+          {selectedComponent === 'Answers' && <ProfilePLAnswers user={user} setUser={setUser} />}
+          {selectedComponent === 'ProgrammingLanguages' && <ProfilePLProgrammingLanguages user={user} setUser={setUser} />}
+          {selectedComponent === 'NewMessages' && <ProfilePLNewMessages user={user} setUser={setUser} />}
         </div>
       </div>
     </div>

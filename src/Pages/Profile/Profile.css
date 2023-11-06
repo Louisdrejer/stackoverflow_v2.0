@@ -119,7 +119,7 @@
 /*--------ProfileOverview.jsx-----------------*/
 .profileOverviewBox {
     background-color: rgb(81, 83, 89);
-    min-height: 560px;
+    min-height: 535px;
     border-radius: 5px;
     min-width: 22%;
     display: flex;
@@ -127,7 +127,7 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 12px;    
+    margin-bottom: 18px;    
 }
 
 .profileOverviewProfile {
@@ -257,11 +257,11 @@
 .profilePLBox {
     background-color: rgb(43, 44, 48);
     border-radius: 5px;
-    min-height: 420px;
+    min-height: 535px;
     width: 100%;
     margin-top: 10px;
     margin-right: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 .profilePLArea {
@@ -293,7 +293,7 @@
 
 }
 
-.Languagesnr {}
+
 
 .SkillLevel {
     color: white;
@@ -303,7 +303,6 @@
     font-size: 12px;
 }
 
-.SkillLevelHeader {}
 .PL{
     position: relative;
        display: inline-block;

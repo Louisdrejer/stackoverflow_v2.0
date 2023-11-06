@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ProfilePL_Overview from './ProfilePL_ProgrammingLanguages';
-import ProfilePL_Overview_copy from './ProfilePL_Answers';
-import ProfilePL_Overview_copy_2 from './ProfilePL_Questions';
-import ProfilePL_Overview_copy_3 from './ProfilePL_NewMessages';
+import ProfilePLProgrammingLanguages from './ProfilePL_ProgrammingLanguages';
+import ProfilePLAnswers from './ProfilePL_Answers';
+import ProfilePLQuestions from './ProfilePL_Questions';
+import ProfilePLNewMessages from './ProfilePL_NewMessages';
 
 export default function ProfileOverview({ user, setUser, onComponentChange }) {
   const getNumberOfQuestions = () => {
@@ -61,13 +61,13 @@ export default function ProfileOverview({ user, setUser, onComponentChange }) {
   const renderProfilePLOverview = () => {
     switch (clickedLine) {
       case 'Questions':
-        return <ProfilePL_Overview user={user} setUser={setUser} />;
+        return <ProfilePLProgrammingLanguages user={user} setUser={setUser} />;
       case 'Answers':
-        return <ProfilePL_Overview_copy user={user} setUser={setUser} />;
+        return <ProfilePLAnswers user={user} setUser={setUser} />;
       case 'ProgrammingLanguages':
-        return <ProfilePL_Overview_copy_2 user={user} setUser={setUser} />;
+        return <ProfilePLQuestions user={user} setUser={setUser} />;
       case 'NewMessages':
-        return <ProfilePL_Overview_copy_3 user={user} setUser={setUser} />;
+        return <ProfilePLNewMessages user={user} setUser={setUser} />;
       default:
         return null;
     }

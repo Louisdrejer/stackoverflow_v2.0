@@ -1,7 +1,7 @@
 .mainContainerLogin {
     background-color: rgb(53, 54, 58);
     flex-direction: column;
-    height: 110vh;
+    height: 100vh;
     width: 100%;
     margin-left: -21.5%;
     z-index: 1;

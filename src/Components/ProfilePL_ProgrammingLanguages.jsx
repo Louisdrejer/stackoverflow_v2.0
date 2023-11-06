@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProfilePl_OverviewAddLang from './ProfilePL_OverviewAddLang';
+import ProfilePlOverviewAddLang from './ProfilePL_OverviewAddLang';
 import AddNewLanguages from './AddNewLanguages';
 
 export default function ProfilePL_Overview({ user, setUser }) {
@@ -71,7 +71,7 @@ export default function ProfilePL_Overview({ user, setUser }) {
 
                 <div>
                     {isAddLanguageVisible && (
-                        <ProfilePl_OverviewAddLang
+                        <ProfilePlOverviewAddLang
                             user={user}
                             setUser={setUser}
                             onDiscard={() => setAddLanguageVisible(false)}

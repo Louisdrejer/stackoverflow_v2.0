@@ -22,7 +22,8 @@
   margin: 10px;
   max-width: 20%;
   min-width: 20%;
-  max-height: 545px;
+  min-height: 670px;
+  max-height:670px;
   border-radius: 5px;
   position: relative;
   position: sticky;
