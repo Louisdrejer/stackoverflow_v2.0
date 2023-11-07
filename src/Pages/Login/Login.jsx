@@ -22,6 +22,7 @@ export default function Login() {
       });
       if (response.ok) {
         const res = await response.json();
+        localStorage.setItem("user", JSON.stringify(res.id));
         console.log(res)
         navigate('/Profile');
       } else {
