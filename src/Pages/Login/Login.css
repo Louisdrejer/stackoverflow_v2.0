@@ -51,8 +51,7 @@ form {
     color: white;
     width: 55%;
     height: 48px;
-    font-family: "Inter";
-    font-weight: bolder;
+    font-family: "InterBold";
     font-size: 14px;
     border-radius: 8px;
     text-decoration: none;
@@ -60,7 +59,7 @@ form {
 }
 
 .headLine {
-    font-family: "Inter";
+    font-family: "InterBold";
     font-weight: bolder;
     font-size: 16px;
     padding-bottom: 2px;

@@ -4,7 +4,7 @@ export default function ProfilePL_Answers() {
   return (
    <div className="myAnswersContainer">
     <div className="myAnswersHeaderText">MY ANSWERS</div>
-    <div className="myAnswerBox">
+  {/*  <div className="myAnswerBox">
           <div className="myAnswerHeadline">Headline</div>
           <div className="myAnswerUserQ">
             <div className="myAnswersmallUserLogo3"></div>
@@ -17,8 +17,8 @@ export default function ProfilePL_Answers() {
           <div className="myAnswertag">Tags</div>
           <div className="myAnswertag">Tags</div>
           <div className="myAnswertag">Tags</div>
-        </div>
-        </div>
+  </div>
+        </div>*/}
       </div>
         
   )

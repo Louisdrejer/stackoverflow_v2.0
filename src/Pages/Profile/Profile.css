@@ -12,7 +12,7 @@
     color: white;
     display: flex;
     align-items: center;
-    font-family: 'Inter';
+    font-family: 'InterBold';
     font-style: normal;
     font-weight: 1000;
     font-size: 36px;
@@ -272,7 +272,7 @@
 
 .profilePLTitle {
     color: white;
-    font-family: 'Inter';
+    font-family: 'InterBold';
     font-style: normal;
     font-weight: 800;
     font-size: 36px;
@@ -304,6 +304,7 @@
 }
 
 .PL{
+    background-color: rgb(59, 60, 64);
     position: relative;
        display: inline-block;
        border: 1px solid white;
@@ -319,6 +320,7 @@
        margin-right: 15px;
    }
 .PLdropdown {
+    background-color: rgb(59, 60, 64);
     position: relative;
     display: inline-block;
     border: 1px solid white;
@@ -364,6 +366,7 @@
 
 .SkillLvl {
    position: relative;
+   background-color: rgb(59, 60, 64);
  display: inline-block;
     border: 1px solid white;
     padding: 3px;
@@ -379,6 +382,7 @@ margin-top: 5px;
 }
 .SkillLvldropdown {
     position: relative;
+    background-color: rgb(59, 60, 64);
     display: inline-block;
     border: 1px solid white;
     color: white;
@@ -507,19 +511,19 @@ margin-top: 5px;
 
 /*------------Profile_MyAnswers-------------*/
 .myAnswersContainer{
-    background-color: rgb(115, 116, 120);
+    background-color: rgb(43, 44, 48);
     border-radius: 5px;
     min-height: 420px;
     width: 100%;
     margin-top: 10px;
     margin-right: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 .myAnswersHeaderText{
     color: white;
     display: flex;
     align-items: center;
-    font-family: 'Inter';
+    font-family: 'InterBold';
     font-style: normal;
     font-weight: 1000;
     font-size: 36px;
@@ -610,7 +614,7 @@ margin-top: 20px;
     border-radius: 5px;
     margin-left: -6px;
     margin-right: -6px;
-    font-weight: bold;
+   font-family: "InterBold";
     padding: 6px;
   }
   

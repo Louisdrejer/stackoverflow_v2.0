@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function ProfilePL_NewMessages() {
   return (
-    <div>ProfilePL_NewMessages</div>
+    <div className="myAnswersContainer">
+    <div className="myAnswersHeaderText">ENGAGED QUESTIONS & ANSWERS</div>
+    </div>
   )
 }

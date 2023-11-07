@@ -55,7 +55,7 @@ export default function LeftNav() {
         <NavLink
           to={`/${page.name}`}
           style={({ isActive }) => ({
-            fontWeight: isActive ? "bolder" : "",
+            fontFamily: isActive ? 'InterBold': "",
             color: isActive ? "white" : "",
             background: isActive ? "rgb(60, 62, 116)" : "",
             marginLeft: isActive ? "-5px" : "",

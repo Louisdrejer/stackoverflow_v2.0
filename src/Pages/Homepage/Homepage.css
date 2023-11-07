@@ -4,9 +4,19 @@
   /* Add more variations (bold, italic, etc.) if needed */
 }
 
+@font-face {
+  font-family: InterBold;
+  src: url("../../Font/Inter-Bold.ttf");
+  /* Add more variations (bold, italic, etc.) if needed */
+}
+
 .Inter {
   font-family: Inter;
 }
+.InterBold {
+  font-family: InterBold;
+}
+
 
 .maincontainer {
   background-color: rgb(35, 36, 40);
@@ -143,10 +153,10 @@
 
 .submitAQuestionHeader {
   color: white;
-  font-family: 'Inter';
+  font-family: 'InterBold';
   font-style: normal;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 36px;
   margin-top: 10px;
   margin-left: 10px;
 
@@ -257,10 +267,10 @@
 
 .newQustion {
   color: white;
-  font-family: 'Inter';
+  font-family: 'InterBold';
   font-style: normal;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 36px;
   margin-top: 40px;
   margin-left: 10px;
   margin-bottom: 10px;

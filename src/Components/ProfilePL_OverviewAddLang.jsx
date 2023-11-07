@@ -39,7 +39,7 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
 
       if (existingSkillLevel === selectedSkillLevel) {
         // Display an alert if the skill level is the same as before
-        alert('You are trying to change a language or a skill level you already have.');
+        alert('You are trying to change the skill level you already have.');
         return;
       } else {
         // Update the skill level

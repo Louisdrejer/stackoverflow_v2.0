@@ -156,6 +156,18 @@ app.post('/api/users/:userId/programmingLanguages', (req, res) => {
   }
 });
 
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
+  console.log(username, password)
+  const user = users.find((u) => u.username === username && u.password === password);
+
+  if (user) {
+    const { id, username, email, password } = user;
+    res.json({ id, username, email,password });
+  } else {
+    res.status(401).json({ error: 'Invalid username or password' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
