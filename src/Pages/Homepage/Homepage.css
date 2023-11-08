@@ -115,7 +115,6 @@
 
 .smallUserLogo {
   background-color: rgb(90, 101, 234);
-  border: 1px solid white;
   width: 10px;
   height: 10px;
   border-radius: 100px;
@@ -147,7 +146,6 @@
   height: 200px;
   margin-top: 10px;
   margin-right: 10px;
-  border-radius: 5px;
 
 }
 
@@ -178,7 +176,6 @@
 .inputQuestionTitle {
   background-color: rgb(53, 54, 58);
   color: white;
-  border: 1px solid white;
   width: 100%;
   border-radius: 2px;
   font-family: 'Inter';
@@ -191,9 +188,7 @@
 .inputPlaintext {
   background-color: rgb(53, 54, 58);
   color: white;
-  border: 1px solid white;
   width: 100%;
-  border-radius: 2px;
   padding-bottom: 50px;
   font-family: 'Inter';
   font-style: normal;
@@ -204,7 +199,6 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  border: 1px solid white;
   color: white;
   padding: 5px;
   margin-top: 5px;
@@ -235,7 +229,6 @@
 }
 
 .arrow-down {
-  border: solid white;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -303,7 +296,6 @@
 
 .smallUserLogo2 {
   background-color: rgb(90, 101, 234);
-  border: 1px solid white;
   width: 10px;
   height: 10px;
   border-radius: 100px;
@@ -324,7 +316,6 @@
 }
 
 .newQuestionBody {
-  border: 1px solid white;
   border-radius: 5px;
   width: 90%;
   margin-left: 5%;
@@ -350,7 +341,6 @@
 }
 
 .NQtag {
-  border: 1px solid white;
   border-radius: 30px;
   margin-right: 20px;
   padding-left: 30px;
