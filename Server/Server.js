@@ -92,6 +92,46 @@ app.get('/api/pages', (req, res) => {
   res.json(pages);
 });
 
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
+  const user = users.find((u) => u.username === username && u.password === password);
+
+  if (user) {
+    const { id, username, email, password } = user;
+    res.json({ id, username, email,password });
+  } else {
+    res.status(401).json({ error: 'Invalid username or password' });
+  }
+});
+
+  app.post('/api/users', async (req, res) => {
+    console.log(req);
+    try {
+      const profileId = parseInt(req.body.profileId); // Get the user ID from the request body
+      console.log(profileId)
+      if (!profileId) {
+        res.status(400).json({ error: 'Invalid user ID' });
+        return;
+      }
+
+      const userWithId = users.find((userData) => userData.id === profileId);
+
+      if (!userWithId) {
+        res.status(404).json({ error: 'User not found' });
+      } else {
+        res.json([userWithId]); // Return an array with the matched user
+      }
+    } catch (error) {
+      console.error('Error processing request:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+
+
+
+
+
+
 // Get programming languages for a specific user
 app.get('/api/users/:userId/programmingLanguages', (req, res) => {
   const userId = parseInt(req.params.userId);
@@ -156,18 +196,6 @@ app.post('/api/users/:userId/programmingLanguages', (req, res) => {
   }
 });
 
-app.post('/api/login', (req, res) => {
-  const { username, password } = req.body;
-  console.log(username, password)
-  const user = users.find((u) => u.username === username && u.password === password);
-
-  if (user) {
-    const { id, username, email, password } = user;
-    res.json({ id, username, email,password });
-  } else {
-    res.status(401).json({ error: 'Invalid username or password' });
-  }
-});
 
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
