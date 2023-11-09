@@ -9,7 +9,7 @@ import ProfilePLNewMessages from '../../Components/ProfilePL_NewMessages';
 
 export default function Profile() {
   const [user, setUser] = useState({});
-  const [selectedComponent, setSelectedComponent] = useState(null);
+  const [selectedComponent, setSelectedComponent] = useState('Questions');
 
     useEffect(() => {
       const dataFetch = () => {
