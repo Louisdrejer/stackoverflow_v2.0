@@ -1,14 +1,31 @@
-import React from 'react'
+import { useState } from "react";
 import SmallQuestionBox from './SmallQuestionBox'
+import {postQuestion, getQuestionsByTag, getQuestionsByAuthor} from "../Scripts/Database"
+
 
 export default function SubmitBox() {
+
+
+  const [title, setTitle] = useState("");
+  const changeTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const [description, setDescription] = useState("");
+  const changeDescription = (e) => {
+    setDescription(e.target.value);
+  };
+
+
+
+
   return (
     <div className="submitAQuestionContainer">
       <div className="submitAQuestionHeader">SUBMIT A QUESTION</div>
       <div className="inputQuestion">
         <div className="submitAQuestiontitle">Title</div>
-        <input className='inputQuestionTitle' type="title" placeholder='The title' />
-        <input className='inputPlaintext' type="title" placeholder='Write anything here...' />
+        <input className='inputQuestionTitle' type="title" placeholder='The title' value={title} onChange={changeTitle} />
+        <input className='inputPlaintext' type="title" placeholder='Write anything here...' value={description} onChange={changeDescription} />
         <div className="menubox">
           <div className="dropdown">
             <span>TOPIC</span>
@@ -37,7 +54,8 @@ export default function SubmitBox() {
             </div>
             <div className="arrow-down"></div>
           </div>
-          <button className='submitButton'>submit</button>
+          <button className='submitButton' onClick={() => postQuestion({ID: 2, title:title, author: "Louis", text: description, tags: ["1", "2"]})}>Submit</button>
+          <button className='submitButton' onClick={() => console.log(getQuestionsByAuthor("Emil"))}>test</button>
         </div>
       </div>
       <div className="newQustion">New Question</div>
