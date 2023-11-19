@@ -24,11 +24,26 @@ export const postQuestion = async(data) => {
 export const getQuestionsByTag = async(tags) => {
     return new Promise(function(resolve, reject) {
         const query = new Parse.Query('Questions');
+
         for (let i = 0; i < tags.length; i++) {
             query.contains(tags[i])
         }
 
-        let queryResults = query.find();
+        let result = []
+        let queryResults = query.find().then(results => {
+            results.map(Question => {
+                let tmp = {
+                    Author: Question.get("Author"),
+                    Title: Question.get("Title"),
+                    Text: Question.get("Text"),
+                    Date: Question.get("Date"),
+                    Tags: Question.get("Tags")
+                }
+                result.push(tmp)
+            })
+        });
+        console.log(result)
+
         resolve(queryResults)
     });
 };
@@ -36,17 +51,25 @@ export const getQuestionsByTag = async(tags) => {
 export const getQuestionsByAuthor = async(name) => {
     return new Promise(function(resolve, reject) {
     const query = new Parse.Query('Questions');
-    let test = ""
 
-    //for testing
+    let result = []
     query.equalTo('Author', name)
     let queryResults = query.find().then(results => {
-        results.forEach(Question => {
-            console.log(Question.get("Text"))
+        results.map(Question => {
+            //return Question.get("Title") + " - " + Question.get("Author")
+            let tmp = {
+                Author: Question.get("Author"),
+                Title: Question.get("Title"),
+                Text: Question.get("Text"),
+                Date: Question.get("Date"),
+                Tags: Question.get("Tags")
+            }
+            result.push(tmp)
         })
     });
+    console.log(result)
 
-    resolve(queryResults)
+    resolve(result)
     });
 };
 
@@ -57,12 +80,13 @@ export const postComment = async(data) => {
     let Comment = new Parse.Object("Comments");
 
     Comment.set("ID", data.ID)
-    Comment.set("ResponseID", data.ResponseID) //ID of what the comment is sresponse to
-    Comment.set("ResponseTo", data.ResponseTo) //questions or another comment
+    Comment.set("ResponseID", data.ResponseID)
+    Comment.set("ResponseTo", data.ResponseTo)
     Comment.set("Author", data.author)
     Comment.set("Text", data.text)
     Comment.set("Date", new Date())
 
+    await Comment.save();
 }
 
 export const getComments = async(response) => {
@@ -70,7 +94,24 @@ export const getComments = async(response) => {
 
     query.equalTo('ResponseID', response.id)
     query.equalTo('ResponseTo', response.responseTo)
-    let queryResults = await query.get();
+
+    //let queryResults = await query.get();
+
+    let result = []
+    let queryResults = query.find().then(results => {
+        results.map(Question => {
+            //return Question.get("Title") + " - " + Question.get("Author")
+            let tmp = {
+                Author: Question.get("Author"),
+                Text: Question.get("Text"),
+                Date: Question.get("Date"),
+                ResponseID: Question.get("ResponseID"),
+                Likes: Question.get("Likes")
+            }
+            result.push(tmp)
+        })
+    });
+    console.log(result)
 
     return queryResults
 }
