@@ -2,13 +2,17 @@ import React from 'react'
 import "./myLogin.css"
 import {Link} from 'react-router-dom';
 
+import logo from '../../img/Logo.png';
+import profileIcon from '../../img/loginIcon.png';
+
 export function MyLogin() {
     return (
         <>
+            <img src={logo} alt="Logo" className="page-logo" />
             <div className="wrapper">
 
                 <form action="">
-                    <h1>Login</h1>
+                    <img src={profileIcon} alt="Login Icon" className="login-icon" /> 
                     <div className="input-box">
                         <input type="text" placeholder="Username" required/>
                         <i className='bx bxs-user'></i>
