@@ -12,6 +12,19 @@ body {
     background: #35363a;
 }
 
+.page-logo {
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    width: 250px; 
+}
+
+.login-icon {
+    width: 150px; 
+    display: block;
+    margin: 0 auto; 
+}
+
 .wrapper {
     width: 420px;
     background: transparent;
