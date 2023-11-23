@@ -1,9 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SmallQuestionBox from './SmallQuestionBox'
 import {postQuestion, getQuestionsByTag, getQuestionsByAuthor} from "../Scripts/Database"
 
 
 export default function SubmitBox() {
+
+
+
+  const [questions, setQuestions] = useState([]);
+  console.log(questions)
+
+  // useEffect(() => {
+  //   getQuestionsByAuthor("Emil").then(result => {
+  //     console.log(result);
+  //     setQuestions(result);
+  //   })
+  // }, [])
+
+
+  //currently does not work
+
+    const fetchData = async () => {
+      try {
+        console.log("fuck")
+        const result = await getQuestionsByAuthor('Emil');
+        console.log(result)
+        setQuestions(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
 
   const [title, setTitle] = useState("");
@@ -15,15 +46,6 @@ export default function SubmitBox() {
   const changeDescription = (e) => {
     setDescription(e.target.value);
   };
-
-
-  let getQuestions = new Promise(function(Resolve, Reject) {
-    const tmp = getQuestionsByAuthor("Emil");
-
-    Resolve(tmp);
-    Reject([]);
-  });
-
 
 
   return (
@@ -66,7 +88,14 @@ export default function SubmitBox() {
         </div>
       </div>
       <div className="newQustion">New Question</div>
-      {getQuestions}
+
+
+
+
+        {questions.map((question,  i) => (
+          <SmallQuestionBox key={i} name="User123" title="This is a question" tags={[{name: "tag1", color: "red"}, {name: "tag2", color: "yellow"}]}/>
+        ))}
+
       <SmallQuestionBox name="User123" title="This is a question" tags={[{name: "tag1", color: "red"}, {name: "tag2", color: "yellow"}]}/>
       <SmallQuestionBox name="Louis" title="How to server?" tags={[{name: "tag3", color: "green"}, {name: "tag5", color: "purple"}]}/>
       <SmallQuestionBox name="SomeOneElse" title="This is a question" tags={[{name: "tag5", color: "blue"}, {name: "tag6", color: "white"}]}/>
