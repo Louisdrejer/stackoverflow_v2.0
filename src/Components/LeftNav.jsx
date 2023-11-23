@@ -37,7 +37,7 @@ export default function LeftNav() {
   return (
     <div className="Leftcontainer">
       <div className="logo_name_left">
-        <img src={logo} alt="Logo" style={{ maxWidth: "70%", marginLeft: "15%" }} />
+        <img src={logo} alt="Logo" />
       </div>
       <hr style={{ width: "80%", border: "1.8px solid white", marginTop: "10px" }} />
       <div className='quickSearchBox'>
