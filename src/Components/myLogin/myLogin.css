@@ -30,7 +30,7 @@ body {
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(169, 20, 252, 0.3);
+    box-shadow: 0 0 10px rgba(90, 101, 234, 0.3);
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
@@ -56,9 +56,11 @@ body {
     font-size: 16px;
     color: white;
     padding: 20px 45px 20px 20px;
+    transition: border-color 0.3s, color 0.3s;
 }
 .input-box input::placeholder {
     color: #fff;
+    
 }
 .input-box i {
     position: absolute;
@@ -111,4 +113,11 @@ body {
 
 .register-link p a:hover {
     text-decoration: underline;
+}
+.wrapper .input-box input:focus::placeholder {
+    color: transparent;
+}
+
+.input-box input:focus {
+    border-color: #ffffff; /* Change the border color when focused */
 }
