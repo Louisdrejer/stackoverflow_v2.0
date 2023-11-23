@@ -1,3 +1,9 @@
+.page-logo {
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    width: 250px; 
+}
 
 .wrapper10 {
     width: 420px;
@@ -87,3 +93,5 @@
     width: 35px; 
     margin-right: 5px;
   }
+
+  

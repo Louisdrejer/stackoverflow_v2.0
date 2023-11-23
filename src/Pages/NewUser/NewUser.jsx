@@ -1,9 +1,12 @@
 import React from 'react'
 import './NewUser.css'
 import arrow from '../../img/arrow.svg';
+import logo from '../../img/Logo.png';
 
 export default function NewUser() {
     return (
+    <>
+        <img src={logo} alt="Logo" className="page-logo" />
         <div className="wrapper10">
         
         <button className="back-button1" onClick={() => window.history.back()}>
@@ -32,5 +35,6 @@ export default function NewUser() {
                 <button type="submit" className="btn10">Create New Account</button>
             </form>
         </div>
+    </>
     )
 }

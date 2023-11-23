@@ -1,10 +1,13 @@
 import React from 'react'
 import './ForgetPassword.css'
 
+import logo from '../../img/Logo.png';
 import arrow from '../../img/arrow.svg';
 
 export default function ForgetPassword() {
     return (
+    <>
+        <img src={logo} alt="Logo" className="page-logo" />
         <div className="wrapper11">
 
              <button className="back-button" onClick={() => window.history.back()}>
@@ -20,8 +23,8 @@ export default function ForgetPassword() {
                 </div>
 
                 <button type="" className="btn11">Send verification code</button>
-
-                <p className="sendAgain">Did not receive it? Send again</p>
+                <button type="" className="sendAgain">Did not receive it? Send again</button>
+               
 
                 
 
@@ -36,5 +39,6 @@ export default function ForgetPassword() {
                 <button type="submit" className="btn11">RESET PASSWORD</button>
             </form>
         </div>
+    </>
     )
 }
