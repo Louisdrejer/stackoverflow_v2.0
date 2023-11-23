@@ -54,7 +54,7 @@ export default function SubmitBox() {
             </div>
             <div className="arrow-down"></div>
           </div>
-          <button className='submitButton' onClick={() => postQuestion({ID: 2, title:title, author: "Louis", text: description, tags: ["1", "2"]})}>Submit</button>
+          <button className='submitButton' onClick={() => postQuestion({title:title, author: "Louis", text: description, tags: ["1", "3"]})}>Submit</button>
           <button className='submitButton' onClick={() => getQuestionsByAuthor("Emil")}>test</button>
         </div>
       </div>

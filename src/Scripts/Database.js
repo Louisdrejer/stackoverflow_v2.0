@@ -11,7 +11,7 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 export const postQuestion = async(data) => {
     let Question = new Parse.Object("Questions");
 
-    Question.set("ID", data.ID)
+    //Question.set("ID", data.ID)
     Question.set("Title", data.title)
     Question.set("Author", data.author)
     Question.set("Text", data.text)
@@ -92,10 +92,10 @@ export const postComment = async(data) => {
 export const getComments = async(response) => {
     const query = new Parse.Query('Comments');
 
+    //get comments responding to selected question/comment
     query.equalTo('ResponseID', response.id)
     query.equalTo('ResponseTo', response.responseTo)
 
-    //let queryResults = await query.get();
 
     let result = []
     let queryResults = query.find().then(results => {
