@@ -4,23 +4,35 @@
   /* Add more variations (bold, italic, etc.) if needed */
 }
 
+@font-face {
+  font-family: InterBold;
+  src: url("../../Font/Inter-Bold.ttf");
+  /* Add more variations (bold, italic, etc.) if needed */
+}
+
 .Inter {
   font-family: Inter;
 }
+.InterBold {
+  font-family: InterBold;
+}
+
 
 .maincontainer {
   background-color: rgb(35, 36, 40);
   padding: 1px;
   display: flex;
   min-height: 200vh;
+  width: 100%;
 
 }
 
 .Leftcontainer {
   background-color: rgb(53, 54, 58);
   margin: 10px;
-  width: 25%;
-  max-height: 545px;
+  max-width: 20%;
+  min-width: 20%;
+  max-height: 10vw;
   border-radius: 5px;
   position: relative;
   position: sticky;
@@ -31,9 +43,24 @@
 .logo_name_left {
   color: white;
   padding-top: 15px;
+  padding-bottom: 10px;
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+.quickSearchBox{
+  display: flex;
+    justify-content: center;
+}
+.quickSearch{
+  background-color: black;
+  color: white;
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  height: 25px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .logo {
@@ -47,44 +74,21 @@
   font-weight: 800;
   font-size: 30px;
 }
-
-.findAnswers {
-  color: white;
-
+.pageTitle{
   margin-top: 20px;
-  margin-left: 10%;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.searchPage {
-  color: white;
-  margin-left: 10%;
   margin-bottom: 20px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
+  margin-left: 10%; 
 }
-
-.activity {
+.pageTitle a{
   color: white;
-  margin-left: 10%;
+  text-decoration-line: none;
+  margin-right: 10%;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.questions_answers {
-  color: white;
-  margin-left: 10%;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .profile {
@@ -110,7 +114,6 @@
 
 .smallUserLogo {
   background-color: rgb(90, 101, 234);
-  border: 1px solid white;
   width: 10px;
   height: 10px;
   border-radius: 100px;
@@ -142,16 +145,15 @@
   height: 200px;
   margin-top: 10px;
   margin-right: 10px;
-  border-radius: 5px;
 
 }
 
 .submitAQuestionHeader {
   color: white;
-  font-family: 'Inter';
+  font-family: 'InterBold';
   font-style: normal;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 36px;
   margin-top: 10px;
   margin-left: 10px;
 
@@ -173,7 +175,6 @@
 .inputQuestionTitle {
   background-color: rgb(53, 54, 58);
   color: white;
-  border: 1px solid white;
   width: 100%;
   border-radius: 2px;
   font-family: 'Inter';
@@ -186,9 +187,7 @@
 .inputPlaintext {
   background-color: rgb(53, 54, 58);
   color: white;
-  border: 1px solid white;
   width: 100%;
-  border-radius: 2px;
   padding-bottom: 50px;
   font-family: 'Inter';
   font-style: normal;
@@ -199,7 +198,6 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  border: 1px solid white;
   color: white;
   padding: 5px;
   margin-top: 5px;
@@ -230,7 +228,6 @@
 }
 
 .arrow-down {
-  border: solid white;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -262,10 +259,10 @@
 
 .newQustion {
   color: white;
-  font-family: 'Inter';
+  font-family: 'InterBold';
   font-style: normal;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 36px;
   margin-top: 40px;
   margin-left: 10px;
   margin-bottom: 10px;
@@ -298,7 +295,6 @@
 
 .smallUserLogo2 {
   background-color: rgb(90, 101, 234);
-  border: 1px solid white;
   width: 10px;
   height: 10px;
   border-radius: 100px;
@@ -319,7 +315,6 @@
 }
 
 .newQuestionBody {
-  border: 1px solid white;
   border-radius: 5px;
   width: 90%;
   margin-left: 5%;
@@ -345,7 +340,6 @@
 }
 
 .NQtag {
-  border: 1px solid white;
   border-radius: 30px;
   margin-right: 20px;
   padding-left: 30px;

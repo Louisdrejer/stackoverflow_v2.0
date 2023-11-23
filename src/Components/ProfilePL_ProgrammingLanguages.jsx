@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import './Profile.css';
-import ProfilePl_OverviewAddLang from './ProfilePL_OverviewAddLang';
+import ProfilePlOverviewAddLang from './ProfilePL_OverviewAddLang';
 import AddNewLanguages from './AddNewLanguages';
 
 export default function ProfilePL_Overview({ user, setUser }) {
@@ -39,7 +38,7 @@ export default function ProfilePL_Overview({ user, setUser }) {
         const updatedUser = { ...user };
         updatedUser.programmingLanguages.push(newLanguage);
         setUser(updatedUser);
-      };
+    };
 
     return (
         <div className="profilePLBox">
@@ -51,13 +50,13 @@ export default function ProfilePL_Overview({ user, setUser }) {
                         <div key={index} className="PLAndSkillLevel">
                             <div className="ProgrammingLanguages">
                                 <div className="Languagesnr">{`Languages #${index + 1}`}</div>
-                                <div className="PLdropdown">
+                                <div className="PL">
                                     <span>{language.languages}</span>
                                 </div>
                             </div>
                             <div className="SkillLevel">
                                 <div className="SkillLevelHeader">Skill Level</div>
-                                <div className="SkillLvldropdown">
+                                <div className="SkillLvl">
                                     <span>{language.skillLevel}</span>
                                 </div>
                                 <button
@@ -71,16 +70,17 @@ export default function ProfilePL_Overview({ user, setUser }) {
                     ))}
 
                 <div>
+                    {isAddLanguageVisible && (
+                        <ProfilePlOverviewAddLang
+                            user={user}
+                            setUser={setUser}
+                            onDiscard={() => setAddLanguageVisible(false)}
+                            onApprove={handleApprove}
+                        />
+                    )}
                     <AddNewLanguages onClick={handleAddLanguageClick} />
 
-                   
-          {isAddLanguageVisible && (
-            <ProfilePl_OverviewAddLang
-              user={user}
-              onDiscard={() => setAddLanguageVisible(false)}
-              onApprove={handleApprove}
-            />
-                    )}
+
                 </div>
             </div>
         </div>
