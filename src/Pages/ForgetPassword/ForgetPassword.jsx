@@ -3,11 +3,12 @@ import './ForgetPassword.css'
 
 import logo from '../../img/Logo.png';
 import arrow from '../../img/arrow.svg';
+import {Link} from 'react-router-dom';
 
 export default function ForgetPassword() {
     return (
     <>
-        <img src={logo} alt="Logo" className="page-logo" />
+        <Link to="/"><img src={logo} alt="Logo" className="page-logo" /></Link>
         <div className="wrapper11">
 
              <button className="back-button" onClick={() => window.history.back()}>
@@ -16,13 +17,13 @@ export default function ForgetPassword() {
 
             <form action="">
 
-                <h1>Find your <span style={{color:"#5A65EA"}}>StackIT</span> Account</h1>
+                <h1>Reset your <span style={{color:"#5A65EA"}}>StackIT</span> password</h1>
 
                 <div className="input-box">
                     <input type="email" placeholder="Email" required/>
                 </div>
 
-                <button type="" className="btn11">Send verification code</button>
+                <button type="" className="sendCode">Send verification code</button>
                 <button type="" className="sendAgain">Did not receive it? Send again</button>
                
 

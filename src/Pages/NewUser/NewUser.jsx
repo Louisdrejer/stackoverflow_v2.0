@@ -2,11 +2,12 @@ import React from 'react'
 import './NewUser.css'
 import arrow from '../../img/arrow.svg';
 import logo from '../../img/Logo.png';
+import {Link} from 'react-router-dom';
 
 export default function NewUser() {
     return (
     <>
-        <img src={logo} alt="Logo" className="page-logo" />
+        <Link to="/"><img src={logo} alt="Logo" className="page-logo" /></Link>
         <div className="wrapper10">
         
         <button className="back-button1" onClick={() => window.history.back()}>

@@ -1,18 +1,18 @@
 .page-logo {
     position: absolute; 
-    top: 10px; 
-    left: 10px; 
+    top: 25px; 
+    left: 25px; 
     width: 250px; 
 }
 
 .wrapper10 {
     width: 420px;
     background: rgb(53, 54, 58);
-    border: 1px solid rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, 0);
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(90, 101, 234, 0.3);
+    box-shadow: 0 0 10px rgba(90, 101, 234, 0);
     color: #fff;
-    border-radius: 10px;
+    
     padding: 30px 40px;
 }
 
@@ -80,7 +80,7 @@
 
 .back-button1 {
     position: absolute;
-    left: 20px; 
+    left: 0px; 
     top: 30px; 
     background: none;
     border: none;
@@ -89,7 +89,7 @@
     align-items: center;
   }
   
-  .back-button1 img {
+.back-button1 img {
     width: 35px; 
     margin-right: 5px;
   }

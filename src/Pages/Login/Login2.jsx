@@ -8,7 +8,7 @@ import profileIcon from '../../img/loginIcon.png';
 export default function MyLogin() {
     return (
         <>
-            <img src={logo} alt="Logo" className="page-logo" />
+            <Link to="/"><img src={logo} alt="Logo" className="page-logo" /></Link>
             <div className="wrapper9">
 
                 <form action="">
@@ -22,9 +22,11 @@ export default function MyLogin() {
                         <i className='bx bxs-lock-alt'></i>
                     </div>
                     <div className="remember-forgot">
-                        <label>
-                            <input type="checkbox"/>Remember me
-                        </label>
+                    <label className="checkbox-label">
+                        <input className="checkBox" type="checkbox" />
+                        <span className="custom-checkbox"></span>
+                            Remember me
+                    </label>
                         <Link to="/ForgotPassword">Forgot password?</Link>
                     </div>
 
