@@ -27,16 +27,21 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
   };
 
   const handleApprove = () => {
-
+    // Check if the programmingLanguages array exists on the user object
+    if (!user.programmingLanguages) {
+      // If not, initialize it as an empty array
+      user.programmingLanguages = [];
+    }
+  
     // Check if the language already exists in the user's programming languages
     const existingLanguageIndex = user.programmingLanguages.findIndex(
       (lang) => lang.languages === selectedLanguage
     );
-
+  
     if (existingLanguageIndex !== -1) {
       // If the language already exists
       const existingSkillLevel = user.programmingLanguages[existingLanguageIndex].skillLevel;
-
+  
       if (existingSkillLevel === selectedSkillLevel) {
         // Display an alert if the skill level is the same as before
         alert('You are trying to change the skill level you already have.');
@@ -45,7 +50,9 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
         // Update the skill level
         const updatedLanguages = [...user.programmingLanguages];
         updatedLanguages[existingLanguageIndex].skillLevel = selectedSkillLevel;
-
+  
+        // Update the user object with the modified programmingLanguages array
+        setUser((prevUser) => ({ ...prevUser, programmingLanguages: updatedLanguages }));
       }
     } else {
       // If the language doesn't exist, add the new language to the user's profile
@@ -54,10 +61,10 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
         skillLevel: selectedSkillLevel,
       });
     }
-
+  
     onDiscard();
   };
-
+  
   
   
   return (

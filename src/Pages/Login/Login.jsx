@@ -23,6 +23,7 @@ export default function Login() {
       if (response.ok) {
         const res = await response.json();
         localStorage.setItem("user", JSON.stringify(res.id));
+
         console.log(res)
         navigate('/Profile');
       } else {
@@ -67,7 +68,7 @@ export default function Login() {
             />
           </div>
           <div className="LinkForgotPasswordDiv">
-            <Link className="LinkForgotPassword">Forgot Password?</Link>
+            <Link to="/ForgotPassword" className="LinkForgotPassword">Forgot Password?</Link>
           </div>
           <div className="Login">
             <input type="submit" value="Login" className="LoginButton" />

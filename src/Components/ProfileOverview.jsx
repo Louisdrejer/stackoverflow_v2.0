@@ -58,20 +58,6 @@ export default function ProfileOverview({ user, setUser, onComponentChange }) {
     onComponentChange(line);
   };
 
-  const renderProfilePLOverview = () => {
-    switch (clickedLine) {
-      case 'Questions':
-        return <ProfilePLProgrammingLanguages user={user} setUser={setUser} />;
-      case 'Answers':
-        return <ProfilePLAnswers user={user} setUser={setUser} />;
-      case 'ProgrammingLanguages':
-        return <ProfilePLQuestions user={user} setUser={setUser} />;
-      case 'NewMessages':
-        return <ProfilePLNewMessages user={user} setUser={setUser} />;
-      default:
-        return null;
-    }
-  };
 
   return (
     <div className="profileOverviewBox">

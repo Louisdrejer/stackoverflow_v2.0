@@ -3,7 +3,6 @@
     flex-direction: column;
     height: 100vh;
     width: 100%;
-    margin-left: -21.5%;
     z-index: 1;
 }
 
@@ -14,7 +13,7 @@ form {
     padding: 30px 50px 30px 50px;
     background-color: rgb(81, 81, 85);
     border: 2px solid #ccc;
-    box-shadow: 0px 0px 60px 30px rgba(0,0,0,1.2);
+    box-shadow: 0px 0px 20px 15px rgba(39, 37, 37, 0.756);
 }
 
 

@@ -6,7 +6,6 @@
   background-color: rgb(35, 36, 40);
 }
 
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -33,6 +32,13 @@ display: flex;
 width: 100%;
 justify-content:space-between;
 }
+
+.logo_name_left > img {
+  max-width: 70%;
+  margin-left: 15%;
+}
+
+
 .logo{
   margin-left: 10%;
 }
