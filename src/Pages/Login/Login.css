@@ -6,15 +6,7 @@
     z-index: 1;
 }
 
-form {
-    color: white;
-    width: 20%;
-    border-radius: 16px;
-    padding: 30px 50px 30px 50px;
-    background-color: rgb(81, 81, 85);
-    border: 2px solid #ccc;
-    box-shadow: 0px 0px 20px 15px rgba(39, 37, 37, 0.756);
-}
+
 
 
 .textField {

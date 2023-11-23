@@ -9,6 +9,7 @@ import MainLayout from './Outerlayout/MainLayout';
 import Outerlayout from './Outerlayout/Outerlayout';
 import ForgetPassword from './Pages/ForgetPassword/ForgetPassword';
 import NewUser from './Pages/NewUser/NewUser';
+import MyLogin from './Pages/Login/Mylogin';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         </Route>
 
         <Route element={<Outerlayout />} >
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<MyLogin />} />
           <Route path="/ForgotPassword" element={<ForgetPassword />} />
           <Route path="/NewUser" element={<NewUser />} />
         </Route>
