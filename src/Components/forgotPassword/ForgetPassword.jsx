@@ -7,7 +7,7 @@ import logo from '../../img/Logo.png';
 export function ForgetPassword() {
     return (
     <>
-        <Link to="/myLogin">
+        <Link to="/">
             <img src={logo} alt="Logo" className="page-logo"/> 
         </Link>
         <div className="wrapper">
