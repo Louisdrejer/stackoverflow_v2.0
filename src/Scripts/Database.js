@@ -51,6 +51,7 @@ export const getQuestionsByTag = async(tags) => {
 export const getQuestionsByAuthor = async(name) => {
     return new Promise(function(resolve, reject) {
     const query = new Parse.Query('Questions');
+    query.ascending("createdAt");
 
     let result = []
     query.equalTo('Author', name)
