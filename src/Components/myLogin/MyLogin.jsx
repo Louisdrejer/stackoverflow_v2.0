@@ -31,7 +31,7 @@ export function MyLogin() {
                     <button type="submit" className="btn">Login</button>
 
                     <div className="register-link">
-                        <p>Don't have an account? <Link to="/NewUser">Register</Link></p>
+                        <p>Don't have an account? <Link to="/NewUser">Register here</Link></p>
                     </div>
                 </form>
             </div>
