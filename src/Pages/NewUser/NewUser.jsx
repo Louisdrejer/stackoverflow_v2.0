@@ -3,7 +3,7 @@ import './NewUser.css'
 
 export default function NewUser() {
     return (
-        <div className="wrapper">
+        <div className="wrapper10">
 
             <form action="">
                 <h1>Create Your Account</h1>
@@ -24,7 +24,7 @@ export default function NewUser() {
                     <input type="Password" placeholder="Repeat Password" required/>
                 </div>
 
-                <button type="submit" className="btn">Create New Account</button>
+                <button type="submit" className="btn10">Create New Account</button>
             </form>
         </div>
     )

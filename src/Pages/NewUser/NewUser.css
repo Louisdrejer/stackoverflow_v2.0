@@ -1,21 +1,21 @@
 
-.wrapper {
+.wrapper10 {
     width: 420px;
-    background: transparent;
+    background: rgb(53, 54, 58);
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(169, 20, 252, 0.3);
+    box-shadow: 0 0 10px rgba(90, 101, 234, 0.3);
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
 }
 
-.wrapper h1 {
+.wrapper10 h1 {
     font-size: 30px;
     text-align: center;
 }
 
-.wrapper .input-box {
+.wrapper10 .input-box {
     position: relative;
     width: 100%;
     height: 50px;
@@ -47,20 +47,27 @@
     font-size: 20px;
 }
 
-.wrapper .btn {
+.wrapper10 .btn10 {
     width: 100%;
     height: 45px;
-    background: #fff;
+    background: #5A65EA;
     border: none;
     outline: none;
     border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: #fff;
     font-weight: 600;
 }
 
-.wrapper .btn:hover {
-    background-color: rgb(199, 214, 217);
+.wrapper10 .btn10:hover {
+    opacity: 0.5;
+}
+.wrapper10 .input-box input:focus::placeholder {
+    color: transparent;
+}
+
+.input-box input:focus {
+    border-color: #ffffff; 
 }
