@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import Parse from 'parse';
 
 import './Login.css';
 import logo from '../../img/Logo.png';
@@ -11,28 +12,16 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async (username, pw) => {
-    try {
-        console.log(username)
-        const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: username, password: pw }),
-        
-      });
-      if (response.ok) {
-        const res = await response.json();
-        localStorage.setItem("user", JSON.stringify(res.id));
 
-        console.log(res)
-        navigate('/Profile');
-      } else {
-        alert('Invalid username or password');
-      }
-    } catch (err) {
-      console.log(err);
-    }
+
+  const handleLogin = async (username, pw) => {
+    var user = Parse.User.logIn(username, pw).then(function(user) {
+      navigate('/Profile');
+    }).catch(function(error) {
+      console.log("Error: " + error.code + " " + error.message);
+    });
   };
+
 
   const onSubmit = async (e) => {
     e.preventDefault();
