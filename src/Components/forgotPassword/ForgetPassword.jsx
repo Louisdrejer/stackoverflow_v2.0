@@ -1,7 +1,15 @@
 import React from 'react'
 import "./ForgetPassword.css"
+import {Link} from 'react-router-dom';
+
+import logo from '../../img/Logo.png';
+
 export function ForgetPassword() {
     return (
+    <>
+        <Link to="/myLogin">
+            <img src={logo} alt="Logo" className="page-logo"/> 
+        </Link>
         <div className="wrapper">
 
             <form action="">
@@ -28,5 +36,6 @@ export function ForgetPassword() {
                 <button type="submit" className="btn">RESET PASSWORD</button>
             </form>
         </div>
+    </>
     )
 }
