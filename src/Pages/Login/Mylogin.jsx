@@ -1,8 +1,8 @@
 import React from 'react'
-import "./myLogin.css"
+import './Mylogin.css'
 import {Link} from 'react-router-dom';
 
-export function MyLogin() {
+export default function MyLogin() {
     return (
         <>
             <div className="wrapper">
