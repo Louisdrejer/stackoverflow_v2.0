@@ -36,7 +36,7 @@ export default function ForgetPassword() {
                     <input type="Password" placeholder="Reset Password" required/>
                 </div>
 
-                <button type="submit" className="btn11">RESET PASSWORD</button>
+                <button type="submit" className="btn11">Reset password</button>
             </form>
         </div>
     </>
