@@ -1,10 +1,15 @@
 import React from 'react'
 import './NewUser.css'
+import arrow from '../../img/arrow.svg';
 
 export default function NewUser() {
     return (
         <div className="wrapper10">
-
+        
+        <button className="back-button1" onClick={() => window.history.back()}>
+                <img src={arrow} alt="Back" />
+        </button>
+        
             <form action="">
                 <h1>Create Your Account</h1>
 
