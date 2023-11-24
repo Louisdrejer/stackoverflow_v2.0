@@ -90,6 +90,21 @@ export const getQuestionsByAuthor = async (name) => {
     }));
   };
 
+  export const getNewestQuestions = async () => {
+    const query = new Parse.Query('Questions');
+    query.descending('createdAt');
+    
+    const results = await query.find();
+  
+    return results.map((question) => ({
+      Author: question.get('Author'),
+      Title: question.get('Title'),
+      Text: question.get('Text'),
+      Date: question.get('Date'),
+      Tags: question.get('Tags'),
+    }));
+  };
+  
 //------------------------Comments------------------------
 
 export const postComment = async(data) => {

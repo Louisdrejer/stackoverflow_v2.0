@@ -1,52 +1,96 @@
+// SubmitBox.js
 import React, { useState, useEffect } from 'react';
 import SmallQuestionBox from './SmallQuestionBox';
-import { postQuestion, getQuestionsByAuthor } from '../Scripts/Database';
-import { async } from 'q';
+import { postQuestion, getNewestQuestions } from '../Scripts/Database';
 import DropdownMenues from './DropdownMenues';
 
 export default function SubmitBox() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [questions, setQuestions] = useState([]);
-console.log(questions)
+  const [selectedTopic, setSelectedTopic] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState('');
+  const [selectedSkillLevel, setSelectedSkillLevel] = useState('');
 
-useEffect(() => {
-  const fetchData = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getNewestQuestions();
+        setQuestions(result);
+        console.log(result);
+      } catch (error) {
+        console.error('Error fetching questions:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleTopicChange = (topic) => {
+    setSelectedTopic(topic);
+  };
+
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language);
+  };
+
+  const handleSkillLevelChange = (skillLevel) => {
+    setSelectedSkillLevel(skillLevel);
+  };
+
+  const handlePostQuestion = async () => {
     try {
-      const result = await getQuestionsByAuthor('Emil');
-      setQuestions(result);
-      console.log(result); 
+      const result = await postQuestion({
+        title,
+        author: 'Louis', 
+        text: description,
+        tags: [selectedTopic, selectedLanguage, selectedSkillLevel],
+      });
+      setTitle('');
+      setDescription('');
+      const updatedQuestions = await getNewestQuestions();
+      setQuestions(updatedQuestions);
     } catch (error) {
-      console.error('Error fetching questions:', error);
+      console.error('Error posting or fetching questions:', error);
     }
   };
 
-  fetchData();
-}, []);
   return (
     <div className="submitAQuestionContainer">
       <div className="submitAQuestionHeader">SUBMIT A QUESTION</div>
       <div className="inputQuestion">
-        <div className="submitAQuestiontitle">Title</div>
-        <input className="inputQuestionTitle" type="title" placeholder="The title" value={title} onChange={(e) => setTitle(e.target.value)} />
-        <input className="inputPlaintext" type="title" placeholder="Write anything here..." value={description} onChange={(e) => setDescription(e.target.value)} />
+        <div className="submitAQuestiontitle">Headline</div>
+        <input
+          className="inputQuestionTitle"
+          type="text" 
+          placeholder="The title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          className="inputPlaintext"
+          type="text" 
+          placeholder="Write anything here..."
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
         <div className="menubox">
-          <div style={{marginTop: "5px"}}>
-          <DropdownMenues/>
+          <div style={{ marginTop: '5px' }}>
+            <DropdownMenues
+              onTopicChange={handleTopicChange}
+              onLanguageChange={handleLanguageChange}
+              onSkillLevelChange={handleSkillLevelChange}
+            />
           </div>
-          <button className="submitButton" onClick={() => postQuestion({ title, author: 'Louis', text: description, tags: ['1', '3'] })}>
+          <button className="submitButton" onClick={handlePostQuestion}>
             Submit
           </button>
-           {/*  <button className="submitButton" onClick={() => getQuestionsByAuthor('Emil')}>
-            test
-          </button> */}
         </div>
       </div>
       <div className="newQustion">RECENT QUESTION</div>
-      {questions.slice(0, 6).map((question, index) => (
+      {questions.slice(0, 5).map((question, index) => (
         <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
       ))}
-  
     </div>
   );
 }
