@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function SmallQuestionBox(props) {
 
+  
   return (
     <div className="newQustionBox" style={{background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)"}}>
         <div className="newQustionHeader">

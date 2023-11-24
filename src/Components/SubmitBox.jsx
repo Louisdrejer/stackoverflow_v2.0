@@ -15,10 +15,9 @@ useEffect(() => {
     try {
       const result = await getQuestionsByAuthor('Emil');
       setQuestions(result);
-      console.log(result); // Log the updated value of questions after fetching
+      console.log(result); 
     } catch (error) {
       console.error('Error fetching questions:', error);
-      // handle the error as needed
     }
   };
 

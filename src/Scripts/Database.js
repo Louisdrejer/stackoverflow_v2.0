@@ -47,33 +47,48 @@ export const getQuestionsByTag = async(tags) => {
         resolve(queryResults)
     });
 };
+/**
+export const getQuestionsByAuthor = async (name) => {
+    return new Promise(function (resolve, reject) {
+        const query = new Parse.Query('Questions');
+        query.ascending("createdAt");
 
-export const getQuestionsByAuthor = async(name) => {
-    return new Promise(function(resolve, reject) {
+        let result = []
+        query.equalTo('Author', name)
+        let queryResults = query.find().then(results => {
+            results.map(Question => {
+                //return Question.get("Title") + " - " + Question.get("Author")
+                let tmp = {
+                    Author: Question.get("Author"),
+                    Title: Question.get("Title"),
+                    Text: Question.get("Text"),
+                    Date: Question.get("Date"),
+                    Tags: Question.get("Tags")
+                }
+                result.push(tmp)
+            })
+        });
+        console.log(result)
+
+        resolve(result)
+    });
+};  */
+
+export const getQuestionsByAuthor = async (name) => {
     const query = new Parse.Query('Questions');
-    query.ascending("createdAt");
-
-    let result = []
-    query.equalTo('Author', name)
-    let queryResults = query.find().then(results => {
-        results.map(Question => {
-            //return Question.get("Title") + " - " + Question.get("Author")
-            let tmp = {
-                Author: Question.get("Author"),
-                Title: Question.get("Title"),
-                Text: Question.get("Text"),
-                Date: Question.get("Date"),
-                Tags: Question.get("Tags")
-            }
-            result.push(tmp)
-        })
-    });
-    console.log(result)
-
-    resolve(result)
-    });
-};
-
+    query.ascending('createdAt');
+    query.equalTo('Author', name);
+  
+    const results = await query.find();
+  
+    return results.map((question) => ({
+      Author: question.get('Author'),
+      Title: question.get('Title'),
+      Text: question.get('Text'),
+      Date: question.get('Date'),
+      Tags: question.get('Tags'),
+    }));
+  };
 
 //------------------------Comments------------------------
 
