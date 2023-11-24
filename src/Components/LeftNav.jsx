@@ -6,17 +6,28 @@ export default function LeftNav() {
   const [searchTerm, setSearchTerm] = useState('');
   const [pages, setPages] = useState([]);
 
+  const allPages = [
+    {
+        "id": 0,
+        "name": "Questions"
+    },
+    {
+        "id": 1,
+        "name": "Answers"
+    },
+    {
+        "id": 2,
+        "name": "Search"
+    },
+    {
+        "id": 3,
+        "name": "Profile"
+    }
+  ]
+
   useEffect(() => {
     const dataFetch = () => {
-      fetch('/api/pages')
-        .then((res) => res.json())
-        .then((data) => {
-          setPages(data);
-          console.log(setPages)
-        })
-        .catch((error) => {
-          console.error('Error fetching data:', error);
-        });
+  setPages(allPages)
     };
 
     dataFetch();

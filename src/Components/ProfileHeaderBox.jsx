@@ -1,6 +1,11 @@
 import React from 'react';
 
-export default function ProfileHeaderBox({ user }) {
+export default function ProfileHeaderBox() {
+  const user={
+  "username": "Louis",
+  "email": "louisdrejer@hotmail.com",
+  "password": "louis1234"
+  }
   const maskPassword = (password) => (password ? '*'.repeat(password.length) : '');
 
   const maskedPassword = maskPassword(user.password);

@@ -272,10 +272,14 @@
 
 .profilePLTitle {
     color: white;
+    display: flex;
+    align-items: center;
     font-family: 'InterBold';
     font-style: normal;
-    font-weight: 800;
+    font-weight: 1000;
     font-size: 36px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .PLAndSkillLevel {

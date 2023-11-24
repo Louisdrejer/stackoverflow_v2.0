@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 export default function ForgetPassword() {
     return (
     <>
+    <div className="forgot_bg">
         <Link to="/"><img src={logo} alt="Logo" className="page-logo" /></Link>
         <div className="wrapper11">
 
@@ -15,11 +16,11 @@ export default function ForgetPassword() {
                 <img src={arrow} alt="Back" />
             </button>
 
-            <form action="">
+            <form action=""style={{width: "80%",marginLeft:"10%"}}>
 
                 <h1>Reset your <span style={{color:"#5A65EA"}}>StackIT</span> password</h1>
 
-                <div className="input-box">
+                <div className="input-box3">
                     <input type="email" placeholder="Email" required/>
                 </div>
 
@@ -29,16 +30,17 @@ export default function ForgetPassword() {
 
                 
 
-                <div className="input-box">
+                <div className="input-box3">
                     <input type="text" placeholder="Verification Code" required/>
                 </div>
 
-                <div className="input-box">
+                <div className="input-box3">
                     <input type="Password" placeholder="Reset Password" required/>
                 </div>
 
                 <button type="submit" className="btn11">Reset password</button>
             </form>
+        </div>
         </div>
     </>
     )

@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, onApprove }) {
+export default function ProfilePl_OverviewAddLang({ onDiscard, setUser, onApprove }) {
   const defaultLanguage = 'Choose languages';
   const defaultSkillLevel = 'Your skillLevel';
 
+  const user = {
+    username: 'Louis',
+    email: 'louisdrejer@hotmail.com',
+    password: 'louis1234',
+    programmingLanguages: [],
+  };
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
 
   useEffect(() => {
     // This effect will run after every render
-    if (selectedSkillLevel !== defaultSkillLevel && selectedLanguage !== defaultLanguage  ) {
+    if (selectedSkillLevel !== defaultSkillLevel && selectedLanguage !== defaultLanguage) {
       handleApprove();
     }
   }, [selectedLanguage, selectedSkillLevel]); // Run the effect when either selectedLanguage or selectedSkillLevel changes
@@ -32,16 +38,16 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
       // If not, initialize it as an empty array
       user.programmingLanguages = [];
     }
-  
+
     // Check if the language already exists in the user's programming languages
     const existingLanguageIndex = user.programmingLanguages.findIndex(
       (lang) => lang.languages === selectedLanguage
     );
-  
+
     if (existingLanguageIndex !== -1) {
       // If the language already exists
       const existingSkillLevel = user.programmingLanguages[existingLanguageIndex].skillLevel;
-  
+
       if (existingSkillLevel === selectedSkillLevel) {
         // Display an alert if the skill level is the same as before
         alert('You are trying to change the skill level you already have.');
@@ -50,7 +56,7 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
         // Update the skill level
         const updatedLanguages = [...user.programmingLanguages];
         updatedLanguages[existingLanguageIndex].skillLevel = selectedSkillLevel;
-  
+
         // Update the user object with the modified programmingLanguages array
         setUser((prevUser) => ({ ...prevUser, programmingLanguages: updatedLanguages }));
       }
@@ -61,14 +67,12 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
         skillLevel: selectedSkillLevel,
       });
     }
-  
+
     onDiscard();
   };
-  
-  
-  
+
   return (
-    <div >
+    <div>
       <div className="PLAndSkillLevel">
         <div className="ProgrammingLanguages">
           <div className="Languagesnr">Languages</div>
@@ -109,7 +113,6 @@ export default function ProfilePl_OverviewAddLang({ user, setUser, onDiscard, on
             x
           </button>
         </div>
-  
       </div>
     </div>
   );
