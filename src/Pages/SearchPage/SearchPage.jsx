@@ -68,7 +68,7 @@ export default function SearchPage() {
   
     queryFetch(); // Call the function here
   
-  }, []);
+  }, [searchTermFromQuery]);
   
 
   useEffect(() => {
