@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function SmallQuestionBox(props) {
   const getColorForTag = (tag) => {
-    if (tag === "Python" || tag === "Java" || tag === "JavaScript") {
+    if (tag === "PYTHON" || tag === "JAVA" || tag === "JAVASCRIPT") {
       return "rgb(255, 219, 183)";
-    } else if (tag === "Beginner" || tag === "Intermediate" || tag === "Expert") {
+    } else if (tag === "BEGINNER" || tag === "INTERMEDIATE" || tag === "EXPERT") {
       return "rgb(254, 207, 228)";
     } else {
       return "rgb(154, 218, 112)";

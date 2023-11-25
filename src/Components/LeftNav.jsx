@@ -35,8 +35,9 @@ export default function LeftNav({ onSearchTermChange }) {
   }, []);
 
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+      setSearchTerm(e.target.value.toUpperCase());
+    };
+
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {

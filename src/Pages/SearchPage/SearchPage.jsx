@@ -37,14 +37,9 @@ export default function SearchPage() {
   };
 
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchTerm(e.target.value.toUpperCase());
   };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-
-    }
-  };
+  
 
   const searchQuestions = async () => {
     try {
@@ -61,11 +56,20 @@ export default function SearchPage() {
   };
   
   useEffect(() => {
-    // Set the search term from the query parameter
-    setSearchTerm(searchTermFromQuery || '');
-    // Perform the initial search
-    searchQuestions();
-  }, [searchTermFromQuery]);
+    const queryFetch = async () => {
+      try {
+        setSearchTerm(searchTermFromQuery || '');
+        // Perform the initial search
+        searchQuestions();
+      } catch (error) {
+        console.error('Error fetching questions:', error);
+      }
+    };
+  
+    queryFetch(); // Call the function here
+  
+  }, []);
+  
 
   useEffect(() => {
     searchQuestions();
@@ -100,7 +104,6 @@ export default function SearchPage() {
           placeholder="Search tags"
           value={searchTerm}
           onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
         />
         <div className="searchResultsbox">
           <div className="searchResults">SEARCH RESULTS</div>
