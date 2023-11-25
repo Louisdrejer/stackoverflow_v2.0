@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import './SearchPage.css'
 import DropdownMenues from '../../Components/DropdownMenues';
+import SubmitBox from '../../Components/SubmitBox';
 export default function SearchPage() {
     const defaultTopic = 'TOPIC';
     const defaultLanguage = 'LANGUAGE';
@@ -58,6 +59,7 @@ export default function SearchPage() {
         />
          <div className="searchResultsbox">
             <div className="searchResults">SEARCH RESULTS</div>
+
          </div>
       </div>
 </div>

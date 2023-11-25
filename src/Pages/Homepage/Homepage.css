@@ -369,3 +369,14 @@
   font-weight: 600;
   font-size: 14px;
 }
+.pagination{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.currentPage{
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  
+}
