@@ -83,13 +83,14 @@
             <span>{selectedSkillLevel}</span>
             <div className="SP3dropdown-content">
             <p onClick={() => handleSkillLevelChange('BEGINNER')} style={{ cursor: 'pointer' }}>
-                Beginner
+                BEGINNER
             </p>
             <p onClick={() => handleSkillLevelChange('INTERMEDIATE')} style={{ cursor: 'pointer' }}>
-                Intermediate
+                INTERMEDIATE
             </p>
             <p onClick={() => handleSkillLevelChange('EXPERT')} style={{ cursor: 'pointer' }}>
-                Expert
+                EXPERT
+                
             </p>
             </div>
             <div className="SP3arrow-down"></div>
