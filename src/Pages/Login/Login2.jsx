@@ -14,7 +14,7 @@ export default function MyLogin() {
 
    const handleLogin = async (username, pw) => {
        var user = Parse.User.logIn(username, pw).then(function(user) {
-          navigate('/Profile');
+          navigate('/Questions');
        }).catch(function(error) {
           console.log("Error: " + error.code + " " + error.message);
         });
