@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import SmallQuestionBox from './SmallQuestionBox';
 import { postQuestion, getNewestQuestions } from '../Scripts/Database';
 import DropdownMenues from './DropdownMenues';
+import CodeBlock from './CodeBlock';
 
 export default function SubmitBox() {
   const [title, setTitle] = useState('');
@@ -67,6 +68,7 @@ export default function SubmitBox() {
   const prevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
+
 
   return (
     <div className="submitAQuestionContainer">

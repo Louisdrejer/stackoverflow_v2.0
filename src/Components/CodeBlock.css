@@ -1,0 +1,13 @@
+/* CodeBlock.css */
+
+.code {
+    display: block;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #333;
+    /* Add any other styles you desire */
+  }
+  

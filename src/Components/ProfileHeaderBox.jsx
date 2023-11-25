@@ -1,14 +1,30 @@
-import React from 'react';
+import {useEffect, useState} from 'react';
 
 export default function ProfileHeaderBox() {
-  const user={
-  "username": "Louis",
-  "email": "louisdrejer@hotmail.com",
-  "password": "louis1234"
-  }
+const [username, setUsername] = useState('')
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const currentUserString = localStorage.getItem('Parse/hWQnJKPKIOnGgei27IK9spmvIK04hczDanxXJGO9/currentUser');
+        const currentUser = JSON.parse(currentUserString);
+        const username1 = currentUser.username;
+        const email1 = currentUser.email;
+        const password1 = 'louis1234'
+        setUsername(username1)
+        setEmail(email1)
+        setPassword(password1)
+      } catch (error) {
+        console.error('Error fetching questions:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const maskPassword = (password) => (password ? '*'.repeat(password.length) : '');
 
-  const maskedPassword = maskPassword(user.password);
+  const maskedPassword = maskPassword(password);
 
   return (
     <><div className="profileHeaderText">PROFILE</div>
@@ -16,11 +32,11 @@ export default function ProfileHeaderBox() {
       <div className="userInfo">
         <div style={{display: "flex"}}>
         <div className="profileUsername">Username</div>
-        <div className="profileUsernametext">{user.username}</div>
+        <div className="profileUsernametext">{username}</div>
         </div>
         <div style={{display: "flex"}}>
         <div className="profileEmail">Email</div>
-        <div className="profileEmailText">{user.email}</div>
+        <div className="profileEmailText">{email}</div>
         </div>
         <div style={{display: "flex"}}>
         <div className="profilePassword">Password</div>

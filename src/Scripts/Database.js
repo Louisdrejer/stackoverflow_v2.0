@@ -76,7 +76,7 @@ export const getQuestionsByAuthor = async (name) => {
 
 export const getQuestionsByAuthor = async (name) => {
     const query = new Parse.Query('Questions');
-    query.ascending('createdAt');
+    query.descending('createdAt');
     query.equalTo('Author', name);
   
     const results = await query.find();
@@ -92,7 +92,7 @@ export const getQuestionsByAuthor = async (name) => {
 
   export const getQuestionsByTags = async (...tags) => {
   const query = new Parse.Query('Questions');
-  query.ascending('createdAt');
+  query.descending('createdAt');
   query.containedIn('Tags', tags);
   const results = await query.find();
   console.log(tags)
