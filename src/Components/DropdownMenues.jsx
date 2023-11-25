@@ -15,21 +15,25 @@
 
     const handleTopicChange = (topic) => {
         setSelectedTopic(topic);
+        onTopicChange(selectedTopic);
     };
 
     const handleLanguageChange = (language) => {
         setSelectedLanguage(language);
+        onLanguageChange(selectedLanguage);
     };
 
     const handleSkillLevelChange = (skillLevel) => {
         setSelectedSkillLevel(skillLevel);
+        onSkillLevelChange(selectedSkillLevel);
     };
+    
 
     useEffect(() => {
         if (selectedSkillLevel !== defaultSkillLevel && selectedLanguage !== defaultLanguage && selectedTopic !== defaultTopic) {
-        onTopicChange(selectedTopic);
-        onLanguageChange(selectedLanguage);
-        onSkillLevelChange(selectedSkillLevel);
+            onTopicChange(selectedTopic);
+            onLanguageChange(selectedLanguage);
+            onSkillLevelChange(selectedSkillLevel);
         }
     }, [selectedLanguage, selectedSkillLevel, selectedTopic]);
 

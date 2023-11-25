@@ -12,7 +12,7 @@ export default function SubmitBox() {
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [selectedSkillLevel, setSelectedSkillLevel] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Adjust this based on your requirement
+  const itemsPerPage = 5; 
 
   useEffect(() => {
     const fetchData = async () => {

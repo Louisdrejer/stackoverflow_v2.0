@@ -1,19 +1,30 @@
-import {useState, useEffect} from 'react'
-import './SearchPage.css'
+import React, { useState, useEffect } from 'react';
+import './SearchPage.css';
 import DropdownMenues from '../../Components/DropdownMenues';
-import SubmitBox from '../../Components/SubmitBox';
+import SmallQuestionBox from '../../Components/SmallQuestionBox';
+import { getQuestionsByTags } from '../../Scripts/Database';
+
+import { useLocation } from 'react-router-dom';
+import { timeout } from 'q';
 export default function SearchPage() {
-    const defaultTopic = 'TOPIC';
-    const defaultLanguage = 'LANGUAGE';
-    const defaultSkillLevel = 'SKILL LEVEL';
+  const defaultTopic = 'TOPIC';
+  const defaultLanguage = 'LANGUAGE';
+  const defaultSkillLevel = 'SKILL LEVEL';
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const searchTermFromQuery = queryParams.get('term');
 
   const [selectedTopic, setSelectedTopic] = useState(defaultTopic);
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
-  const [SearchTerm, setSearchTerm] = useState('')
-  
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5; 
+
   const handleTopicChange = (topic) => {
     setSelectedTopic(topic);
+    searchQuestions();
   };
 
   const handleLanguageChange = (language) => {
@@ -22,14 +33,8 @@ export default function SearchPage() {
 
   const handleSkillLevelChange = (skillLevel) => {
     setSelectedSkillLevel(skillLevel);
-  };
 
-  useEffect(() => {
-    
-    if (selectedSkillLevel !== defaultSkillLevel && selectedLanguage !== defaultLanguage && selectedTopic !== defaultTopic ) {
-      console.log(selectedTopic,selectedLanguage, selectedSkillLevel)
-    }
-  }, [selectedLanguage, selectedSkillLevel, selectedTopic]);
+  };
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -37,31 +42,97 @@ export default function SearchPage() {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      console.log(SearchTerm);
+
     }
   };
+
+  const searchQuestions = async () => {
+    try {
+      // Filter out empty strings from the selectedTopic, selectedLanguage, and selectedSkillLevel arrays
+      const nonEmptyTags = [selectedTopic, selectedLanguage, selectedSkillLevel, searchTerm]
+  .filter(tag => tag.trim() !== '' && tag !== 'TOPIC' && tag !== 'SKILL LEVEL' && tag !== 'LANGUAGE');
+
+  
+      const results = await getQuestionsByTags([...nonEmptyTags]);
+      setSearchResults(results);
+    } catch (error) {
+      console.error('Error searching questions:', error);
+    }
+  };
+  
+  useEffect(() => {
+    // Set the search term from the query parameter
+    setSearchTerm(searchTermFromQuery || '');
+    // Perform the initial search
+    searchQuestions();
+  }, [searchTermFromQuery]);
+
+  useEffect(() => {
+    searchQuestions();
+  }, [selectedTopic, selectedLanguage, selectedSkillLevel, searchTerm]);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
   return (
     <div className="profileBackground">
       <div className="profileBackground2">
-      <div className="SearchHeader">DISCOVER ANSWERS</div>
-      <div className="SearchPageDropDown">
+        <div className="SearchHeader">DISCOVER ANSWERS</div>
+        <div className="SearchPageDropDown">
           <div className="filterText">FILTER TAGS</div>
-          <DropdownMenues/>
-          
+          <DropdownMenues
+            onTopicChange={handleTopicChange}
+            onLanguageChange={handleLanguageChange}
+            onSkillLevelChange={handleSkillLevelChange}
+          />
         </div>
         <input
           type="text"
-          className='SPSearch'
+          className="SPSearch"
           placeholder="Search tags"
-          value={SearchTerm}
+          value={searchTerm}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
         />
-         <div className="searchResultsbox">
-            <div className="searchResults">SEARCH RESULTS</div>
-
-         </div>
+        <div className="searchResultsbox">
+          <div className="searchResults">SEARCH RESULTS</div>
+          {searchResults.slice(startIndex, endIndex).map((question, index) => (
+        <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
+      ))}
+      {/* Pagination for Questions */}
+      {searchResults.length >= itemsPerPage && (
+        <div className="pagination">
+          <button
+            onClick={() => {
+              prevPage();
+              // Handle any additional logic you need when navigating to the previous page
+            }}
+            disabled={currentPage === 1}
+          >
+            previous
+          </button>
+          <div className="currentPage">{currentPage}</div>
+          <button
+            onClick={() => {
+              nextPage();
+              // Handle any additional logic you need when navigating to the next page
+            }}
+            disabled={endIndex >= searchResults.length}
+          >
+            next
+          </button>
+        </div>
+      )}
+        </div>
       </div>
-</div>
-  )
+    </div>
+  );
 }

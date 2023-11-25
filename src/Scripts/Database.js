@@ -90,6 +90,25 @@ export const getQuestionsByAuthor = async (name) => {
     }));
   };
 
+  export const getQuestionsByTags = async (...tags) => {
+  const query = new Parse.Query('Questions');
+  query.ascending('createdAt');
+  query.containedIn('Tags', tags);
+  const results = await query.find();
+  console.log(tags)
+
+  console.log(results)
+  return results.map((question) => ({
+    Author: question.get('Author'),
+    Title: question.get('Title'),
+    Text: question.get('Text'),
+    Date: question.get('Date'),
+    Tags: question.get('Tags'),
+  }));
+};
+
+
+
   export const getNewestQuestions = async () => {
     const query = new Parse.Query('Questions');
     query.descending('createdAt');

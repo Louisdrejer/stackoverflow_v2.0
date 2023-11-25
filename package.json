@@ -45,6 +45,5 @@
   "description": "StackIT: a safer platform for new programmers to ask and learn!",
   "main": "index.js",
   "author": "",
-  "license": "ISC",
-  "devDependencies": {}
+  "license": "ISC"
 }

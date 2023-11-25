@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/Logo.png';
 
-export default function LeftNav() {
+export default function LeftNav({ onSearchTermChange }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [pages, setPages] = useState([]);
 
@@ -41,8 +41,11 @@ export default function LeftNav() {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       console.log(searchTerm);
+      // Navigate to "/Search" with the search term as a query parameter
+      window.location.href = `/Search?term=${searchTerm}`;
     }
   };
+  
 
 
   return (
