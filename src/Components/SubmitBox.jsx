@@ -4,6 +4,7 @@ import SmallQuestionBox from './SmallQuestionBox';
 import { postQuestion, getNewestQuestions } from '../Scripts/Database';
 import DropdownMenues from './DropdownMenues';
 import CodeBlock from './CodeBlock';
+import CodeInput from './CodeInput';
 
 export default function SubmitBox() {
   const [title, setTitle] = useState('');
@@ -82,7 +83,7 @@ export default function SubmitBox() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <input
+        <textarea
           className="inputPlaintext"
           type="text" 
           placeholder="Write anything here..."
@@ -131,5 +132,6 @@ export default function SubmitBox() {
         </div>
       )}
     </div>
+   
   );
 }

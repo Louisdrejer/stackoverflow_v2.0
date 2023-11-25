@@ -1,6 +1,11 @@
 import React from 'react';
+import CodeBlock from './CodeBlock'; 
+import SmallCodeBlock from './SmallCodeBlock'
+import './CodeBlock.css'; 
+import { useLocation } from 'react-router-dom';
 
 export default function SmallQuestionBox(props) {
+  const location = useLocation();
   const getColorForTag = (tag) => {
     if (tag === "PYTHON" || tag === "JAVA" || tag === "JAVASCRIPT") {
       return "rgb(255, 219, 183)";
@@ -21,7 +26,11 @@ export default function SmallQuestionBox(props) {
         </div>
       </div>
       <div className="newQuestionBody" style={{ background: "rgb(67, 68, 73)", border: "0px" }}>
-        <div className="newQuestionBodyText">{props.text}</div>
+      {location.pathname === '/Profile' ? (
+    <SmallCodeBlock code={props.text} />
+  ) : (
+    <CodeBlock code={props.text} />
+  )}
       </div>
       <div className="newQuestionTags">
         {props.tags.map((tag, index) => (
@@ -33,4 +42,3 @@ export default function SmallQuestionBox(props) {
     </div>
   );
 }
-
