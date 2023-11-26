@@ -4,7 +4,7 @@ import DropdownMenues from '../../Components/DropdownMenues';
 import SmallQuestionBox from '../../Components/SmallQuestionBox';
 import { getQuestionsByTags } from '../../Scripts/Database';
 
-import { useLocation } from 'react-router-dom';
+import { Await, useLocation } from 'react-router-dom';
 import { timeout } from 'q';
 export default function SearchPage() {
   const defaultTopic = 'TOPIC';
@@ -17,7 +17,7 @@ export default function SearchPage() {
   const [selectedTopic, setSelectedTopic] = useState(defaultTopic);
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] =useState( ''||searchTermFromQuery)
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5; 
@@ -41,14 +41,14 @@ export default function SearchPage() {
   };
   
 
+
   const searchQuestions = async () => {
     try {
       // Filter out empty strings from the selectedTopic, selectedLanguage, and selectedSkillLevel arrays
-      const nonEmptyTags = [selectedTopic, selectedLanguage, selectedSkillLevel, searchTerm]
-  .filter(tag => tag.trim() !== '' && tag !== 'TOPIC' && tag !== 'SKILL LEVEL' && tag !== 'LANGUAGE');
-
+      const nonEmptyTags = [ searchTerm,selectedTopic, selectedLanguage, selectedSkillLevel]
+        .filter(tag => tag.trim() !== '' && tag !== 'TOPIC' && tag !== 'SKILL LEVEL' && tag !== 'LANGUAGE');
   
-      const results = await getQuestionsByTags([...nonEmptyTags]);
+      const results = await getQuestionsByTags(nonEmptyTags);
       setSearchResults(results);
     } catch (error) {
       console.error('Error searching questions:', error);
@@ -58,8 +58,9 @@ export default function SearchPage() {
   useEffect(() => {
     const queryFetch = async () => {
       try {
-        setSearchTerm(searchTermFromQuery || '');
-        // Perform the initial search
+        if (!searchTerm) {
+          await setSearchTerm(searchTermFromQuery || '');
+        }
         searchQuestions();
       } catch (error) {
         console.error('Error fetching questions:', error);
@@ -67,13 +68,9 @@ export default function SearchPage() {
     };
   
     queryFetch(); // Call the function here
-  
-  }, [searchTermFromQuery]);
+  }, [selectedTopic, selectedLanguage, selectedSkillLevel, searchTermFromQuery,searchTerm]);
   
 
-  useEffect(() => {
-    searchQuestions();
-  }, [selectedTopic, selectedLanguage, selectedSkillLevel, searchTerm]);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
