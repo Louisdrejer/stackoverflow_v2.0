@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from './Pages/Homepage/Homepage';
-import Login from "./Pages/Login/Login";
 import Profile from "./Pages/Profile/Profile";
 import SearchPage from './Pages/SearchPage/SearchPage';
 import Answerpage from './Pages/Answerpage/Answerpage';
@@ -9,6 +8,7 @@ import MainLayout from './Outerlayout/MainLayout';
 import Outerlayout from './Outerlayout/Outerlayout';
 import ForgetPassword from './Pages/ForgetPassword/ForgetPassword';
 import NewUser from './Pages/NewUser/NewUser';
+import Login2 from './Pages/Login/Login2'
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         </Route>
 
         <Route element={<Outerlayout />} >
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Login2 />} />
           <Route path="/ForgotPassword" element={<ForgetPassword />} />
           <Route path="/NewUser" element={<NewUser />} />
         </Route>

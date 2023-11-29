@@ -6,94 +6,173 @@
     z-index: 1;
 }
 
-form {
-    color: white;
-    width: 20%;
-    border-radius: 16px;
-    padding: 30px 50px 30px 50px;
-    background-color: rgb(81, 81, 85);
-    border: 2px solid #ccc;
-    box-shadow: 0px 0px 20px 15px rgba(39, 37, 37, 0.756);
-}
-
-
-.textField {
+.login_bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     width: 100%;
-    color: white;
-    background: rgba(255, 0, 0, 0);
-    font-family: "Inter";
-    text-decoration: none;
+    background: #35363a;
+}
+
+.page-logo {
+    position: absolute; 
+    top: 25px; 
+    left: 25px; 
+    width: 250px; 
+}
+
+.login-icon {
+    width: 150px; 
+    display: block;
+    margin: 0 auto; 
+}
+
+.wrapper9 {
+    width: 420px;
+    background: rgba(53, 54, 58, 1);
+    border: 1px solid rgba(255, 255, 255, 0);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(90, 101, 234, 0);
+    color: #fff;
+    
+    padding: 30px 40px;
+}
+.wrapper9 h1 {
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper9 .input-box1{
+    position: relative;
+    
+    margin: 30px 0;
+}
+.input-box1 input {
+    width: 80%;
+    height: 10px;
+    background: transparent;
     border: none;
-    border-bottom: 1px solid white;
-    font-size: 12px;
-
-
-}
-
-
-.formContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.Login {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    align-items: center
-}
-
-.LoginButton {
-    background-color: rgb(90, 101, 234);
-    color: white;
-    width: 55%;
-    height: 48px;
-    font-family: "InterBold";
-    font-size: 14px;
-    border-radius: 8px;
-    text-decoration: none;
-    border: none;
-}
-
-.headLine {
-    font-family: "InterBold";
-    font-weight: bolder;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
     font-size: 16px;
-    padding-bottom: 2px;
-
-}
-
-.LinkForgotPasswordDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    padding-top: 4px;
-}
-
-.LinkForgotPassword {
     color: white;
-    font-family: "Inter";
-    font-size: 12px;
+    padding: 20px 45px 20px 20px;
+    transition: border-color 0.3s, color 0.3s;
 }
-
-.inputField {
-    padding-top: 16px;
+.input-box1 input::placeholder {
+    color: #fff;
+    
 }
-
-.loginIcon {
-    width: 30%;
+.input-box1 i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
 }
-
-.loginIconDiv {
+.wrapper9 .remember-forgot {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 8px;
+    justify-content: space-between;
+    font-size: 15px;
+    margin: -15px 0 15px;
+}
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
 }
 
-.LogoLogin {
-    width: 15%;
-    padding: 1%;
+.remember-forgot a {
+    color: #ffffff;
+    text-decoration: none;
 }
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+.wrapper9 .btn9 {
+    width: 100%;
+    height: 45px;
+    background-color: #5A65EA;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+.wrapper9 .btn9:hover {
+   opacity: 0.5;
+}
+
+.wrapper9 .register-link {
+    font-size: 15px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+.wrapper9 .input-box1 input:focus::placeholder {
+    color: transparent;
+}
+
+.input-box1 input:focus {
+    border-color: #ffffff; 
+}
+
+
+.checkbox-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #fff; 
+    margin-left: 5px; 
+    cursor: pointer;
+  }
+  
+  .checkBox {
+    opacity: 0;
+    position: absolute;
+  }
+  
+ 
+  .custom-checkbox {
+    width: 17.5px; 
+    height: 17.5px; 
+    background-color: rgba(53, 54, 58, 1);
+    border: 1px solid #fff; 
+    margin-right: 10px; 
+    transition: background-color 0.3s, border-color 0.3s; 
+    border-radius: 2.5px;
+  }
+  
+
+  .checkBox:checked + .custom-checkbox {
+    background-color: rgba(53, 54, 58, 1); 
+    border-color: #fff; 
+  }
+  
+  
+  .custom-checkbox::after {
+    content: '\2713';
+    position: absolute;
+    top: 46%;
+    left: 7%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #fff; 
+    opacity: 0; 
+    transition: opacity 0.3s; 
+  }
+  
+  .checkBox:checked + .custom-checkbox::after {
+    opacity: 1;
+  }

@@ -1,0 +1,10 @@
+
+.comment-button-container {
+    display: flex;
+    margin-left: auto;
+}
+.comment-button {
+    border-radius: 8px;
+    background-color: #43454A;
+
+}
