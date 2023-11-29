@@ -3,6 +3,7 @@ import CodeBlock from './CodeBlock';
 import SmallCodeBlock from './SmallCodeBlock'
 import './CodeBlock.css'; 
 import { useLocation } from 'react-router-dom';
+import CommentButton from "./CommentButton";
 
 export default function SmallQuestionBox(props) {
   const location = useLocation();
@@ -38,6 +39,9 @@ export default function SmallQuestionBox(props) {
             {tag}
           </div>
         ))}
+          <div className="comment-button-container">
+              <CommentButton/>
+          </div>
       </div>
     </div>
   );
