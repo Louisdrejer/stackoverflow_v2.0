@@ -3,29 +3,17 @@ import ProfilePlOverviewAddLang from './ProfilePL_OverviewAddLang';
 import AddNewLanguages from './AddNewLanguages';
 
 export default function ProfilePL_Overview({ user, setUser }) {
+  
+    const user2 = {
+        username: 'Louis',
+        email: 'louisdrejer@hotmail.com',
+        password: 'louis1234',
+        programmingLanguages: [],
+      };
     const handleDiscard = async (index) => {
-        //   const userId = user.id;
-
-        // try {
-        // const response = await fetch(`http://localhost:7000/users/${userId}/programmingLanguages`, {
-        // method: 'DELETE',
-        //headers: {
-        //       'Content-Type': 'application/json',
-        //   },
-        // });
-
-        // if (response.ok) {
-        const updatedUser = { ...user };
+        const updatedUser = { ...user2 };
         updatedUser.programmingLanguages.splice(index, 1);
         setUser(updatedUser);
-        //  } else {
-        // Handle error, maybe revert the state change
-        //  console.error('Failed to delete data on the server');
-        // You might want to add some error handling logic here
-        //   }
-        //} catch (error) {
-        // console.error('Error occurred during fetch:', error);
-        // }
     };
 
     const [isAddLanguageVisible, setAddLanguageVisible] = useState(false);
@@ -33,20 +21,21 @@ export default function ProfilePL_Overview({ user, setUser }) {
     const handleAddLanguageClick = () => {
         setAddLanguageVisible(true);
     };
+
     const handleApprove = (newLanguage) => {
-        // Logic to add the new language to the user's profile
-        const updatedUser = { ...user };
+        const updatedUser = { ...user2 };
         updatedUser.programmingLanguages.push(newLanguage);
         setUser(updatedUser);
     };
 
     return (
         <div className="profilePLBox">
+            <div className="profilePLTitle">PROGRAMMING LANGUAGES</div>
             <div className="profilePLArea">
-                <div className="profilePLTitle">Programming Languages</div>
+                
 
-                {user.programmingLanguages &&
-                    user.programmingLanguages.map((language, index) => (
+                {user2.programmingLanguages &&
+                    user2.programmingLanguages.map((language, index) => (
                         <div key={index} className="PLAndSkillLevel">
                             <div className="ProgrammingLanguages">
                                 <div className="Languagesnr">{`Languages #${index + 1}`}</div>
@@ -79,8 +68,6 @@ export default function ProfilePL_Overview({ user, setUser }) {
                         />
                     )}
                     <AddNewLanguages onClick={handleAddLanguageClick} />
-
-
                 </div>
             </div>
         </div>

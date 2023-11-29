@@ -119,7 +119,8 @@
 /*--------ProfileOverview.jsx-----------------*/
 .profileOverviewBox {
     background-color: rgb(81, 83, 89);
-    min-height: 535px;
+    min-height: 685px;
+    max-height: 685px;
     border-radius: 5px;
     min-width: 22%;
     display: flex;
@@ -127,7 +128,9 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 18px;    
+    margin-bottom: 18px; 
+    top: 5px;
+    position: sticky;   
 }
 
 .profileOverviewProfile {
@@ -272,10 +275,14 @@
 
 .profilePLTitle {
     color: white;
+    display: flex;
+    align-items: center;
     font-family: 'InterBold';
     font-style: normal;
-    font-weight: 800;
+    font-weight: 1000;
     font-size: 36px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .PLAndSkillLevel {

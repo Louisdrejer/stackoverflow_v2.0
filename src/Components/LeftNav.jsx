@@ -2,21 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/Logo.png';
 
-export default function LeftNav() {
+export default function LeftNav({ onSearchTermChange }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [pages, setPages] = useState([]);
 
+  const allPages = [
+    {
+        "id": 0,
+        "name": "Questions"
+    },
+    {
+        "id": 1,
+        "name": "Answers"
+    },
+    {
+        "id": 2,
+        "name": "Search"
+    },
+    {
+        "id": 3,
+        "name": "Profile"
+    }
+  ]
+
   useEffect(() => {
     const dataFetch = () => {
-      fetch('/api/pages')
-        .then((res) => res.json())
-        .then((data) => {
-          setPages(data);
-          console.log(setPages)
-        })
-        .catch((error) => {
-          console.error('Error fetching data:', error);
-        });
+  setPages(allPages)
     };
 
     dataFetch();
@@ -24,14 +35,18 @@ export default function LeftNav() {
   }, []);
 
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+      setSearchTerm(e.target.value.toUpperCase());
+    };
+
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       console.log(searchTerm);
+      // Navigate to "/Search" with the search term as a query parameter
+      window.location.href = `/Search?term=${searchTerm}`;
     }
   };
+  
 
 
   return (

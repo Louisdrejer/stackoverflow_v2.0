@@ -4,28 +4,22 @@ import ProfilePLAnswers from './ProfilePL_Answers';
 import ProfilePLQuestions from './ProfilePL_Questions';
 import ProfilePLNewMessages from './ProfilePL_NewMessages';
 
-export default function ProfileOverview({ user, setUser, onComponentChange }) {
+export default function ProfileOverview({ onComponentChange }) {
   const getNumberOfQuestions = () => {
-    if (user && user.Question) {
-      return user.Question.length;
-    }
-    return 0;
-  };
 
+  };
+  const user={
+  "username": "Louis",
+  "email": "louisdrejer@hotmail.com",
+  "password": "louis1234"
+  }
   const getNumberOfAnswers = async () => {
     let totalAnswers = 0;
-    if (user && user.Question) {
-      for (let i = 0; i < user.Question.length; i++) {
-        totalAnswers += user.Question[i]?.Answers || 0;
-      }
-    }
     return totalAnswers;
   };
 
   const getNumberOfPL = () => {
-    if (user && user.programmingLanguages) {
-      return user.programmingLanguages.length;
-    }
+   
     return 0;
   };
 
@@ -41,17 +35,17 @@ export default function ProfileOverview({ user, setUser, onComponentChange }) {
       const questions = getNumberOfQuestions(); // No need for async here
       setNumberOfAnswers(answers);
       setNumberOfNewMessages(answers);
-      setNumberOfQuestions(questions);
+      setNumberOfQuestions("0");
     };
 
     fetchData();
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     // No need for async in this case, as getNumberOfPL is synchronous
     const PL = getNumberOfPL();
     setNumberOfPL(PL);
-  }, [user.programmingLanguages]); // Trigger the effect when programmingLanguages changes
+  }, []); // Trigger the effect when programmingLanguages changes
 
   const handleClick = (line) => {
     setClickedLine(line === clickedLine ? 'Questions' : line);
