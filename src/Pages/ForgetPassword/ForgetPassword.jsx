@@ -24,7 +24,7 @@ export default function ForgetPassword() {
                     <input type="email" placeholder="Email" required/>
                 </div>
 
-                <button type="" className="sendCode">Send verification code</button>
+                <button type="" className="sendCode">Send Verification Code</button>
                 <button type="" className="sendAgain">Did not receive it? Send again</button>
                
 
