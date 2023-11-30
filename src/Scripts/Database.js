@@ -1,7 +1,8 @@
 import Parse from 'parse';
 //import Parse from 'parse/dist/parse.min.js';
 
-Parse.initialize("hWQnJKPKIOnGgei27IK9spmvIK04hczDanxXJGO9", "lCFF7xGp3gx2JYlIhtN2YknAG2ZLWL7Kk5LCy2Ma");
+//Parse.initialize("hWQnJKPKIOnGgei27IK9spmvIK04hczDanxXJGO9", "lCFF7xGp3gx2JYlIhtN2YknAG2ZLWL7Kk5LCy2Ma");
+Parse.initialize("bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy", "WWyJLRsOVJ9do5ixaS8i1e1ye5qHtZksn21zNiTi");
 Parse.serverURL = "https://parseapi.back4app.com/";
 
 
@@ -9,19 +10,20 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 //------------------------Questions------------------------
 
 export const postQuestion = async(data) => {
-    let Question = new Parse.Object("Questions");
+    console.log("SENDING POST QUESTION REQUEST")
 
-    //Question.set("ID", data.ID)
+    let Question = new Parse.Object("Questions");
     Question.set("Title", data.title)
     Question.set("Author", data.author)
     Question.set("Text", data.text)
-    Question.set("Date", new Date())
     Question.set("Tags", data.tags)
 
     await Question.save();
 }
 
 export const getQuestionsByTag = async(tags) => {
+    console.log("SENDING GET QUESTIONS BY TAG REQUEST")
+
     return new Promise(function(resolve, reject) {
         const query = new Parse.Query('Questions');
 
@@ -42,13 +44,14 @@ export const getQuestionsByTag = async(tags) => {
                 result.push(tmp)
             })
         });
-        console.log(result)
 
         resolve(queryResults)
     });
 };
 
 export const getQuestionsByAuthor = async(name) => {
+    console.log("SENDING GET QUESTIONS BY AUTHOR REQUEST")
+
     return new Promise(function(resolve, reject) {
     const query = new Parse.Query('Questions');
     query.ascending("createdAt");
@@ -68,7 +71,6 @@ export const getQuestionsByAuthor = async(name) => {
             result.push(tmp)
         })
     });
-    console.log(result)
 
     resolve(result)
     });
@@ -78,6 +80,8 @@ export const getQuestionsByAuthor = async(name) => {
 //------------------------Comments------------------------
 
 export const postComment = async(data) => {
+    console.log("SENDING POST COMMENT REQUEST")
+
     let Comment = new Parse.Object("Comments");
 
     Comment.set("ID", data.ID)
@@ -91,9 +95,9 @@ export const postComment = async(data) => {
 }
 
 export const getComments = async(response) => {
-    const query = new Parse.Query('Comments');
+    console.log("SENDING GET COMMENTS REQUEST")
 
-    //get comments responding to selected question/comment
+    const query = new Parse.Query('Comments');
     query.equalTo('ResponseID', response.id)
     query.equalTo('ResponseTo', response.responseTo)
 
@@ -112,7 +116,6 @@ export const getComments = async(response) => {
             result.push(tmp)
         })
     });
-    console.log(result)
 
     return queryResults
 }
