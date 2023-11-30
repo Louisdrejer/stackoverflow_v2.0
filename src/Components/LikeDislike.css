@@ -1,0 +1,28 @@
+.LikeDislikeButton{
+    background-color: rgb(81, 83, 89);
+    color:white;
+    display: flex;
+    justify-content: space-around;
+    width: 12%;
+    padding: 6px;
+    border-radius: 20px;
+}
+.likeButton{
+    display: flex;
+    padding-right: 5px;
+}
+.likeIcon{
+    transform: scaleX(-1);
+    padding-left: 10px;
+    margin-top: 1px;
+}
+
+.DislikeIcon{
+    transform: scaleX(-1);
+    padding-left: 10px; 
+    margin-top: 1px;
+}
+
+.DislikeButton{
+    display: flex;
+}
