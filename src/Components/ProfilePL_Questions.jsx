@@ -11,7 +11,7 @@ export default function ProfilePL_Questions() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const currentUserString = localStorage.getItem('Parse/hWQnJKPKIOnGgei27IK9spmvIK04hczDanxXJGO9/currentUser');
+        const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
         const currentUser = JSON.parse(currentUserString);
         const username = currentUser.username;
         const result = await getQuestionsByAuthor(username);

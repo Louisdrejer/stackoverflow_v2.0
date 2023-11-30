@@ -1,7 +1,7 @@
 import Parse from 'parse';
 //import Parse from 'parse/dist/parse.min.js';
 
-Parse.initialize("hWQnJKPKIOnGgei27IK9spmvIK04hczDanxXJGO9", "lCFF7xGp3gx2JYlIhtN2YknAG2ZLWL7Kk5LCy2Ma");
+Parse.initialize("bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy", "WWyJLRsOVJ9do5ixaS8i1e1ye5qHtZksn21zNiTi");
 Parse.serverURL = "https://parseapi.back4app.com/";
 
 
@@ -10,7 +10,7 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 
 export const postQuestion = async(data) => {
     let Question = new Parse.Object("Questions");
-
+    console.log("hey")
     //Question.set("ID", data.ID)
     Question.set("Title", data.title)
     Question.set("Author", data.author)
@@ -24,7 +24,7 @@ export const postQuestion = async(data) => {
 export const getQuestionsByTag = async(tags) => {
     return new Promise(function(resolve, reject) {
         const query = new Parse.Query('Questions');
-
+        console.log("hey")
         for (let i = 0; i < tags.length; i++) {
             query.contains(tags[i])
         }
@@ -78,7 +78,7 @@ export const getQuestionsByAuthor = async (name) => {
     const query = new Parse.Query('Questions');
     query.descending('createdAt');
     query.equalTo('Author', name);
-  
+    console.log("hey")
     const results = await query.find();
   
     return results.map((question) => ({
@@ -96,7 +96,7 @@ export const getQuestionsByAuthor = async (name) => {
   query.containedIn('Tags', tags);
   const results = await query.find();
   console.log(tags)
-
+  console.log("hey")
   console.log(results)
   return results.map((question) => ({
     Author: question.get('Author'),
@@ -113,7 +113,7 @@ export const getQuestionsByAuthor = async (name) => {
   export const getNewestQuestions = async () => {
     const query = new Parse.Query('Questions');
     query.descending('createdAt');
-    
+    console.log("hey")
     const results = await query.find();
   
     return results.map((question) => ({
@@ -129,7 +129,7 @@ export const getQuestionsByAuthor = async (name) => {
 
 export const postComment = async(data) => {
     let Comment = new Parse.Object("Comments");
-
+    console.log("hey")
     Comment.set("ID", data.ID)
     Comment.set("ResponseID", data.ResponseID)
     Comment.set("ResponseTo", data.ResponseTo)
@@ -146,7 +146,6 @@ export const getComments = async(response) => {
     //get comments responding to selected question/comment
     query.equalTo('ResponseID', response.id)
     query.equalTo('ResponseTo', response.responseTo)
-
 
     let result = []
     let queryResults = query.find().then(results => {

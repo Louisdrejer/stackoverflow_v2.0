@@ -7,7 +7,7 @@ const [password, setPassword] = useState('')
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const currentUserString = localStorage.getItem('Parse/hWQnJKPKIOnGgei27IK9spmvIK04hczDanxXJGO9/currentUser');
+        const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
         const currentUser = JSON.parse(currentUserString);
         const username1 = currentUser.username;
         const email1 = currentUser.email;
