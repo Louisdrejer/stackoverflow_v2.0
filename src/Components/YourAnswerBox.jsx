@@ -46,16 +46,17 @@ export default function CommentPage() {
 
 return (
   <div className="commentContainer"> 
-
-    <div className='QuestionDescriptionContainer'>
-      <div className="headerWithBackButton">
-        <button className="back-button" onClick={() => window.history.back()}>
-          <img src={arrow} alt="Back" />
-        </button>
-        <span className="recentQuestionsLabel"> Questions</span>      
-        <SmallQuestionBox name={name} title={title} text={text} tags={tags} />
-      </div>
+    <div className="headerWithBackButton">
+      <button className="back-button" onClick={() => window.history.back()}>
+        <img src={arrow} alt="Back" />
+      </button>
+      <span className="recentQuestionsLabel"> Questions</span>
     </div>
+    <div className='QuestionDescriptionContainer'>      
+      <SmallQuestionBox name={name} title={title} text={text} tags={tags} />
+    </div>
+    
+    
     
 
     {/* <div className="PreviousComments">
