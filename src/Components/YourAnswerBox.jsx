@@ -2,34 +2,15 @@ import arrow from '../img/arrow.svg';
 import React, { useState, useEffect } from 'react'
 import {useParams, useLocation, useNavigate} from 'react-router-dom';
 import SmallQuestionBox from './SmallQuestionBox';
-import { postComment, getComments, getQuestionByID } from '../Scripts/Database';
+import { postComment, getComments } from '../Scripts/Database';
 
 
 export default function CommentPage() {
-  // const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  // const [questions, setQuestions] = useState([]);
-  // const { objectId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const questionState = location.state;
-
   const { name, title, text, tags } = questionState;
-
-  // useEffect(() => {
-  //   const fetchQuestion = async () => {
-  //     if (objectId) {
-  //       try {
-  //         const question = await getQuestionByID(objectId);
-  //         setQuestions([question]); 
-  //       } catch (error) {
-  //         console.error('Error fetching question:', error);
-  //       }
-  //     }
-  //   };
-  
-  //   fetchQuestion();
-  // }, [objectId]);
 
 
   const handlePostComment = async () => {
@@ -45,7 +26,7 @@ export default function CommentPage() {
   }; 
 
 return (
-  <div className="commentContainer"> 
+  <div className="Answerpage commentContainer"> 
     <div className="headerWithBackButton">
       <button className="back-button" onClick={() => window.history.back()}>
         <img src={arrow} alt="Back" />
