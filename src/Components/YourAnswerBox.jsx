@@ -1,30 +1,35 @@
 import arrow from '../img/arrow.svg';
 import React, { useState, useEffect } from 'react'
-import {useParams} from 'react-router-dom';
+import {useParams, useLocation, useNavigate} from 'react-router-dom';
 import SmallQuestionBox from './SmallQuestionBox';
 import { postComment, getComments, getQuestionByID } from '../Scripts/Database';
 
 
 export default function CommentPage() {
-  const [title, setTitle] = useState('');
+  // const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [questions, setQuestions] = useState([]);
-  const { objectId } = useParams();
+  // const [questions, setQuestions] = useState([]);
+  // const { objectId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const questionState = location.state;
 
-  useEffect(() => {
-    const fetchQuestion = async () => {
-      if (objectId) {
-        try {
-          const question = await getQuestionByID(objectId);
-          setQuestions([question]); 
-        } catch (error) {
-          console.error('Error fetching question:', error);
-        }
-      }
-    };
+  const { name, title, text, tags } = questionState;
+
+  // useEffect(() => {
+  //   const fetchQuestion = async () => {
+  //     if (objectId) {
+  //       try {
+  //         const question = await getQuestionByID(objectId);
+  //         setQuestions([question]); 
+  //       } catch (error) {
+  //         console.error('Error fetching question:', error);
+  //       }
+  //     }
+  //   };
   
-    fetchQuestion();
-  }, [objectId]);
+  //   fetchQuestion();
+  // }, [objectId]);
 
 
   const handlePostComment = async () => {
@@ -33,7 +38,6 @@ export default function CommentPage() {
         author: 'Louis', 
         text: description,
       });
-      setTitle('');
       setDescription('');
     } catch (error) {
       console.error('Error posting or fetching comment:', error);
@@ -48,14 +52,9 @@ return (
         <button className="back-button" onClick={() => window.history.back()}>
           <img src={arrow} alt="Back" />
         </button>
-        <span className="recentQuestionsLabel"> Questions</span>
+        <span className="recentQuestionsLabel"> Questions</span>      
+        <SmallQuestionBox name={name} title={title} text={text} tags={tags} />
       </div>
-
-
-      <div className="QustionDescription"></div>
-      {questions.map((question) => (
-          <SmallQuestionBox key={question.objectId} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
-        ))}
     </div>
     
 
