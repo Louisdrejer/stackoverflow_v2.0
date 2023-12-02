@@ -159,12 +159,12 @@
   .submitCommentContainer {
     background-color: rgb(43, 44, 48);
     width: 1180px;
-    height: 250px;
+    height: 300px;
     margin-right: 10px;
     border-radius: 5px;
     padding-bottom: 10px;
-    position: fixed;
-    bottom: 0
+    position: absolute;
+    bottom: 18px
   }
 
 
@@ -192,7 +192,7 @@
     color: white;
     border: 1px solid white;
     width: 1100px;
-    height: 95px;
+    height: 150px;
     padding-bottom: 50px;
     border-radius: 2px;
     font-family: 'Inter';
@@ -266,10 +266,9 @@
     font-weight: 800;
     font-size: 16px;
     letter-spacing: 0.12em;
-    margin-top: 0px;
-    position: fixed;
-    bottom: 18px;
-    right: 50px;
+    margin-left: 1010px;
+    position: absolute;
+
   }
 
   .submitAnswerButton:hover {
@@ -377,7 +376,7 @@
     align-items: center; 
     position: absolute; 
     top: -20px; 
-    left: 325px; 
+    margin-left: 5px; 
   }
   
   .back-button {
@@ -400,4 +399,7 @@
      /* Adds space between the back button and the label */
   }
   
-  
+  .commentContainer {
+    position: relative; 
+    min-height: 200vh; 
+  }

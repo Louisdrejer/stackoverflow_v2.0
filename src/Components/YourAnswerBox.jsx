@@ -75,11 +75,11 @@ return (
         <textarea
           className="inputPlaintextAnswer"
           type="text" 
-          placeholder="Write anything here..."
+          placeholder="Write anything here... remember to be helpful and friendly :)"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <div style={{ marginTop: '10px' }}></div>
+        <div style={{ marginTop: '6px' }}></div>
         <button className="submitAnswerButton" onClick={handlePostComment}>
           Submit
         </button>
