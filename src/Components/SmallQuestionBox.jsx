@@ -28,7 +28,7 @@ export default function SmallQuestionBox(props) {
     <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)" }}>
       <div className="newQustionHeader">
         {/* <div className="Headline">{props.title}</div> */}
-        <div className="Headline" onClick={goToAnswerBoxPage}>{props.title}</div>
+        <div className="Headline" onClick={goToAnswerBoxPage} style={{ cursor: 'pointer' }}>{props.title}</div>
         <div className="userQ">
           <div className="smallUserLogo2"></div>
           <div className="username">{props.name}</div>
