@@ -26,6 +26,11 @@
     width: 100%;
   
   }
+
+  .commentContainer {
+    position: relative; 
+    min-height: 200vh; 
+  }
   
   .Leftcontainer {
     background-color: rgb(53, 54, 58);
@@ -159,7 +164,7 @@
   .submitCommentContainer {
     background-color: rgb(43, 44, 48);
     width: 1180px;
-    height: 300px;
+    height: 360px;
     margin-right: 10px;
     border-radius: 5px;
     padding-bottom: 10px;
@@ -192,7 +197,7 @@
     color: white;
     border: 1px solid white;
     width: 1100px;
-    height: 150px;
+    height: 205px;
     padding-bottom: 50px;
     border-radius: 2px;
     font-family: 'Inter';
@@ -393,13 +398,29 @@
   .recentQuestionsLabel {
     color: white;
     font-size: 20px;
-    position: absolute; /* Positions the header container absolutely */
-    top:  36px; /* Positions the container 5px from the top of its positioned ancestor */
-    left: 50px; /* Positions the container 325px from the left of its positioned ancestor */
-     /* Adds space between the back button and the label */
+    position: absolute; 
+    top:  36px; 
+    left: 50px; 
   }
-  
-  .commentContainer {
-    position: relative; 
-    min-height: 200vh; 
+
+  .previousAnswerContainer {
+    position: absolute;
+    background-color: rgb(43, 44, 48);
+    width: 1180px;
+    height: 820px;
+    margin-top: 410px;
+    margin-right: 10px;
+    border-radius: 5px;
+    padding-bottom: 10px;
+  }
+
+  .previousAnswerHeader {
+    color: white;
+    font-family: 'InterBold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px
   }
