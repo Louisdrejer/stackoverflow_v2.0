@@ -2,6 +2,7 @@ import arrow from '../img/arrow.svg';
 import React, { useState, useEffect } from 'react'
 import {useParams, useLocation, useNavigate} from 'react-router-dom';
 import SmallQuestionBox from './SmallQuestionBox';
+import SmallAnswerBox from './SmallAnswersBox';
 import { postComment, getComments } from '../Scripts/Database';
 
 
@@ -31,22 +32,18 @@ return (
       <button className="back-button" onClick={() => window.history.back()}>
         <img src={arrow} alt="Back" />
       </button>
-      <span className="recentQuestionsLabel"> Questions</span>
+      <span className="recentQuestionsLabel">Questions</span>
     </div>
     <div className='QuestionDescriptionContainer'>      
       <SmallQuestionBox name={name} title={title} text={text} tags={tags} />
     </div>
     
-    
-    
-
-    {/* <div className="PreviousComments">
-      <div className="commentDescription">
-          {questions.slice(startIndex, endIndex).map((question, index) => (
-            <SmallCommentBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
-          ))}
+    <div className="previousAnswerContainer">
+      <div className="previousAnswerHeader">PREVIOUS ANSWERS</div>
+      <div className='commentsContainer'>      
+        <SmallAnswerBox name={name} title={title} text={text} tags={tags} />
       </div>
-    </div> */}
+    </div>
 
 
     <div className="submitCommentContainer">
