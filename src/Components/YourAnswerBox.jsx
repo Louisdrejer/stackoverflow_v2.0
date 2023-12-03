@@ -11,7 +11,7 @@ export default function CommentPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const questionState = location.state;
-  const { name, title, text, tags } = questionState;
+  const { username, title, text, tags } = questionState;
 
 
   const handlePostComment = async () => {
@@ -35,13 +35,14 @@ return (
       <span className="recentQuestionsLabel">Questions</span>
     </div>
     <div className='QuestionDescriptionContainer'>      
-      <SmallQuestionBox name={name} title={title} text={text} tags={tags} />
+      <SmallQuestionBox name={username} title={title} text={text} tags={tags} />
     </div>
     
+
     <div className="previousAnswerContainer">
       <div className="previousAnswerHeader">PREVIOUS ANSWERS</div>
-      <div className='commentsContainer'>      
-        <SmallAnswerBox name={name} title={title} text={text} tags={tags} />
+      <div className='commentsContainer'>   
+        <SmallAnswerBox name={username} text={text} />
       </div>
     </div>
 

@@ -60,7 +60,7 @@
   
   .quickSearchBox{
     display: flex;
-      justify-content: center;
+    justify-content: center;
   }
   .quickSearch{
     background-color: black;
@@ -420,9 +420,9 @@
     font-style: normal;
     font-weight: 800;
     font-size: 28px;
-    margin-top: 10px;
+    margin-top: 12px;
     margin-left: 10px;
-    margin-bottom: 10px
+    margin-bottom: 8px
   }
 
 .aCommentBox {
@@ -447,7 +447,18 @@
   margin-left: 5%;
   height: 200px;
   margin-bottom: 10px;
+  background: rgb(67, 68, 73);
+  border: 1px solid white;
+}
+
+.likesDislikes {
+  display: flex;
+  margin-right: -12px
 }
 
 
-
+.commentsContainer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
