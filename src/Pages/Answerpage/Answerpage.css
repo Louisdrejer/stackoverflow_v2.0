@@ -453,7 +453,8 @@
 
 .likesDislikes {
   display: flex;
-  margin-right: -12px
+  margin-right: -12px;
+  margin-bottom: 3px 
 }
 
 
