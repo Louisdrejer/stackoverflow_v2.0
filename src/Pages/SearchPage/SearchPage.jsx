@@ -17,11 +17,13 @@ export default function SearchPage() {
   const [selectedTopic, setSelectedTopic] = useState(defaultTopic);
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
-  const [searchTerm, setSearchTerm] =useState( ''||searchTermFromQuery)
+  const [searchTerm, setSearchTerm] =useState( searchTermFromQuery||'')
+  const [searchTerm2, setsearchTerm2] = useState(searchTerm||[]);
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5; 
 
+  console.log(searchTerm)
   const handleTopicChange = (topic) => {
     setSelectedTopic(topic);
     searchQuestions();
@@ -39,13 +41,23 @@ export default function SearchPage() {
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value.toUpperCase());
   };
-  
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      const wordsArray = searchTerm.split(" ")
+      console.log(wordsArray)
+      setsearchTerm2(wordsArray);
+    }
+    if ((e.key === 'Backspace' || e.key === 'Delete') && searchTerm.length === 0) {
+      setsearchTerm2(searchTerm);
+      setSearchTerm('')
+    }
+  };
 
 
   const searchQuestions = async () => {
     try {
       // Filter out empty strings from the selectedTopic, selectedLanguage, and selectedSkillLevel arrays
-      const nonEmptyTags = [ searchTerm,selectedTopic, selectedLanguage, selectedSkillLevel]
+      const nonEmptyTags = [searchTerm2, selectedTopic, selectedLanguage, selectedSkillLevel]
         .filter(tag => tag.trim() !== '' && tag !== 'TOPIC' && tag !== 'SKILL LEVEL' && tag !== 'LANGUAGE');
   
       const results = await getQuestionsByTags(nonEmptyTags);
@@ -58,9 +70,6 @@ export default function SearchPage() {
   useEffect(() => {
     const queryFetch = async () => {
       try {
-        if (!searchTerm) {
-          await setSearchTerm(searchTermFromQuery || '');
-        }
         searchQuestions();
       } catch (error) {
         console.error('Error fetching questions:', error);
@@ -68,7 +77,7 @@ export default function SearchPage() {
     };
   
     queryFetch(); // Call the function here
-  }, [selectedTopic, selectedLanguage, selectedSkillLevel, searchTermFromQuery,searchTerm]);
+  }, [selectedTopic, selectedLanguage, selectedSkillLevel, searchTermFromQuery, searchTerm2]);
   
 
 
@@ -101,6 +110,7 @@ export default function SearchPage() {
           placeholder="Search tags"
           value={searchTerm}
           onChange={handleInputChange}
+          onKeyUp={handleKeyPress}
         />
         <div className="searchResultsbox">
           <div className="searchResults">SEARCH RESULTS</div>
