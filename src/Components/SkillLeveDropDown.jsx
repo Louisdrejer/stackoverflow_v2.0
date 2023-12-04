@@ -5,7 +5,7 @@ export default function SkillLeveDropDown( {onSkillLevelChange}) {
     const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
     const handleSkillLevelChange = (skillLevel) => {
         setSelectedSkillLevel(skillLevel);
-        onSkillLevelChange(selectedSkillLevel);
+        onSkillLevelChange(skillLevel);
     };
 
   return (

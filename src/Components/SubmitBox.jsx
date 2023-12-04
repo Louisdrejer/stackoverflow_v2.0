@@ -44,9 +44,12 @@ export default function SubmitBox() {
 
   const handlePostQuestion = async () => {
     try {
+      const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+      const currentUser = JSON.parse(currentUserString);
+      const username1 = currentUser.username;
       const result = await postQuestion({
         title,
-        author: 'Louis', 
+        author: username1, 
         text: description,
         tags: [selectedTopic, selectedLanguage, selectedSkillLevel],
       });

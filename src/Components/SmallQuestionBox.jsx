@@ -26,7 +26,7 @@ export default function SmallQuestionBox(props) {
           <div className="username">{props.name}</div>
         </div>
       </div>
-      <div className="newQuestionBody" style={{ background: "rgb(67, 68, 73)", border: "0px" }}>
+      <div className="newQuestionBody">
       {location.pathname === '/Profile' ? (
     <SmallCodeBlock code={props.text} />
   ) : (

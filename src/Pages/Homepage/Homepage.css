@@ -341,10 +341,21 @@
 }
 
 .newQuestionBody {
+  background: rgb(67, 68, 73);
+    border: 0px;
   border-radius: 5px;
   width: 90%;
   margin-left: 5%;
   height: 105px;
+  margin-bottom: 10px;
+}
+.newQuestionBody:hover {
+    border: 0px;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+  height:min-content;
+  min-height: 105px;
   margin-bottom: 10px;
 }
 

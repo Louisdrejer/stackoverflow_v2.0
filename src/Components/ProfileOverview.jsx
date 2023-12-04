@@ -8,11 +8,11 @@ export default function ProfileOverview({ onComponentChange }) {
   const getNumberOfQuestions = () => {
 
   };
-  const user={
-  "username": "Louis",
-  "email": "louisdrejer@hotmail.com",
-  "password": "louis1234"
-  }
+  const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+  const currentUser = JSON.parse(currentUserString);
+  const username1 = currentUser.username;
+  const email1 = currentUser.email;
+
   const getNumberOfAnswers = async () => {
     let totalAnswers = 0;
     return totalAnswers;
@@ -64,10 +64,10 @@ export default function ProfileOverview({ onComponentChange }) {
         </div>
         
         <div className="profileOverviewProfileName">
-          {user.username}
+          {username1}
         </div>
         <div className="profileOverviewProfileEmail">
-          {user.email}
+          {email1}
         </div>
       </div>
     

@@ -5,6 +5,10 @@ import logo from '../img/Logo.png';
 export default function LeftNav({ onSearchTermChange }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [pages, setPages] = useState([]);
+  const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+  const currentUser = JSON.parse(currentUserString);
+  const username1 = currentUser.username;
+  const email1 = currentUser.email;
 
   const allPages = [
     {
@@ -89,10 +93,10 @@ export default function LeftNav({ onSearchTermChange }) {
           <div className="smallUserLogo"></div>
         </div>
         <div className="profileName">
-          ITUCPH
+          {username1}
         </div>
         <div className="profileEmailHomepage">
-          itucph@email.dk
+          {email1}
         </div>
       </div>
     </div>

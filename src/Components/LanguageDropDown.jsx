@@ -4,10 +4,11 @@ export default function LanguageDropDown({onLanguageChange}) {
     const defaultLanguage = 'LANGUAGE';
 
     const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
+
     const handleLanguageChange = (language) => {
         setSelectedLanguage(language);
-        onLanguageChange(selectedLanguage);
-    };
+        onLanguageChange(language);
+      };
     return (
         <div className="SP2dropdown">
             <span>{selectedLanguage}</span>
