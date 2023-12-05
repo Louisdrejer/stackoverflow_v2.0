@@ -216,6 +216,24 @@
   resize: none;
 }
 
+.inputPlaintext::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.inputPlaintext::-webkit-scrollbar-track {
+  background: rgb(67, 68, 73); 
+  border-radius: 20px;
+}
+
+.inputPlaintext::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 0, 0, 0.5); 
+  border-radius: 20px; 
+}
+.inputPlaintext::-webkit-scrollbar-corner {
+  background-color: rgb(67, 68, 73);
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

@@ -41,13 +41,14 @@ export default function SmallQuestionBox(props) {
         <div className="smallUserLogo2"></div>
         <div className="Headline">{props.title}</div>
         </div>
-        {location.pathname === '/Profile' || '/profile' ? (
-       <div className="DeleteContainer" onClick={handleDeleteClick}>
-       Delete
-     </div>
-  ) : (
-    <div className="username">{props.name}</div>
-  )}
+        {location.pathname === '/Profile' || location.pathname === '/profile' ? (
+  <div className="DeleteContainer" onClick={handleDeleteClick}>
+    Delete
+  </div>
+) : (
+  <div className="username">{props.name}</div>
+)}
+
       </div>
       <div className="newQuestionBody">
       {location.pathname === '/Profile' ? (
