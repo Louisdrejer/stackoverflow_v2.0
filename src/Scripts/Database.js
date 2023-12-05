@@ -166,3 +166,32 @@ export const getComments = async(response) => {
     return queryResults
 }
 
+export const giveLikeDislike = async(commentID, type) => {
+    //https://www.back4app.com/docs/javascript/serverless-database
+
+    //get current
+    let damn = new Parse.Query("Comments");
+    damn.equalTo("objectId", commentID);
+
+    damn.first().then(function (comment) {
+        if (comment) { //found comment -> do update
+
+            //update
+            let tmp = comment.get(type)
+            comment.set(type, tmp+1);
+
+            //save to DB
+            comment.save().then(() => {
+                console.log("saved like/dislike");
+              }).catch(function(error) {
+                console.log('Error: ' + error.message);
+              });
+
+        } else {
+          console.log("Nope");
+        }
+      }).catch(function (error) {
+        console.log("Error: " + error.code + " " + error.message);
+      });
+
+}
