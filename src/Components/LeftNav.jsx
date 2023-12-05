@@ -7,6 +7,25 @@ export default function LeftNav({ onSearchTermChange }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [pages, setPages] = useState([]);
 
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+        const currentUser = JSON.parse(currentUserString);
+        const username1 = currentUser.username;
+        const email1 = currentUser.email;
+        setUsername(username1)
+        setEmail(email1)
+      } catch (error) {
+        console.error('Error fetching username:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const allPages = [
     {
         "id": 0,
@@ -86,14 +105,11 @@ export default function LeftNav({ onSearchTermChange }) {
       </div>
       ))}
       <div className="profile">
-        <div className="userLogo">
-          <div className="smallUserLogo"></div>
-        </div>
         <div className="profileName">
-          ITUCPH
+          {username}
         </div>
         <div className="profileEmailHomepage">
-          itucph@email.dk
+          {email}
         </div>
       </div>
       <div className="logoutContainer">
