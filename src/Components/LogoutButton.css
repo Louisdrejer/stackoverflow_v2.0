@@ -1,0 +1,22 @@
+.logoutContainer {
+    position: absolute;
+    bottom: 120px;
+    left: 105px;
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+  
+  .logoutContainer .logout-button {
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: border-width 0.3s ease;
+  }
+  
+  .logoutContainer .logout-button:hover {
+    border-width: 4px; /* Double the border width on hover */
+  }
+  

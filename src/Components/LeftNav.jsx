@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/Logo.png';
+import LogoutButton from './LogoutButton.jsx';
 
 export default function LeftNav({ onSearchTermChange }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -95,6 +96,9 @@ export default function LeftNav({ onSearchTermChange }) {
           itucph@email.dk
         </div>
       </div>
+      <div className="logoutContainer">
+          <LogoutButton />
+        </div>
     </div>
   );
 }
