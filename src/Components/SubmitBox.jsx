@@ -1,10 +1,11 @@
-// SubmitBox.js
 import React, { useState, useEffect } from 'react';
 import SmallQuestionBox from './SmallQuestionBox';
 import { postQuestion, getNewestQuestions } from '../Scripts/Database';
 import DropdownMenues from './DropdownMenues';
 import CodeBlock from './CodeBlock';
 import CodeInput from './CodeInput';
+import { FaArrowRight } from 'react-icons/fa';
+import LikeDislikeButtons from './LikeDisLikeButton';
 
 export default function SubmitBox() {
   const [title, setTitle] = useState('');
@@ -14,7 +15,7 @@ export default function SubmitBox() {
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [selectedSkillLevel, setSelectedSkillLevel] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; 
+  const itemsPerPage = 5;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,12 +45,14 @@ export default function SubmitBox() {
 
   const handlePostQuestion = async () => {
     try {
-      const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+      const currentUserString = localStorage.getItem(
+        'Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser'
+      );
       const currentUser = JSON.parse(currentUserString);
       const username1 = currentUser.username;
       const result = await postQuestion({
         title,
-        author: username1, 
+        author: username1,
         text: description,
         tags: [selectedTopic, selectedLanguage, selectedSkillLevel],
       });
@@ -67,12 +70,13 @@ export default function SubmitBox() {
 
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
+    window.scrollTo(0, 0);
   };
 
   const prevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
+    window.scrollTo(0, 0);
   };
-
 
   return (
     <div className="submitAQuestionContainer">
@@ -81,14 +85,14 @@ export default function SubmitBox() {
         <div className="submitAQuestiontitle">Headline</div>
         <input
           className="inputQuestionTitle"
-          type="text" 
+          type="text"
           placeholder="The title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
           className="inputPlaintext"
-          type="text" 
+          type="text"
           placeholder="Write anything here..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -107,34 +111,57 @@ export default function SubmitBox() {
         </div>
       </div>
       <div className="newQustion">RECENT QUESTION</div>
+      <LikeDislikeButtons/>
       {questions.slice(startIndex, endIndex).map((question, index) => (
-        <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
+        <SmallQuestionBox
+          key={index}
+          name={question.Author}
+          title={question.Title}
+          text={question.Text}
+          tags={question.Tags}
+        />
       ))}
       {/* Pagination for Questions */}
       {questions.length >= itemsPerPage && (
         <div className="pagination">
-          <button
-            onClick={() => {
-              prevPage();
-              // Handle any additional logic you need when navigating to the previous page
-            }}
-            disabled={currentPage === 1}
-          >
-            previous
-          </button>
-          <div className="currentPage">{currentPage}</div>
-          <button
-            onClick={() => {
-              nextPage();
-              // Handle any additional logic you need when navigating to the next page
-            }}
-            disabled={endIndex >= questions.length}
-          >
-            next
-          </button>
+          {currentPage !== 1 && (
+            <button
+              style={{
+                background: 'rgb(67, 68, 73)',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                prevPage();
+              }}
+              disabled={currentPage === 1}
+            >
+              previous
+            </button>
+          )}
+
+          <div className={`currentPage ${questions.length < itemsPerPage ? 'hidden' : ''}`}>
+            {currentPage}
+          </div>
+
+          {endIndex < questions.length && (
+            <button
+              style={{
+                background: 'rgb(67, 68, 73)',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                nextPage();
+              }}
+              disabled={endIndex >= questions.length}
+            >
+              next
+            </button>
+          )}
+
         </div>
       )}
     </div>
-   
   );
 }

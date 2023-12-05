@@ -5,6 +5,16 @@
 }
 .comment-button {
     border-radius: 8px;
+    border: none;
     background-color: #43454A;
-
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    cursor: pointer;
+}
+.comment-count{
+    color:white;
+    margin-left: 10px;
 }

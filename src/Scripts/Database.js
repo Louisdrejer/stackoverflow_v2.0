@@ -6,6 +6,42 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 
 
 
+//------------------------User------------------------
+
+export const createUser = async (username, email, password, confirmPassword) => {
+    if (password !== confirmPassword) {
+      throw new Error('Passwords do not match');
+    }
+  
+    try {
+      // Create a new Parse User
+      const user = new Parse.User();
+  
+      user.set('username', username);
+      user.set('email', email);
+      user.set('password', password);
+  
+      // Sign up the user
+      await user.signUp();
+  
+      console.log('User created successfully');
+    } catch (error) {
+      console.error('Error creating user:', error.message);
+    }
+  };
+
+  export const getSkillLevelByAuthor = async (name) => {
+    const query = new Parse.Query('User');
+    query.equalTo('Author', name);
+    console.log("hey")
+    const results = await query.find();
+  
+    return results.map((question) => ({
+      Author: question.get('Author'),
+      SkillLevel: question.get('SkillLevel'),
+    }));
+  };
+
 //------------------------Questions------------------------
 
 export const postQuestion = async(data) => {
@@ -90,6 +126,16 @@ export const getQuestionsByAuthor = async (name) => {
     }));
   };
 
+  export const getNumberOfQuestionsByAuthor = async (name) => {
+      const query = new Parse.Query('Questions');
+      query.equalTo('Author', name);
+      const count = await query.count();
+  
+      return count;
+  };
+  
+
+
   export const getQuestionsByTags = async (...tags) => {
   const query = new Parse.Query('Questions');
   query.descending('createdAt');
@@ -166,3 +212,39 @@ export const getComments = async(response) => {
     return queryResults
 }
 
+export const getCommentsByAuthor = async (name) => {
+    const query = new Parse.Query('Comments');
+    query.descending('createdAt');
+    query.equalTo('Author', name);
+    console.log("hey")
+    const results = await query.find();
+    console.log(results)
+  
+    // Retrieve question information for each comment
+    const commentsWithQuestionInfo = await Promise.all(results.map(async (comment) => {
+      const questionId = comment.get('ResponseID');
+      const questionQuery = new Parse.Query('Questions');
+      const question = await questionQuery.get(questionId);
+
+  
+      return {
+        Author: comment.get('Author'),
+        Text: comment.get('Text'),
+        Date: comment.get('Date'),
+        DisLike: comment.get('Dislikes'),
+        Like: comment.get('Likes'),
+        QuestionTitle: question.get('Title'),
+        QuestionTags: question.get('Tags'),
+      };
+    }));
+  
+    return commentsWithQuestionInfo;
+  };
+  
+  export const getNumberOfCommentsByAuthor = async (name) => {
+    const query = new Parse.Query('Comments');
+    query.equalTo('Author', name);
+    const count = await query.count();
+
+    return count;
+};

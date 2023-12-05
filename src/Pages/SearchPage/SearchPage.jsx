@@ -89,10 +89,12 @@ export default function SearchPage() {
 
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
+    window.scrollTo(0, 0);
   };
 
   const prevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
+    window.scrollTo(0, 0);
   };
 
 
@@ -119,30 +121,46 @@ export default function SearchPage() {
           {searchResults.slice(startIndex, endIndex).map((question, index) => (
             <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
           ))}
-          {/* Pagination for Questions */}
-          {searchResults.length >= itemsPerPage && (
-            <div className="pagination">
-              <button
-                onClick={() => {
-                  prevPage();
-                  // Handle any additional logic you need when navigating to the previous page
-                }}
-                disabled={currentPage === 1}
-              >
-                previous
-              </button>
-              <div className="currentPage">{currentPage}</div>
-              <button
-                onClick={() => {
-                  nextPage();
-                  // Handle any additional logic you need when navigating to the next page
-                }}
-                disabled={endIndex >= searchResults.length}
-              >
-                next
-              </button>
-            </div>
+            {searchResults.length >= itemsPerPage && (
+        <div className="pagination">
+          {currentPage !== 1 && (
+            <button
+              style={{
+                background: 'rgb(67, 68, 73)',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                prevPage();
+              }}
+              disabled={currentPage === 1}
+            >
+              previous
+            </button>
           )}
+
+          <div className={`currentPage ${searchResults.length < itemsPerPage ? 'hidden' : ''}`}>
+            {currentPage}
+          </div>
+
+          {endIndex < searchResults.length && (
+            <button
+              style={{
+                background: 'rgb(67, 68, 73)',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                nextPage();
+              }}
+              disabled={endIndex >= searchResults.length}
+            >
+              next
+            </button>
+          )}
+
+        </div>
+      )}
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ export default function ProfilePL_Questions() {
         const username = currentUser.username;
         const result = await getQuestionsByAuthor(username);
         setQuestions(result);
-        console.log(result);
+        console.log(questions);
       } catch (error) {
         console.error('Error fetching questions:', error);
       }
@@ -30,10 +30,12 @@ export default function ProfilePL_Questions() {
 
   const nextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
+    window.scrollTo(0, 0);
   };
 
   const prevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
+    window.scrollTo(0, 0);
   };
 
 
@@ -43,28 +45,44 @@ export default function ProfilePL_Questions() {
       {questions.slice(startIndex, endIndex).map((question, index) => (
         <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
       ))}
-      {/* Pagination for Questions */}
       {questions.length >= itemsPerPage && (
         <div className="pagination">
-          <button
-            onClick={() => {
-              prevPage();
-              // Handle any additional logic you need when navigating to the previous page
-            }}
-            disabled={currentPage === 1}
-          >
-            previous
-          </button>
-          <div className="currentPage">{currentPage}</div>
-          <button
-            onClick={() => {
-              nextPage();
-              // Handle any additional logic you need when navigating to the next page
-            }}
-            disabled={endIndex >= questions.length}
-          >
-            next
-          </button>
+          {currentPage !== 1 && (
+            <button
+              style={{
+                background: 'rgb(67, 68, 73)',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                prevPage();
+              }}
+              disabled={currentPage === 1}
+            >
+              previous
+            </button>
+          )}
+
+          <div className={`currentPage ${questions.length < itemsPerPage ? 'hidden' : ''}`}>
+            {currentPage}
+          </div>
+
+          {endIndex < questions.length && (
+            <button
+              style={{
+                background: 'rgb(67, 68, 73)',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                nextPage();
+              }}
+              disabled={endIndex >= questions.length}
+            >
+              next
+            </button>
+          )}
+
         </div>
       )}
     </div>

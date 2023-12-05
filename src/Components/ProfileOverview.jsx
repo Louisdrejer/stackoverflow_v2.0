@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import ProfilePLProgrammingLanguages from './ProfilePL_ProgrammingLanguages';
-import ProfilePLAnswers from './ProfilePL_Answers';
-import ProfilePLQuestions from './ProfilePL_Questions';
-import ProfilePLNewMessages from './ProfilePL_NewMessages';
+import { getNumberOfQuestionsByAuthor, getNumberOfCommentsByAuthor } from '../Scripts/Database';
 
 export default function ProfileOverview({ onComponentChange }) {
-  const getNumberOfQuestions = () => {
+  const [numberOfAnswers, setNumberOfAnswers] = useState(0);
+  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
+  const [numberOfPL, setNumberOfPL] = useState(0);
+  const [numberOfNewMessages, setNumberOfNewMessages] = useState(0);
+  const [clickedLine, setClickedLine] = useState('Questions');
+  const [username, setusername] = useState('');
+  const [email, setemail] = useState('');
 
+  const getNumberOfQuestions = async () => {
+    return await getNumberOfQuestionsByAuthor(username);
   };
-  const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
-  const currentUser = JSON.parse(currentUserString);
-  const username1 = currentUser.username;
-  const email1 = currentUser.email;
 
   const getNumberOfAnswers = async () => {
     let totalAnswers = 0;
@@ -19,23 +20,22 @@ export default function ProfileOverview({ onComponentChange }) {
   };
 
   const getNumberOfPL = () => {
-   
     return 0;
   };
 
-  const [numberOfAnswers, setNumberOfAnswers] = useState(0);
-  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
-  const [numberOfPL, setNumberOfPL] = useState(0);
-  const [numberOfNewMessages, setNumberOfNewMessages] = useState(0);
-  const [clickedLine, setClickedLine] = useState('Questions'); // 'Questions' is set as default
-
   useEffect(() => {
     const fetchData = async () => {
-      const answers = await getNumberOfAnswers();
-      const questions = getNumberOfQuestions(); // No need for async here
+      const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+      const currentUser = JSON.parse(currentUserString);
+      const username1 = currentUser.username;
+      const email1 = currentUser.email;
+      const questions = await getNumberOfQuestionsByAuthor(username1);
+      const answers = await getNumberOfCommentsByAuthor(username1);
+      setemail(email1);
+      setusername(username1);
       setNumberOfAnswers(answers);
       setNumberOfNewMessages(answers);
-      setNumberOfQuestions("0");
+      setNumberOfQuestions(questions);
     };
 
     fetchData();
@@ -64,10 +64,10 @@ export default function ProfileOverview({ onComponentChange }) {
         </div>
         
         <div className="profileOverviewProfileName">
-          {username1}
+          {username}
         </div>
         <div className="profileOverviewProfileEmail">
-          {email1}
+          {email}
         </div>
       </div>
     
@@ -93,13 +93,6 @@ export default function ProfileOverview({ onComponentChange }) {
         >
           <div className="PO_PL">Programming Languages</div>
           <div className="PO_PLNumber">{numberOfPL}</div>
-        </div>
-        <div
-          className={`profileOverviewNewMessagesLine ${clickedLine === 'NewMessages' ? 'clicked' : ''}`}
-          onClick={() => handleClick('NewMessages')}
-        >
-          <div className="PO_NewMes">New messages</div>
-          <div className="PO_NewMesNumber">{numberOfNewMessages}</div>
         </div>
         
       </div>
