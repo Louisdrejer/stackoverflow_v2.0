@@ -16,7 +16,7 @@ export default function ProfilePL_Questions() {
         const username = currentUser.username;
         const result = await getQuestionsByAuthor(username);
         setQuestions(result);
-        console.log(questions);
+        console.log(result);
       } catch (error) {
         console.error('Error fetching questions:', error);
       }
@@ -43,7 +43,7 @@ export default function ProfilePL_Questions() {
     <div className="myAnswersContainer">
     <div className="myAnswersHeaderText">MY QUESTIONS</div>
       {questions.slice(startIndex, endIndex).map((question, index) => (
-        <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
+        <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} objectId={question.objectId} />
       ))}
       {questions.length >= itemsPerPage && (
         <div className="pagination">

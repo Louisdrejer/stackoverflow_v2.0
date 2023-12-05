@@ -4,6 +4,7 @@ import SmallCodeBlock from './SmallCodeBlock'
 import './CodeBlock.css'; 
 import { useLocation } from 'react-router-dom';
 import LikeDislikeButtonNotclick from './LikeDisLikeButtonNotClick';
+import { deleteCommitsById } from '../Scripts/Database';
 
 export default function MycommentBox(props) {
   const location = useLocation();
@@ -16,15 +17,35 @@ export default function MycommentBox(props) {
       return "rgb(154, 218, 112)";
     }
   };
+
+  
+  const handleDeleteClick = async () => {
+    const isConfirmed = window.confirm("Are you sure you want to delete this question?");
+
+    if (!isConfirmed) {
+      return;
+    }
+
+    try {
+   
+      await deleteCommitsById(props.objectId);
+
+      window.location.reload();
+    } catch (error) {
+      console.error("Error deleting question:", error);
+    }
+  };
   
   return (
     <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)" }}>
       <div className="newQustionHeader">
+      <div className="userQ">
+      <div className="smallUserLogo2"></div>
         <div className="Headline">{props.title}</div>
-        <div className="userQ">
-          <div className="smallUserLogo2"></div>
-          <div className="username">{props.name}</div>
         </div>
+        <div className="DeleteContainer" onClick={handleDeleteClick}>
+       Delete
+     </div>
       </div>
       <div className="newQuestionBody">
       {location.pathname === '/Profile' ? (

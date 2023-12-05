@@ -22,7 +22,7 @@
   background-color: rgb(35, 36, 40);
   padding: 1px;
   display: flex;
-  min-height: 200vh;
+  min-height: 205vh;
   width: 100%;
 
 }
@@ -321,6 +321,7 @@
 
 .smallUserLogo2 {
   background-color: rgb(90, 101, 234);
+  border: white solid 2px;
   width: 10px;
   height: 10px;
   border-radius: 100px;

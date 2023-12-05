@@ -48,6 +48,7 @@ export default function ProfilePL_Answers() {
           tags={comment.QuestionTags}
           likes={comment.Like}
           dislikes={comment.DisLike}
+          objectId={comment.objectId}
         />
       ))}
        {Comments.length >= itemsPerPage && (

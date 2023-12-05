@@ -118,11 +118,13 @@ export const getQuestionsByAuthor = async (name) => {
     const results = await query.find();
   
     return results.map((question) => ({
+
       Author: question.get('Author'),
       Title: question.get('Title'),
       Text: question.get('Text'),
       Date: question.get('Date'),
       Tags: question.get('Tags'),
+      objectId: question.id
     }));
   };
 
@@ -153,9 +155,6 @@ export const getQuestionsByAuthor = async (name) => {
   }));
 };
 
-  
-
-
   export const getNewestQuestions = async () => {
     const query = new Parse.Query('Questions');
     query.descending('createdAt');
@@ -170,6 +169,25 @@ export const getQuestionsByAuthor = async (name) => {
       Tags: question.get('Tags'),
     }));
   };
+  export const deleteQuestionById = async (objectId) => {
+    const query = new Parse.Query('Questions');
+    
+    try {
+      const questionToDelete = await query.get(objectId);
+      
+      // Log the question to be deleted for debugging
+      console.log("Deleting question:", questionToDelete);
+  
+      // Use destroy to delete the object
+      await questionToDelete.destroy();
+  
+      console.log("Question deleted successfully");
+    } catch (error) {
+      console.error("Error deleting question:", error);
+      throw error;
+    }
+  };
+  
   
 //------------------------Comments------------------------
 
@@ -233,8 +251,10 @@ export const getCommentsByAuthor = async (name) => {
         Date: comment.get('Date'),
         DisLike: comment.get('Dislikes'),
         Like: comment.get('Likes'),
+        objectId: comment.id,
         QuestionTitle: question.get('Title'),
         QuestionTags: question.get('Tags'),
+       
       };
     }));
   
@@ -247,4 +267,22 @@ export const getCommentsByAuthor = async (name) => {
     const count = await query.count();
 
     return count;
+};
+export const deleteCommitsById = async (objectId) => {
+  const query = new Parse.Query('Comments');
+  
+  try {
+    const commentToDelete = await query.get(objectId);
+    
+    // Log the question to be deleted for debugging
+    console.log("Deleting question:", commentToDelete);
+
+    // Use destroy to delete the object
+    await commentToDelete.destroy();
+
+    console.log("Question deleted successfully");
+  } catch (error) {
+    console.error("Error deleting question:", error);
+    throw error;
+  }
 };

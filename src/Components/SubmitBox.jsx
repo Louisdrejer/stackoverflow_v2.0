@@ -111,7 +111,7 @@ export default function SubmitBox() {
         </div>
       </div>
       <div className="newQustion">RECENT QUESTION</div>
-      <LikeDislikeButtons/>
+    
       {questions.slice(startIndex, endIndex).map((question, index) => (
         <SmallQuestionBox
           key={index}
@@ -119,6 +119,7 @@ export default function SubmitBox() {
           title={question.Title}
           text={question.Text}
           tags={question.Tags}
+          objectId={question.objectId}
         />
       ))}
       {/* Pagination for Questions */}
