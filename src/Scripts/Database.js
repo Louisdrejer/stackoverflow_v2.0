@@ -169,6 +169,9 @@ export const getComments = async(response) => {
 export const giveLikeDislike = async(commentID, type) => {
     //https://www.back4app.com/docs/javascript/serverless-database
 
+    //maybe could use increment instead but was not in javascript documentation:
+    //https://www.back4app.com/docs/android/data-objects/android-data-types
+
     //get current
     let damn = new Parse.Query("Comments");
     damn.equalTo("objectId", commentID);
@@ -193,5 +196,4 @@ export const giveLikeDislike = async(commentID, type) => {
       }).catch(function (error) {
         console.log("Error: " + error.code + " " + error.message);
       });
-
 }
