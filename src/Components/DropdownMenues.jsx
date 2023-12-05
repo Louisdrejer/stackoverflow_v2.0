@@ -2,50 +2,69 @@
     // DropdownMenues.js
     import React, { useState, useEffect } from 'react';
     import '../Pages/SearchPage/SearchPage';
-
-    export default function DropdownMenues({ onTopicChange, onLanguageChange, onSkillLevelChange }) {
-    const defaultTopic = 'TOPIC';
-    const defaultLanguage = 'LANGUAGE';
-    const defaultSkillLevel = 'SKILL LEVEL';
-
-    const [selectedTopic, setSelectedTopic] = useState(defaultTopic);
-    const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
-    const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
-    const [SearchTerm, setSearchTerm] = useState('');
-
-    const handleTopicChange = (topic) => {
+    
+    export default function DropdownMenues({
+      onTopicChange,
+      onLanguageChange,
+      onSkillLevelChange,
+      resetDropdown,
+    }) {
+      const defaultTopic = 'TOPIC';
+      const defaultLanguage = 'LANGUAGE';
+      const defaultSkillLevel = 'SKILL LEVEL';
+    
+      const [selectedTopic, setSelectedTopic] = useState(defaultTopic);
+      const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
+      const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
+      const [SearchTerm, setSearchTerm] = useState('');
+      
+    
+      const handleTopicChange = (topic) => {
         setSelectedTopic(topic);
         onTopicChange(selectedTopic);
-    };
-
-    const handleLanguageChange = (language) => {
+      };
+    
+      const handleLanguageChange = (language) => {
         setSelectedLanguage(language);
         onLanguageChange(selectedLanguage);
-    };
-
-    const handleSkillLevelChange = (skillLevel) => {
+      };
+    
+      const handleSkillLevelChange = (skillLevel) => {
         setSelectedSkillLevel(skillLevel);
         onSkillLevelChange(selectedSkillLevel);
-    };
+      };
     
-
-    useEffect(() => {
-        if (selectedSkillLevel !== defaultSkillLevel && selectedLanguage !== defaultLanguage && selectedTopic !== defaultTopic) {
-            onTopicChange(selectedTopic);
-            onLanguageChange(selectedLanguage);
-            onSkillLevelChange(selectedSkillLevel);
+      useEffect(() => {
+        if (resetDropdown) {
+          // Reset dropdown values when resetDropdown changes
+          setSelectedTopic(defaultTopic);
+          setSelectedLanguage(defaultLanguage);
+          setSelectedSkillLevel(defaultSkillLevel);
         }
-    }, [selectedLanguage, selectedSkillLevel, selectedTopic]);
-
-    const handleInputChange = (e) => {
+      }, [resetDropdown]);
+    
+      useEffect(() => {
+        if (
+          selectedSkillLevel !== defaultSkillLevel &&
+          selectedLanguage !== defaultLanguage &&
+          selectedTopic !== defaultTopic
+        ) {
+          onTopicChange(selectedTopic);
+          onLanguageChange(selectedLanguage);
+          onSkillLevelChange(selectedSkillLevel);
+        }
+      }, [selectedLanguage, selectedSkillLevel, selectedTopic]);
+    
+      const handleInputChange = (e) => {
         setSearchTerm(e.target.value);
-    };
-
-    const handleKeyDown = (e) => {
+      };
+    
+      const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-        console.log(SearchTerm);
+          console.log(SearchTerm);
         }
-    };
+      };
+    
 
     return (
         <>

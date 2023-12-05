@@ -15,6 +15,7 @@ export default function SubmitBox() {
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [selectedSkillLevel, setSelectedSkillLevel] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [resetDropdown, setResetDropdown] = useState(1);
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -58,6 +59,7 @@ export default function SubmitBox() {
       });
       setTitle('');
       setDescription('');
+      setResetDropdown(resetDropdown + 1);
       const updatedQuestions = await getNewestQuestions();
       setQuestions(updatedQuestions);
     } catch (error) {
@@ -103,7 +105,9 @@ export default function SubmitBox() {
               onTopicChange={handleTopicChange}
               onLanguageChange={handleLanguageChange}
               onSkillLevelChange={handleSkillLevelChange}
+              resetDropdown={resetDropdown} // Pass the prop here
             />
+
           </div>
           <button className="submitButton" onClick={handlePostQuestion}>
             Submit
@@ -111,7 +115,7 @@ export default function SubmitBox() {
         </div>
       </div>
       <div className="newQustion">RECENT QUESTION</div>
-    
+
       {questions.slice(startIndex, endIndex).map((question, index) => (
         <SmallQuestionBox
           key={index}
