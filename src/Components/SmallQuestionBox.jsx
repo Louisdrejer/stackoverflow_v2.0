@@ -47,7 +47,7 @@ export default function SmallQuestionBox(props) {
             {tag}
           </div>
         ))}
-          <div className="comment-button-container">
+          <div className="comment-button-container"  onClick={goToAnswerBoxPage} style={{ cursor: 'pointer' }}>
               <CommentButton/>
           </div>
       </div>

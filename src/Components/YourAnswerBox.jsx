@@ -78,7 +78,7 @@ return (
       <span className="recentQuestionsLabel">Questions</span>
     </div>
     <div className='QuestionDescriptionContainer'>      
-      <SmallQuestionBox name={username} title={title} text={text} tags={tags} />
+      <SmallQuestionBox name={'Louis'} title={title} text={text} tags={tags} />  
     </div>
     
 

@@ -344,6 +344,13 @@
     height: 250px;
     margin-bottom: 10px;
   }
+
+
+
+  .Answerpage .code {
+    width: 99%;
+    height: 240px;
+  }
   
   .newQuestionBodyText {
     color: white;
