@@ -28,9 +28,8 @@
   }
 
   .commentContainer {
-    position: relative; 
-    min-height: 200vh; 
     width: 100%;
+    margin-bottom: 20px;
   }
   
   .Leftcontainer {
@@ -152,7 +151,7 @@
   }
   
   .QuestionDescriptionContainer {
-    position: absolute;
+
     width: 100%;
     margin-top: 50px;
     margin-right: 10px;
@@ -167,7 +166,6 @@
     margin-right: 10px;
     border-radius: 5px;
     padding-bottom: 10px;
-    position: absolute;
     bottom: 18px;
     margin-left: 5%;
   }
@@ -272,7 +270,6 @@
     font-size: 16px;
     letter-spacing: 0.12em;
     margin-left: 85%;
-    position: absolute;
 
   }
 
@@ -411,11 +408,8 @@
   }
 
   .previousAnswerContainer {
-    position: absolute;
     background-color: rgb(43, 44, 48);
     width: 90%;
-  
-    margin-top: 410px;
     margin-right: 10px;
     border-radius: 5px;
     padding-bottom: 10px;
