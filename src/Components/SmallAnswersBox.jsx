@@ -17,7 +17,7 @@ export default function SmallAnswerBox(props) {
           <div className="username">{props.name}</div>
         </div>
           <div className="likesDislikes">
-          <LikeDislikeButtons likes={props.likes} disLikes={props.disLikes} />
+          <LikeDislikeButtons likes={props.likes} disLikes={props.disLikes} objectId={props.objectId} />
           </div>
       </div>
       <div className="aCommentBody" style={{ background: "rgb(67, 68, 73)" }}>

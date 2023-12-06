@@ -329,3 +329,53 @@ export const getNewestCommentsById = async (responseId) => {
     DisLikes: comment.get('Dislikes'),
   }));
 };
+
+
+export const updateLikesAndDislikes = async (objectId, likeClicked, dislikeClicked) => {
+  const query = new Parse.Query('Comments');
+console.log('heyyy')
+  try {
+    const commentToUpdate = await query.get(objectId);
+
+    if (likeClicked) {
+      commentToUpdate.increment('Likes');
+    } else {
+      commentToUpdate.increment('Likes', -1);
+    }
+
+    if (dislikeClicked) {
+      commentToUpdate.increment('Dislikes');
+    } else {
+      commentToUpdate.increment('Dislikes', -1);
+    }
+
+    await commentToUpdate.save();
+
+    console.log("Likes and Dislikes updated successfully");
+  } catch (error) {
+    console.error("Error updating Likes and Dislikes:", error);
+    throw error;
+  }
+};
+
+export const updateLikesInDatabase = async (objectId, newLikes) => {
+  try {
+    const query = new Parse.Query('Comments');
+    const question = await query.get(objectId);
+    question.set('Likes', newLikes);
+    await question.save();
+  } catch (error) {
+    console.error('Error updating likes in the database:', error.message);
+  }
+};
+
+export const updateDislikesInDatabase = async (objectId, newDislikes) => {
+  try {
+    const query = new Parse.Query('Comments');
+    const question = await query.get(objectId);
+    question.set('Dislikes', newDislikes);
+    await question.save();
+  } catch (error) {
+    console.error('Error updating dislikes in the database:', error.message);
+  }
+};
