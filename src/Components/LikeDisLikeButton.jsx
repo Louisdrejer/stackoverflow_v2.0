@@ -3,27 +3,31 @@ import './LikeDislike.css'
 import { BiSolidLike, BiSolidDislike} from "react-icons/bi";
 
 const LikeDislikeButtons = () => {
-  const [likes, setLikes] = useState(0);
-  const [dislikes, setDislikes] = useState(0);
+  const [like, setLikes] = useState(false);
+  const [dislike, setDislikes] = useState(false);
 
   const handleLike = () => {
-    setLikes(likes + 1);
+    if (!dislike) {
+      setLikes(!like);
+    }
   };
 
   const handleDislike = () => {
-    setDislikes(dislikes + 1);
+    if (!like) {
+      setDislikes(!dislike);
+    }
   };
 
   return (
     <div className='LikeDislikeButton'>
         <div className="likeButton">
             <div className="likeIcon" onClick={handleLike}><BiSolidLike /></div>
-            <div className="likeCount">{likes}</div>
+            <div className="likeCount">{Number(like)}</div>
         </div>
         <div style={{fontSize: "14px"}}>|</div>
         <div className="DislikeButton">
             <div className="DislikeIcon"style={{ transform: 'scaleX(-1)' }}onClick={handleDislike}><BiSolidDislike /> </div>
-            <div className="DislikeCount">{dislikes}</div>
+            <div className="DislikeCount">{Number(dislike)}</div>
         </div>
     </div>
   );
