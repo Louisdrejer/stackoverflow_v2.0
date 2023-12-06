@@ -18,7 +18,7 @@ export default function MycommentBox(props) {
     }
   };
 
-  
+
   const handleDeleteClick = async () => {
     const isConfirmed = window.confirm("Are you sure you want to delete this question?");
 
@@ -29,15 +29,15 @@ export default function MycommentBox(props) {
     try {
    
       await deleteCommitsById(props.objectId);
-
-      window.location.reload();
+      props.setUpdate(props.update+1)
+     // window.location.reload();
     } catch (error) {
       console.error("Error deleting question:", error);
     }
   };
   
   return (
-    <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)" }}>
+    <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)", width:"90%",marginLeft:"5%" }}>
       <div className="newQustionHeader">
       <div className="userQ">
       <div className="smallUserLogo2"></div>

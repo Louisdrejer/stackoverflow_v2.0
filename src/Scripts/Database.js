@@ -35,7 +35,7 @@ export const createUser = async (username, email, password, confirmPassword) => 
     query.equalTo('Author', name);
     console.log("hey")
     const results = await query.find();
-  
+    console.log(results)
     return results.map((question) => ({
       Author: question.get('Author'),
       SkillLevel: question.get('SkillLevel'),
@@ -268,6 +268,7 @@ export const getCommentsByAuthor = async (name) => {
 
     return count;
 };
+
 export const deleteCommitsById = async (objectId) => {
   const query = new Parse.Query('Comments');
   

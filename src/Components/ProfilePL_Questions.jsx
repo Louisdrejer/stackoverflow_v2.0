@@ -6,6 +6,7 @@ import SmallQuestionBox from './SmallQuestionBox';
 export default function ProfilePL_Questions() {
   const [questions, setQuestions] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [Update, setUpdate] = useState(1)
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function ProfilePL_Questions() {
     };
 
     fetchData();
-  }, []);
+  }, [Update]);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -43,7 +44,7 @@ export default function ProfilePL_Questions() {
     <div className="myAnswersContainer">
     <div className="myAnswersHeaderText">MY QUESTIONS</div>
       {questions.slice(startIndex, endIndex).map((question, index) => (
-        <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} objectId={question.objectId} />
+        <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} objectId={question.objectId} setUpdate ={setUpdate} update ={Update}/>
       ))}
       {questions.length >= itemsPerPage && (
         <div className="pagination">

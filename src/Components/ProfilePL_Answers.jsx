@@ -5,6 +5,7 @@ import MycommentBox from './MyCommentBox';
 export default function ProfilePL_Answers() {
   const [Comments, setComments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [Update, setUpdate] = useState(1)
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function ProfilePL_Answers() {
     };
 
     fetchData();
-  }, []);
+  }, [Update]);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -49,6 +50,7 @@ export default function ProfilePL_Answers() {
           likes={comment.Like}
           dislikes={comment.DisLike}
           objectId={comment.objectId}
+          setUpdate ={setUpdate} update ={Update}
         />
       ))}
        {Comments.length >= itemsPerPage && (

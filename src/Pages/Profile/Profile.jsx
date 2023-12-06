@@ -12,52 +12,8 @@ export default function Profile() {
   const [selectedComponent, setSelectedComponent] = useState('Questions');
 
     useEffect(() => {
-      const dataFetch = () => {
-        fetch('/api/users')
-          .then((res) => res.json())
-          .then((data) => {
-            const profile = JSON.parse(
-              localStorage.getItem("user") || "0"
-            );
-            const userWithId = data.find((userData) => userData.id === profile);
-            setUser(userWithId);
-          })
-          .catch((error) => {
-            console.error('Error fetching data:', error);
-          });
-      };
-      dataFetch();
       window.scrollTo({ top: 0, behavior: 'auto' });
     }, []);
-    /* 
-    const dataFetch = async () => {
-      try {
-        const profile = JSON.parse(localStorage.getItem("user") || "0");
-        const response = await fetch('/api/users/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ profileId: profile }),
-        });
-  
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-  
-        const data = await response.json();
-        console.log(data);
-        setUser(data); // Set the user with the matched ID
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-  
-    dataFetch();
-    window.scrollTo({ top: 0, behavior: 'auto' });
-  }, []);
-  */
-  
   
   const handleComponentChange = (component) => {
     setSelectedComponent(component);
