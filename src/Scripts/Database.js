@@ -170,6 +170,7 @@ export const getQuestionsByAuthor = async (name) => {
       objectId: question.id
     }));
   };
+
   export const deleteQuestionById = async (objectId) => {
     const query = new Parse.Query('Questions');
     
@@ -243,6 +244,7 @@ export const getCommentsById = async (responseId) => {
       }
     };
 
+
 export const getCommentsByAuthor = async (name) => {
     const query = new Parse.Query('Comments');
     query.descending('createdAt');
@@ -299,3 +301,20 @@ export const deleteCommitsById = async (objectId) => {
     throw error;
   }
 };
+
+export const getNewestCommentsById = async (responseId) => {
+    const query = new Parse.Query('Comments');
+    query.descending('createdAt');
+    query.equalTo('ResponseID', responseId)
+    console.log("hey")
+    const results = await query.find();
+  
+    return results.map(comment => ({
+      Author: comment.get('Author'),
+      Text: comment.get('Text'),
+      Date: comment.get('Date'),
+      objectId: comment.id,
+      Likes: comment.get("Likes"),
+      DisLikes: comment.get('Dislikes'),
+    }));
+  };

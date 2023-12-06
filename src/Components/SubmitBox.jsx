@@ -42,11 +42,17 @@ export default function SubmitBox() {
     setSelectedSkillLevel(skillLevel);
   };
 
+
+
+  const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+  const currentUser = JSON.parse(currentUserString);
+  const currentUsername = currentUser.username;
+  
   const handlePostQuestion = async () => {
     try {
       const result = await postQuestion({
         title,
-        author: 'Louis', 
+        author: currentUsername, 
         text: description,
         tags: [selectedTopic, selectedLanguage, selectedSkillLevel],
       });
@@ -69,7 +75,6 @@ export default function SubmitBox() {
   const prevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
-
 
   return (
     <div className="submitAQuestionContainer">
