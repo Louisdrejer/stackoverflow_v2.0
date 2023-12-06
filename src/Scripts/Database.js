@@ -303,3 +303,11 @@ export const deleteCommitsById = async (objectId) => {
 
     return count;
 };
+
+export const getNumberOfCommentsByResponseID = async (responseID) => {
+  const query = new Parse.Query('Comments');
+  query.equalTo('ResponseID', responseID);
+  const count = await query.count();
+
+  return count;
+};

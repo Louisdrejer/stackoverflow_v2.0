@@ -17,12 +17,6 @@ export default function CommentPage() {
   const questionState = location.state;
   console.log(questionState)
   const { username, title, text, tags, pid } = questionState
-  // console.log(questionState);
-  // if (!questionState) {
-  //   console.log('No state provided, redirecting to questions list.');
-  //   navigate('/questions');
-  //   return null;
-  // }
 
 
   useEffect(() => {
@@ -45,7 +39,7 @@ export default function CommentPage() {
       const result = await postComment({
         author: 'Louis', 
         text: description,
-        ResponseID: pid  // Change this line to match the case
+        ResponseID: pid 
       });
       setDescription('');
     } catch (error) {
@@ -85,7 +79,6 @@ return (
     <div className="previousAnswerContainer">
       <div className="previousAnswerHeader">PREVIOUS ANSWERS</div>
       <div className='commentsContainer'>   
-        {/* <SmallAnswerBox name={comment.Author} text={comment.Text} /> */}
         {Comments.slice(startIndex, endIndex).map((comment, index) => (
           <SmallAnswerBox 
             key={index}

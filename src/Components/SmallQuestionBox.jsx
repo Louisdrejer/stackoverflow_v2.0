@@ -47,7 +47,7 @@ export default function SmallQuestionBox(props) {
       <div className="newQustionHeader">  
         <div className="userQ">
         <div className="smallUserLogo2"></div>
-        <div className="Headline" onClick={goToAnswerBoxPage} style={{ cursor: 'pointer' }}>{props.title}</div>
+        <div className="Headline">{props.title}</div>
         </div>
         {location.pathname === '/Profile' || location.pathname === '/profile' ? (
   <div className="DeleteContainer" onClick={handleDeleteClick}>
@@ -72,7 +72,7 @@ export default function SmallQuestionBox(props) {
           </div>
         ))}
           <div className="comment-button-container">
-              <CommentButton/>
+              <CommentButton  onClick={goToAnswerBoxPage} objectId={props.objectId}/>
           </div>
       </div>
     </div>
