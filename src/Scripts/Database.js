@@ -138,7 +138,7 @@ export const getQuestionsByAuthor = async (name) => {
   
 
 
-  export const getQuestionsByTags = async (...tags) => {
+  export const getQuestionsByTags = async (tags) => {
   const query = new Parse.Query('Questions');
   query.descending('createdAt');
   query.containedIn('Tags', tags);

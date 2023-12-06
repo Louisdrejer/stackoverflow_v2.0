@@ -43,6 +43,7 @@ export default function CommentPage() {
         console.error('Error fetching questions:', error);
       }
     };
+    window.scrollTo(0, 0);
     fetchData();
   }, []);
 
@@ -91,64 +92,68 @@ return (
       <span className="recentQuestionsLabel">Questions</span>
     </div>
     <div className='QuestionDescriptionContainer'>      
-      <SmallQuestionBox name={username} title={title} text={text} tags={tags} />  
+      <SmallQuestionBox name={username} title={title} text={text} tags={tags}  objectId={pid} />  
     </div>
     
+ 
+      {Comments.length > 0 && (
+        <>
+         <div className="previousAnswerContainer">
+          <div className="previousAnswerHeader">PREVIOUS ANSWERS</div>
+          <div className='commentsContainer'>   
+            {Comments.slice(startIndex, endIndex).map((comment, index) => (
+              <SmallAnswerBox 
+                key={index}
+                name={comment.Author}
+                text={comment.Text}
+                likes={comment.Like}
+                dislikes={comment.DisLike}
+              />
+            ))}
+            {Comments.length >= itemsPerPage && (
+              <div className="pagination">
+                {currentPage !== 1 && (
+                  <button
+                    style={{
+                      background: 'rgb(67, 68, 73)',
+                      color: 'white',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => {
+                      prevPage();
+                    }}
+                    disabled={currentPage === 1}
+                  >
+                    previous
+                  </button>
+                )}
 
-    <div className="previousAnswerContainer">
-      <div className="previousAnswerHeader">PREVIOUS ANSWERS</div>
-      <div className='commentsContainer'>   
-        {Comments.slice(startIndex, endIndex).map((comment, index) => (
-          <SmallAnswerBox 
-            key={index}
-            name={comment.Author}
-            text={comment.Text}
-            likes={comment.Like}
-            dislikes={comment.DisLike}
-          />
-        ))}
-          {Comments.length >= itemsPerPage && (
-            <div className="pagination">
-              {currentPage !== 1 && (
-                <button
-                  style={{
-                    background: 'rgb(67, 68, 73)',
-                    color: 'white',
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => {
-                    prevPage();
-                  }}
-                  disabled={currentPage === 1}
-                >
-                  previous
-                </button>
-              )}
+                <div className={`currentPage ${Comments.length < itemsPerPage ? 'hidden' : ''}`}>
+                  {currentPage}
+                </div>
 
-              <div className={`currentPage ${Comments.length < itemsPerPage ? 'hidden' : ''}`}>
-                {currentPage}
+                {endIndex < Comments.length && (
+                  <button
+                    style={{
+                      background: 'rgb(67, 68, 73)',
+                      color: 'white',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => {
+                      nextPage();
+                    }}
+                    disabled={endIndex >= Comments.length}
+                  >
+                    next
+                  </button>
+                )}
               </div>
-
-              {endIndex < Comments.length && (
-                <button
-                  style={{
-                    background: 'rgb(67, 68, 73)',
-                    color: 'white',
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => {
-                    nextPage();
-                  }}
-                  disabled={endIndex >= Comments.length}
-                >
-                  next
-                </button>
-              )}
-
+            )}
           </div>
-        )}        
-      </div>
-    </div>
+          </div>
+        </>
+      )}
+  
 
 
     <div className="submitCommentContainer">
