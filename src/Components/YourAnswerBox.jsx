@@ -8,18 +8,20 @@ import { postComment, getCommentsById } from '../Scripts/Database';
 
 export default function CommentPage() {
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
   const [description, setDescription] = useState('');
   const [Comments, setComments] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   const questionState = location.state;
+  const { username, title, text, tags, qid } = questionState
+  // console.log(questionState);
   // if (!questionState) {
   //   console.log('No state provided, redirecting to questions list.');
   //   navigate('/questions');
   //   return null;
   // }
-  const { username, title, text, tags, qid } = questionState
-  console.log(questionState);
 
 
   useEffect(() => {
@@ -35,7 +37,7 @@ export default function CommentPage() {
     };
   
     fetchData();
-  }, [qid]); 
+  }, []); 
 
   
   const handlePostComment = async () => {
@@ -50,6 +52,21 @@ export default function CommentPage() {
       console.error('Error posting or fetching comment:', error);
     }
   }; 
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+    window.scrollTo(0, 0);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+    window.scrollTo(0, 0);
+  };
+
+
 
 
 return (
@@ -69,13 +86,55 @@ return (
       <div className="previousAnswerHeader">PREVIOUS ANSWERS</div>
       <div className='commentsContainer'>   
         {/* <SmallAnswerBox name={comment.Author} text={comment.Text} /> */}
-        {Comments.map((comment, index) => (
+        {Comments.slice(startIndex, endIndex).map((comment, index) => (
           <SmallAnswerBox 
             key={index}
             name={comment.Author}
             text={comment.Text}
+            likes={comment.Like}
+            dislikes={comment.DisLike}
           />
         ))}
+          {Comments.length >= itemsPerPage && (
+            <div className="pagination">
+              {currentPage !== 1 && (
+                <button
+                  style={{
+                    background: 'rgb(67, 68, 73)',
+                    color: 'white',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    prevPage();
+                  }}
+                  disabled={currentPage === 1}
+                >
+                  previous
+                </button>
+              )}
+
+              <div className={`currentPage ${Comments.length < itemsPerPage ? 'hidden' : ''}`}>
+                {currentPage}
+              </div>
+
+              {endIndex < Comments.length && (
+                <button
+                  style={{
+                    background: 'rgb(67, 68, 73)',
+                    color: 'white',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    nextPage();
+                  }}
+                  disabled={endIndex >= Comments.length}
+                >
+                  next
+                </button>
+              )}
+
+          </div>
+        )}        
       </div>
     </div>
 
