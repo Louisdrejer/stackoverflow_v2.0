@@ -44,6 +44,12 @@ export default function SubmitBox() {
     setSelectedSkillLevel(skillLevel);
   };
 
+
+
+  const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+  const currentUser = JSON.parse(currentUserString);
+  const currentUsername = currentUser.username;
+  
   const handlePostQuestion = async () => {
     try {
       const currentUserString = localStorage.getItem(

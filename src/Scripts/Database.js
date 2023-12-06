@@ -170,6 +170,7 @@ export const getQuestionsByAuthor = async (name) => {
       objectId: question.id
     }));
   };
+
   export const deleteQuestionById = async (objectId) => {
     const query = new Parse.Query('Questions');
     
@@ -242,6 +243,7 @@ export const getCommentsById = async (responseId) => {
         return []; 
       }
     };
+
 
 export const getCommentsByAuthor = async (name) => {
     const query = new Parse.Query('Comments');

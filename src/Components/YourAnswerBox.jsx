@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import {useParams, useLocation, useNavigate} from 'react-router-dom';
 import SmallQuestionBox from './SmallQuestionBox';
 import SmallAnswerBox from './SmallAnswersBox';
-import { postComment, getCommentsById } from '../Scripts/Database';
+import { postComment, getCommentsById, getNewestCommentsById } from '../Scripts/Database';
 
 
 export default function CommentPage() {
@@ -33,15 +33,34 @@ export default function CommentPage() {
     fetchData();
   }, []); 
 
-  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getNewestCommentsById(pid);
+        setComments(result);
+        console.log(result);
+      } catch (error) {
+        console.error('Error fetching questions:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+
+  const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+  const currentUser = JSON.parse(currentUserString);
+  const currentUsername = currentUser.username;
+
   const handlePostComment = async () => {
     try {
       const result = await postComment({
-        author: 'Louis', 
+        author: currentUsername, 
         text: description,
         ResponseID: pid 
       });
       setDescription('');
+      const updatedComments = await getNewestCommentsById(pid);
+      setComments(updatedComments);
     } catch (error) {
       console.error('Error posting or fetching comment:', error);
     }
@@ -72,7 +91,7 @@ return (
       <span className="recentQuestionsLabel">Questions</span>
     </div>
     <div className='QuestionDescriptionContainer'>      
-      <SmallQuestionBox name={username} title={title} text={text} tags={tags} />
+      <SmallQuestionBox name={username} title={title} text={text} tags={tags} />  
     </div>
     
 
