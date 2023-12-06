@@ -313,3 +313,19 @@ export const getNumberOfCommentsByResponseID = async (responseID) => {
 
   return count;
 };
+export const getNewestCommentsById = async (responseId) => {
+  const query = new Parse.Query('Comments');
+  query.descending('createdAt');
+  query.equalTo('ResponseID', responseId)
+  console.log("hey")
+  const results = await query.find();
+
+  return results.map(comment => ({
+    Author: comment.get('Author'),
+    Text: comment.get('Text'),
+    Date: comment.get('Date'),
+    objectId: comment.id,
+    Likes: comment.get("Likes"),
+    DisLikes: comment.get('Dislikes'),
+  }));
+};
