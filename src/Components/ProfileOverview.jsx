@@ -77,7 +77,7 @@ export default function ProfileOverview({ onComponentChange }) {
           className={`profileOverviewQuestionLine ${clickedLine === 'Questions' ? 'clicked' : ''}`}
           onClick={() => handleClick('Questions')}
         >
-          <div className="PO_Question">Question</div>
+          <div className="PO_Question">Questions</div>
           <div className="PO_QuestionNumber">{numberOfQuestions}</div>
         </div>
         <div

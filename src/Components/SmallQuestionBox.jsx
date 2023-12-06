@@ -2,7 +2,7 @@ import React from 'react';
 import CodeBlock from './CodeBlock'; 
 import SmallCodeBlock from './SmallCodeBlock'
 import './CodeBlock.css'; 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CommentButton from "./CommentButton";
 import { deleteQuestionById } from '../Scripts/Database';
 
@@ -34,12 +34,20 @@ export default function SmallQuestionBox(props) {
     }
   };
   
+  console.log(props)
+  const navigate = useNavigate()
+  const goToAnswerBoxPage = () => {
+    navigate(`../Answers/`, { state: { pid: props.objectId, username: props.name, title: props.title, text: props.text, tags: props.tags } });
+ 
+  };
+
+
   return (
     <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)", width:"90%", marginLeft:"5%" }}>
-      <div className="newQustionHeader">
+      <div className="newQustionHeader">  
         <div className="userQ">
         <div className="smallUserLogo2"></div>
-        <div className="Headline">{props.title}</div>
+        <div className="Headline" onClick={goToAnswerBoxPage} style={{ cursor: 'pointer' }}>{props.title}</div>
         </div>
         {location.pathname === '/Profile' || location.pathname === '/profile' ? (
   <div className="DeleteContainer" onClick={handleDeleteClick}>

@@ -4,8 +4,9 @@
     color:white;
     display: flex;
     justify-content: space-around;
-    width: 12%;
-    padding: 6px;
+    width: 60%;
+    height: 15px;
+    padding: 10px 20px;
     border-radius: 20px;
   }
   
@@ -26,8 +27,13 @@
     margin-top: 1px;
 }
 
+.likeCount {
+    padding-right: 10px
+}
+
 .DislikeIcon{
     transform: scaleX(-1);
+    padding-right: 10px;
     padding-left: 10px; 
     margin-top: 1px;
 }

@@ -167,6 +167,7 @@ export const getQuestionsByAuthor = async (name) => {
       Text: question.get('Text'),
       Date: question.get('Date'),
       Tags: question.get('Tags'),
+      objectId: question.id
     }));
   };
   export const deleteQuestionById = async (objectId) => {
@@ -194,9 +195,7 @@ export const getQuestionsByAuthor = async (name) => {
 export const postComment = async(data) => {
     let Comment = new Parse.Object("Comments");
     console.log("hey")
-    Comment.set("ID", data.ID)
     Comment.set("ResponseID", data.ResponseID)
-    Comment.set("ResponseTo", data.ResponseTo)
     Comment.set("Author", data.author)
     Comment.set("Text", data.text)
     Comment.set("Date", new Date())
@@ -204,31 +203,45 @@ export const postComment = async(data) => {
     await Comment.save();
 }
 
-export const getComments = async(response) => {
+export const getCommentsById = async (responseId) => {
     const query = new Parse.Query('Comments');
+    //get comments responding to selected question
+    query.descending('createdAt');
+    query.equalTo('ResponseID', responseId)
 
-    //get comments responding to selected question/comment
-    query.equalTo('ResponseID', response.id)
-    query.equalTo('ResponseTo', response.responseTo)
+    // let result = []
+    // let queryResults = query.find().then(results => {
+    //     results.map(Question => {
+    //         //return Question.get("Title") + " - " + Question.get("Author")
+    //         let tmp = {
+    //             Author: Question.get("Author"),
+    //             Text: Question.get("Text"),
+    //             Date: Question.get("Date"),
+    //             ResponseID: Question.get("ResponseID"),
+    //             Likes: Question.get("Likes"),
+    //             DisLikes: comment.get('Dislikes'),
+    //         }
+    //         result.push(tmp)
+    //     })
+    // });
+    // console.log(result)
 
-    let result = []
-    let queryResults = query.find().then(results => {
-        results.map(Question => {
-            //return Question.get("Title") + " - " + Question.get("Author")
-            let tmp = {
-                Author: Question.get("Author"),
-                Text: Question.get("Text"),
-                Date: Question.get("Date"),
-                ResponseID: Question.get("ResponseID"),
-                Likes: Question.get("Likes")
-            }
-            result.push(tmp)
-        })
-    });
-    console.log(result)
-
-    return queryResults
-}
+    // return queryResults
+    try {
+        const results = await query.find(); 
+        return results.map(comment => ({
+          Author: comment.get("Author"),
+          Text: comment.get("Text"),
+          Date: comment.get("Date"),
+          ResponseID: comment.get("ResponseID"),
+          Likes: comment.get("Likes"),
+          DisLikes: comment.get('Dislikes'),
+        }));
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+        return []; 
+      }
+    };
 
 export const getCommentsByAuthor = async (name) => {
     const query = new Parse.Query('Comments');
@@ -261,13 +274,8 @@ export const getCommentsByAuthor = async (name) => {
     return commentsWithQuestionInfo;
   };
   
-  export const getNumberOfCommentsByAuthor = async (name) => {
-    const query = new Parse.Query('Comments');
-    query.equalTo('Author', name);
-    const count = await query.count();
+  
 
-    return count;
-};
 
 export const deleteCommitsById = async (objectId) => {
   const query = new Parse.Query('Comments');
@@ -286,4 +294,12 @@ export const deleteCommitsById = async (objectId) => {
     console.error("Error deleting question:", error);
     throw error;
   }
+};
+  
+  export const getNumberOfCommentsByAuthor = async (name) => {
+    const query = new Parse.Query('Comments');
+    query.equalTo('Author', name);
+    const count = await query.count();
+
+    return count;
 };
