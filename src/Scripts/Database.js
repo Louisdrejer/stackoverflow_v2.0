@@ -167,6 +167,7 @@ export const getQuestionsByAuthor = async (name) => {
       Text: question.get('Text'),
       Date: question.get('Date'),
       Tags: question.get('Tags'),
+      objectId: question.id
     }));
   };
   export const deleteQuestionById = async (objectId) => {
@@ -194,9 +195,7 @@ export const getQuestionsByAuthor = async (name) => {
 export const postComment = async(data) => {
     let Comment = new Parse.Object("Comments");
     console.log("hey")
-    Comment.set("ID", data.ID)
     Comment.set("ResponseID", data.ResponseID)
-    Comment.set("ResponseTo", data.ResponseTo)
     Comment.set("Author", data.author)
     Comment.set("Text", data.text)
     Comment.set("Date", new Date())

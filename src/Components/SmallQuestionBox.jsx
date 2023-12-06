@@ -16,10 +16,10 @@ export default function SmallQuestionBox(props) {
       return "rgb(154, 218, 112)";
     }
   };
-  
+  console.log(props)
   const navigate = useNavigate()
   const goToAnswerBoxPage = () => {
-    navigate(`../Answers/`, { state: { pid: props.id, username: props.author, title: props.title, text: props.text, tags: props.tags } });
+    navigate(`../Answers/`, { state: { pid: props.objectId, username: props.name, title: props.title, text: props.text, tags: props.tags } });
  
   };
 
