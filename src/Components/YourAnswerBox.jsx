@@ -19,19 +19,7 @@ export default function CommentPage() {
   const { username, title, text, tags, pid } = questionState
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const comments = await getCommentsById(pid);
-        console.log(comments);
-        setComments(comments); 
-      } catch (error) {
-        console.error('Error fetching comments:', error);
-      }
-    };
-  
-    fetchData();
-  }, []); 
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,9 +67,7 @@ export default function CommentPage() {
     setCurrentPage((prevPage) => prevPage - 1);
     window.scrollTo(0, 0);
   };
-
-
-
+console.log(Comments)
 
 return (
   <div className="Answerpage commentContainer"> 
@@ -106,8 +92,9 @@ return (
                 key={index}
                 name={comment.Author}
                 text={comment.Text}
-                likes={comment.Like}
-                dislikes={comment.DisLike}
+                likes={comment.Likes}
+                disLikes={comment.DisLikes}
+                objectId={comment.objectId}
               />
             ))}
             {Comments.length >= itemsPerPage && (

@@ -2,9 +2,11 @@ import { useState } from 'react';
 import './LikeDislike.css';
 import { BiSolidLike, BiSolidDislike } from 'react-icons/bi';
 
-const LikeDislikeButtons = () => {
-  const [likes, setLikes] = useState(0);
-  const [dislikes, setDislikes] = useState(0);
+const LikeDislikeButtons = (props) => {
+  console.log(props)
+  const [dislikes, setDislikes] = useState(props.disLikes);
+  const [likes, setLikes] = useState(props.likes);
+
   const [likeClicked, setLikeClicked] = useState(false);
   const [dislikeClicked, setDislikeClicked] = useState(false);
 

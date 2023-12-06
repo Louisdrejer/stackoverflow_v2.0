@@ -8,7 +8,7 @@ import LikeDislikeButtons from './LikeDisLikeButton'
 
 export default function SmallAnswerBox(props) {
   const location = useLocation();
-
+  console.log(props)
   return (
     <div className="aCommentBox" style={{ background: "rgb(43, 44, 48)", borderColor: "rgb(43, 44, 48)" }}>
       <div className="aCommentHeader">
@@ -17,7 +17,7 @@ export default function SmallAnswerBox(props) {
           <div className="username">{props.name}</div>
         </div>
           <div className="likesDislikes">
-            <LikeDislikeButtons/>   
+          <LikeDislikeButtons likes={props.likes} disLikes={props.disLikes} />
           </div>
       </div>
       <div className="aCommentBody" style={{ background: "rgb(67, 68, 73)" }}>
