@@ -3,28 +3,54 @@ import React, { useState, useEffect } from 'react'
 import {useParams, useLocation, useNavigate} from 'react-router-dom';
 import SmallQuestionBox from './SmallQuestionBox';
 import SmallAnswerBox from './SmallAnswersBox';
-import { postComment, getComments } from '../Scripts/Database';
+import { postComment, getCommentsById } from '../Scripts/Database';
 
 
 export default function CommentPage() {
+
   const [description, setDescription] = useState('');
+  const [Comments, setComments] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   const questionState = location.state;
-  const { username, title, text, tags } = questionState;
+  // if (!questionState) {
+  //   console.log('No state provided, redirecting to questions list.');
+  //   navigate('/questions');
+  //   return null;
+  // }
+  const { username, title, text, tags, qid } = questionState
+  console.log(questionState);
 
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // const questionId = qid;
+        const comments = await getCommentsById('gcDQ2O9as9');
+        console.log(comments);
+        setComments(comments); 
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      }
+    };
+  
+    fetchData();
+  }, [qid]); 
+
+  
   const handlePostComment = async () => {
     try {
       const result = await postComment({
         author: 'Louis', 
         text: description,
+        // responseId: responseId
       });
       setDescription('');
     } catch (error) {
       console.error('Error posting or fetching comment:', error);
     }
   }; 
+
 
 return (
   <div className="Answerpage commentContainer"> 
@@ -42,7 +68,14 @@ return (
     <div className="previousAnswerContainer">
       <div className="previousAnswerHeader">PREVIOUS ANSWERS</div>
       <div className='commentsContainer'>   
-        <SmallAnswerBox name={username} text={text} />
+        {/* <SmallAnswerBox name={comment.Author} text={comment.Text} /> */}
+        {Comments.map((comment, index) => (
+          <SmallAnswerBox 
+            key={index}
+            name={comment.Author}
+            text={comment.Text}
+          />
+        ))}
       </div>
     </div>
 

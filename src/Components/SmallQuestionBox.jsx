@@ -19,7 +19,7 @@ export default function SmallQuestionBox(props) {
   
   const navigate = useNavigate()
   const goToAnswerBoxPage = () => {
-    navigate(`../Answers/`, { state: { username: props.name, title: props.title, text: props.text, tags: props.tags } });
+    navigate(`../Answers/`, { state: { pid: props.id, username: props.author, title: props.title, text: props.text, tags: props.tags } });
  
   };
 
