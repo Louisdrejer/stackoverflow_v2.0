@@ -17,14 +17,10 @@ export default function LeftNav({ onSearchTermChange }) {
     },
     {
         "id": 1,
-        "name": "Answers"
-    },
-    {
-        "id": 2,
         "name": "Search"
     },
     {
-        "id": 3,
+        "id": 2,
         "name": "Profile"
     }
   ]
