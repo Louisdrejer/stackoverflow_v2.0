@@ -105,7 +105,7 @@ export default function SubmitBox() {
       </div>
       <div className="newQustion">RECENT QUESTION</div>
       {questions.slice(startIndex, endIndex).map((question, index) => (
-        <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
+        <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} objectId={question.objectId}/>
       ))}
       {/* Pagination for Questions */}
       {questions.length >= itemsPerPage && (

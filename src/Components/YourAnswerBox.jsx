@@ -15,7 +15,8 @@ export default function CommentPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const questionState = location.state;
-  const { username, title, text, tags, qid } = questionState
+  console.log(questionState)
+  const { username, title, text, tags, pid } = questionState
   // console.log(questionState);
   // if (!questionState) {
   //   console.log('No state provided, redirecting to questions list.');
@@ -27,8 +28,7 @@ export default function CommentPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const questionId = qid;
-        const comments = await getCommentsById('gcDQ2O9as9');
+        const comments = await getCommentsById(pid);
         console.log(comments);
         setComments(comments); 
       } catch (error) {
@@ -45,14 +45,14 @@ export default function CommentPage() {
       const result = await postComment({
         author: 'Louis', 
         text: description,
-        // responseId: responseId
+        ResponseID: pid  // Change this line to match the case
       });
       setDescription('');
     } catch (error) {
       console.error('Error posting or fetching comment:', error);
     }
-  }; 
-
+  };
+  
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
