@@ -9,7 +9,7 @@ import { postComment, getCommentsById, getNewestCommentsById } from '../Scripts/
 export default function CommentPage() {
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 2;
   const [description, setDescription] = useState('');
   const [Comments, setComments] = useState([]);
   const navigate = useNavigate();

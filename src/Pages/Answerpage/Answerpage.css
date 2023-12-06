@@ -30,6 +30,7 @@
   .commentContainer {
     position: relative; 
     min-height: 200vh; 
+    width: 100%;
   }
   
   .Leftcontainer {
@@ -152,9 +153,7 @@
   
   .QuestionDescriptionContainer {
     position: absolute;
-    background-color: rgb(43, 44, 48);
-    width: 1180px;
-    height: 180px;
+    width: 100%;
     margin-top: 50px;
     margin-right: 10px;
     border-radius: 5px;
@@ -163,13 +162,14 @@
   
   .submitCommentContainer {
     background-color: rgb(43, 44, 48);
-    width: 1180px;
+    width: 90%;
     height: 360px;
     margin-right: 10px;
     border-radius: 5px;
     padding-bottom: 10px;
     position: absolute;
-    bottom: 18px
+    bottom: 18px;
+    margin-left: 5%;
   }
 
 
@@ -196,7 +196,7 @@
     background-color: rgb(53, 54, 58);
     color: white;
     border: 1px solid white;
-    width: 1100px;
+    width: 90%;
     height: 205px;
     padding-bottom: 50px;
     border-radius: 2px;
@@ -208,7 +208,7 @@
     padding-top: 5px;
     margin-bottom: 5px;
     resize: none;
-    margin-left: 35px;
+    margin-left: 5%;
   }
   
   .dropdown {
@@ -271,7 +271,7 @@
     font-weight: 800;
     font-size: 16px;
     letter-spacing: 0.12em;
-    margin-left: 1010px;
+    margin-left: 85%;
     position: absolute;
 
   }
@@ -413,12 +413,13 @@
   .previousAnswerContainer {
     position: absolute;
     background-color: rgb(43, 44, 48);
-    width: 1180px;
-    height: 820px;
+    width: 90%;
+  
     margin-top: 410px;
     margin-right: 10px;
     border-radius: 5px;
     padding-bottom: 10px;
+    margin-left: 5%;
   }
 
   .previousAnswerHeader {
