@@ -12,7 +12,7 @@
       const defaultTopic = 'TOPIC';
       const defaultLanguage = 'LANGUAGE';
       const defaultSkillLevel = 'SKILL LEVEL';
-    
+      
       const [selectedTopic, setSelectedTopic] = useState(defaultTopic);
       const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
       const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
@@ -28,7 +28,7 @@
         setSelectedLanguage(language);
         onLanguageChange(selectedLanguage);
       };
-    
+      
       const handleSkillLevelChange = (skillLevel) => {
         setSelectedSkillLevel(skillLevel);
         onSkillLevelChange(selectedSkillLevel);
@@ -71,14 +71,14 @@
         <div className="SP1dropdown">
             <span>{selectedTopic}</span>
             <div className="SP1dropdown-content">
-            <p onClick={() => handleTopicChange('TOPIC #1')} style={{ cursor: 'pointer' }}>
-                TOPIC #1
+            <p onClick={() => handleTopicChange('DATA TYPES')} style={{ cursor: 'pointer' }}>
+                DATA TYPES
             </p>
-            <p onClick={() => handleTopicChange('TOPIC #2')} style={{ cursor: 'pointer' }}>
-                TOPIC #2
+            <p onClick={() => handleTopicChange('LISTS')} style={{ cursor: 'pointer' }}>
+                LISTS
             </p>
-            <p onClick={() => handleTopicChange('TOPIC #3')} style={{ cursor: 'pointer' }}>
-                TOPIC #3
+            <p onClick={() => handleTopicChange('BACKEND')} style={{ cursor: 'pointer' }}>
+                BACKEND
             </p>
             </div>
             <div className="SP1arrow-down"></div>
