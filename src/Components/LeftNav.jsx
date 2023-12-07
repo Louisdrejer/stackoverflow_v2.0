@@ -86,11 +86,18 @@ export default function LeftNav({ onSearchTermChange }) {
       </div>
       ))}
       <div className="profile">
-        <div className="profileName">
-          {username1}
-        </div>
-        <div className="profileEmailHomepage">
-          {email1}
+          <div className="userLogoContainer">
+            <div className="userLogo">
+              <div className="smallUserLogo"></div>
+            </div>
+          </div>
+        <div className="userContainer">
+          <div className="profileName">
+            {username1}
+          </div>
+          <div className="profileEmailHomepage">
+            {email1}
+          </div>
         </div>
       </div>
       <div className="logoutContainer">
@@ -99,3 +106,5 @@ export default function LeftNav({ onSearchTermChange }) {
     </div>
   );
 }
+
+
