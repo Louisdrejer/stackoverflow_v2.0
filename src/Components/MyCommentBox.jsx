@@ -5,6 +5,7 @@ import './CodeBlock.css';
 import { useLocation } from 'react-router-dom';
 import LikeDislikeButtonNotclick from './LikeDisLikeButtonNotClick';
 import { deleteCommitsById } from '../Scripts/Database';
+import { RiDeleteBin2Line } from "react-icons/ri";
 
 export default function MycommentBox(props) {
   const location = useLocation();
@@ -44,11 +45,11 @@ export default function MycommentBox(props) {
         <div className="Headline">{props.title}</div>
         </div>
         <div className="DeleteContainer" onClick={handleDeleteClick}>
-       Delete
+        <RiDeleteBin2Line />
      </div>
       </div>
       <div className="newQuestionBody">
-      {location.pathname === '/Profile' ? (
+      {location.pathname === '/Profile' || location.pathname === '/profile'? (
     <SmallCodeBlock code={props.text} />
   ) : (
     <CodeBlock code={props.text} />
