@@ -72,12 +72,12 @@ export default function ProfileOverview({ onComponentChange }) {
       </div>
 
       <div className="profileOverviewInfo">
-        <hr style={{ width: "129%", border: "1px solid white", marginLeft: "-30px", marginTop: "150px", marginBottom: "-130px" }} />
+        <hr style={{ width: "110%", border: "1px solid white", marginLeft: "-12px", marginTop: "150px", marginBottom: "-130px" }} />
         <div
           className={`profileOverviewQuestionLine ${clickedLine === 'Questions' ? 'clicked' : ''}`}
           onClick={() => handleClick('Questions')}
         >
-          <div className="PO_Question">Questions</div>
+          <div className="PO_Question">My Questions</div>
           <div className="PO_QuestionNumber">
             {/* {numberOfQuestions} */}
           </div>
@@ -87,7 +87,7 @@ export default function ProfileOverview({ onComponentChange }) {
           className={`profileOverviewAnswersLine ${clickedLine === 'Answers' ? 'clicked' : ''}`}
           onClick={() => handleClick('Answers')}
         >
-          <div className="PO_Answers">Answers</div>
+          <div className="PO_Answers">My Answers</div>
           <div className="PO_AnswersNumber">{/* {numberOfAnswers} */}</div>
         </div>
         <div
