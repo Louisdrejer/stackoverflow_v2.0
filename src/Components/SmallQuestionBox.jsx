@@ -46,16 +46,18 @@ export default function SmallQuestionBox(props) {
   return (
     <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)", width:"90%", marginLeft:"5%" }}>
       <div className="newQustionHeader">  
-        <div className="userQ">
-        <div className="smallUserLogo2"></div>
+     
         <div className="Headline" onClick={goToAnswerBoxPage} style={{ cursor: 'pointer' }}>{props.title}</div>
-        </div>
+      
         {location.pathname === '/Profile' || location.pathname === '/profile' ? (
   <div className="DeleteContainer" onClick={handleDeleteClick}>
    <RiDeleteBin2Line />
   </div>
 ) : (
+  <div className="userQ">
+  <div className="smallUserLogo2"></div>
   <div className="username">{props.name}</div>
+  </div>
 )}
 
       </div>
