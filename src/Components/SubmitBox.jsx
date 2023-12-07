@@ -85,7 +85,7 @@ export default function SubmitBox() {
     setCurrentPage((prevPage) => prevPage - 1);
     window.scrollTo(0, 0);
   };
-
+console.log(questions)
   return (
     <div className="submitAQuestionContainer">
       <div className="submitAQuestionHeader">SUBMIT A QUESTION</div>
@@ -125,6 +125,7 @@ export default function SubmitBox() {
       {questions.slice(startIndex, endIndex).map((question, index) => (
         <SmallQuestionBox
           key={index}
+          email={question.email}
           name={question.Author}
           title={question.Title}
           text={question.Text}

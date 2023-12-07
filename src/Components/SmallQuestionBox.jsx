@@ -53,7 +53,7 @@ export default function SmallQuestionBox(props) {
      
         <div className="Headline" onClick={goToAnswerBoxPage} style={{ cursor: 'pointer' }}>{props.title}</div>
       
-        {location.pathname === '/Profile' || location.pathname === '/profile' ||location.pathname === '/OtherProfile' ? (
+        {location.pathname === '/Profile' || location.pathname === '/profile' ? (
   <div className="DeleteContainer" onClick={handleDeleteClick}>
    <RiDeleteBin2Line />
   </div>

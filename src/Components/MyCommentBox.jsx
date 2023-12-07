@@ -38,22 +38,27 @@ export default function MycommentBox(props) {
   };
   
   return (
-    <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)", width:"90%",marginLeft:"5%" }}>
+    <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)", width: "90%", marginLeft: "5%" }}>
       <div className="newQustionHeader">
-      <div className="userQ">
-      <div className="smallUserLogo2"></div>
-        <div className="Headline">{props.title}</div>
+        <div className="userQ">
+          <div className="smallUserLogo2"></div>
+          <div className="Headline">{props.title}</div>
         </div>
-        <div className="DeleteContainer" onClick={handleDeleteClick}>
-        <RiDeleteBin2Line />
-     </div>
+        {location.pathname === '/OtherProfile' ? (
+         <div></div>
+        ) : (
+
+          <div className="DeleteContainer" onClick={handleDeleteClick}>
+            <RiDeleteBin2Line />
+          </div>
+        )}
       </div>
       <div className="newQuestionBody">
-      {location.pathname === '/Profile' || location.pathname === '/profile'? (
-    <SmallCodeBlock code={props.text} />
-  ) : (
-    <CodeBlock code={props.text} />
-  )}
+        {location.pathname === '/Profile' || location.pathname === '/profile' || location.pathname === '/OtherProfile' ? (
+          <SmallCodeBlock code={props.text} />
+        ) : (
+          <CodeBlock code={props.text} />
+        )}
       </div>
       <div className="newQuestionTags">
         {props.tags.map((tag, index) => (
@@ -61,10 +66,10 @@ export default function MycommentBox(props) {
             {tag}
           </div>
         ))}
-          <div className="likeDislike-button-notCLick-container ">
-            <LikeDislikeButtonNotclick likes = {props.likes} dislikes={props.dislikes}/>  
-          </div>
+        <div className="likeDislike-button-notCLick-container ">
+          <LikeDislikeButtonNotclick likes={props.likes} dislikes={props.dislikes} />
+        </div>
       </div>
     </div>
   );
-}
+        }

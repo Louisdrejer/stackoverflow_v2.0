@@ -7,18 +7,21 @@ import LikeDislikeButtons from './LikeDisLikeButton'
 
 
 export default function SmallAnswerBox(props) {
-
-  console.log(props.date)
+  const navigate = useNavigate()
+  const goToAnswerBoxProfile = () => {
+    navigate(`../OtherProfile`, { state: { username: props.name, email: props.email} });
+ 
+  };
 
   const location = useLocation();
-  console.log(props)
+
   return (
     <div className="aCommentBox" style={{ background: "rgb(43, 44, 48)", borderColor: "rgb(43, 44, 48)" }}>
 
       <div className="aCommentHeader">
         <div className="userQ">
           <div className="smallUserLogo2"></div>
-          <div className="username">{props.name}</div>
+          <div className="userQ" onClick={goToAnswerBoxProfile}>{props.name}</div>
         </div>
       </div>
 
