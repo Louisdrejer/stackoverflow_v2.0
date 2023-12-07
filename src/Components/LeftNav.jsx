@@ -99,10 +99,11 @@ export default function LeftNav({ onSearchTermChange }) {
             {email1}
           </div>
         </div>
-      </div>
-      <div className="logoutContainer">
+        <div className="logoutContainer">
           <LogoutButton />
         </div>
+      </div>
+      
     </div>
   );
 }
