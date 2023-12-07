@@ -323,7 +323,7 @@ export const getNumberOfCommentsByResponseID = async (responseID) => {
 };
 export const getNewestCommentsById = async (responseId) => {
   const query = new Parse.Query('Comments');
-  query.descending('createdAt');
+  query.descending('Likes');
   query.equalTo('ResponseID', responseId)
   console.log("hey")
   const results = await query.find();
@@ -393,7 +393,7 @@ export const updateLikeDislikeDB = async (objectId, type, increment) => {
     try {
         const query = new Parse.Query('Comments');
         const commentToUpdate = await query.get(objectId);
-        
+
         if (increment) {
             commentToUpdate.increment(type, 1);
         }
