@@ -56,7 +56,7 @@ export const postQuestion = async(data) => {
 
     await Question.save();
 }
-
+/**
 export const getQuestionsByTag = async(tags) => {
     return new Promise(function(resolve, reject) {
         const query = new Parse.Query('Questions');
@@ -67,13 +67,13 @@ export const getQuestionsByTag = async(tags) => {
 
         let result = []
         let queryResults = query.find().then(results => {
-            results.map(Question => {
+            results.map(question => {
                 let tmp = {
-                    Author: Question.get("Author"),
-                    Title: Question.get("Title"),
-                    Text: Question.get("Text"),
-                    Date: Question.get("Date"),
-                    Tags: Question.get("Tags")
+                    Author: question.get('Author'),
+                    Title: question.get('Title'),
+                    Text: question.get('Text'),
+                    Date: question.get('Date'),
+                    Tags: question.get('Tags'),
                 }
                 result.push(tmp)
             })
@@ -152,6 +152,7 @@ export const getQuestionsByAuthor = async (name) => {
     Text: question.get('Text'),
     Date: question.get('Date'),
     Tags: question.get('Tags'),
+    objectId: question.id
   }));
 };
 
@@ -163,6 +164,7 @@ export const getQuestionsByAuthor = async (name) => {
   
     return results.map((question) => ({
       Author: question.get('Author'),
+      Email: question.get('Email'),
       Title: question.get('Title'),
       Text: question.get('Text'),
       Date: question.get('Date'),

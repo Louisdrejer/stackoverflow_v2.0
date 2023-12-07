@@ -8,6 +8,7 @@ import { deleteQuestionById } from '../Scripts/Database';
 import { RiDeleteBin2Line } from "react-icons/ri";
 
 export default function SmallQuestionBox(props) {
+  console.log(props)
   const location = useLocation();
   const getColorForTag = (tag) => {
     if (tag === "PYTHON" || tag === "JAVA" || tag === "JAVASCRIPT") {
@@ -41,7 +42,10 @@ export default function SmallQuestionBox(props) {
     navigate(`../Answers/`, { state: { pid: props.objectId, username: props.name, title: props.title, text: props.text, tags: props.tags } });
  
   };
-
+  const goToAnswerBoxProfile = () => {
+    navigate(`../OtherProfile`, { state: { username: props.name, email: props.email} });
+ 
+  };
 
   return (
     <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)", width:"90%", marginLeft:"5%" }}>
@@ -49,12 +53,12 @@ export default function SmallQuestionBox(props) {
      
         <div className="Headline" onClick={goToAnswerBoxPage} style={{ cursor: 'pointer' }}>{props.title}</div>
       
-        {location.pathname === '/Profile' || location.pathname === '/profile' ? (
+        {location.pathname === '/Profile' || location.pathname === '/profile' ||location.pathname === '/OtherProfile' ? (
   <div className="DeleteContainer" onClick={handleDeleteClick}>
    <RiDeleteBin2Line />
   </div>
 ) : (
-  <div className="userQ">
+  <div className="userQ" onClick={goToAnswerBoxProfile}>
   <div className="smallUserLogo2"></div>
   <div className="username">{props.name}</div>
   </div>
@@ -62,7 +66,7 @@ export default function SmallQuestionBox(props) {
 
       </div>
       <div className="newQuestionBody">
-      {location.pathname === '/Profile' ? (
+      {location.pathname === '/Profile' || location.pathname === '/profile' ||location.pathname === '/OtherProfile' ? (
     <SmallCodeBlock code={props.text} />
   ) : (
     <CodeBlock code={props.text} />

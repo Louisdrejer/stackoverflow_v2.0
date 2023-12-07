@@ -9,6 +9,7 @@ import Outerlayout from './Outerlayout/Outerlayout';
 import ForgetPassword from './Pages/ForgetPassword/ForgetPassword';
 import NewUser from './Pages/NewUser/NewUser';
 import Login2 from './Pages/Login/Login2'
+import OthersProfile from './Components/OthersProfile';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/Questions" element={<Homepage />} />
           <Route path="/Answers" element={<Answerpage />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/OtherProfile" element={<OthersProfile />} />
           <Route path="/Search" element={<SearchPage />} />
         </Route>
 

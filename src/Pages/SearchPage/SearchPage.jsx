@@ -96,7 +96,7 @@ export default function SearchPage() {
     setCurrentPage((prevPage) => prevPage - 1);
     window.scrollTo(0, 0);
   };
-
+console.log(searchResults)
 
   return (
     <div className="profileBackground">
@@ -119,7 +119,7 @@ export default function SearchPage() {
         <div className="searchResultsbox">
           <div className="searchResults">SEARCH RESULTS</div>
           {searchResults.slice(startIndex, endIndex).map((question, index) => (
-            <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} />
+            <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} objectId={question.objectId} />
           ))}
             {searchResults.length >= itemsPerPage && (
         <div className="pagination">
