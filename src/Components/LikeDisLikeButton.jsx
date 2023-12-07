@@ -11,21 +11,6 @@ const LikeDislikeButtons = (props) => {
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
 
-  // const handleLike = async () => {
-  //   if (!likeClicked) {
-  //     setLikes(likes + 1);
-  //     if (dislikeClicked) {
-  //       setDislikes(dislikes - 1);
-  //       setDislikeClicked(false);
-  //       await updateDislikesInDatabase(props.objectId, dislikes - 1);
-  //     }
-  //     await updateLikesInDatabase(props.objectId, likes + 1);
-  //   } else {
-  //     setLikes(likes - 1);
-  //     await updateLikesInDatabase(props.objectId, likes - 1);
-  //   }
-  //   setLikeClicked(!likeClicked);
-  // };
 
   const handleLike = () => {
     if (!dislike) {
@@ -36,22 +21,6 @@ const LikeDislikeButtons = (props) => {
 
     }
   };
-
-  // const handleDislike = async () => {
-  //   if (!dislikeClicked) {
-  //     setDislikes(dislikes + 1);
-  //     if (likeClicked) {
-  //       setLikes(likes - 1);
-  //       setLikeClicked(false);
-  //       await updateLikesInDatabase(props.objectId, likes - 1);
-  //     }
-  //     await updateDislikesInDatabase(props.objectId, dislikes + 1);
-  //   } else {
-  //     setDislikes(dislikes - 1);
-  //     await updateDislikesInDatabase(props.objectId, dislikes - 1);
-  //   }
-  //   setDislikeClicked(!dislikeClicked);
-  // };
 
 
   const handleDislike = () => {
