@@ -57,9 +57,9 @@ export default function ProfileOverview({ onComponentChange }) {
     <div className="profileOverviewBox">
       <div className="profileOverviewProfile">
         <div className="profileOverviewUserLogo">
-          <div className="profileOverviewSmallUserLogo">
+          {/* <div className="profileOverviewSmallUserLogo">
             <div className="PL_NewMessages">+{numberOfNewMessages}</div>
-          </div>
+          </div> */}
 
         </div>
 
