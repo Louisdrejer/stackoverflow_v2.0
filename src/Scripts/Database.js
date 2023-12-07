@@ -387,3 +387,21 @@ export const updateDislikesInDatabase = async (objectId, newDislikes) => {
     console.error('Error updating dislikes in the database:', error.message);
   }
 };
+
+
+export const updateLikeDislikeDB = async (objectId, type, increment) => {
+    try {
+        const query = new Parse.Query('Comments');
+        const commentToUpdate = await query.get(objectId);
+        
+        if (increment) {
+            commentToUpdate.increment(type, 1);
+        }
+        else {
+            commentToUpdate.increment(type, -1);
+        }
+        await commentToUpdate.save();
+    } catch (error) {
+        console.error('Error updating dislikes in the database:', error.message);
+    }
+}

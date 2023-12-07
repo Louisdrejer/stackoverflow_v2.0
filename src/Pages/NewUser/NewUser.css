@@ -102,4 +102,10 @@
     margin-right: 5px;
   }
 
-  
+.account-description {
+    text-align: center;
+    font-size: 16px; 
+    font-weight: 500;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
