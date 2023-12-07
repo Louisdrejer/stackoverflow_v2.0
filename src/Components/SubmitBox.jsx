@@ -147,7 +147,7 @@ export default function SubmitBox() {
               }}
               disabled={currentPage === 1}
             >
-              previous
+              Previous
             </button>
           )}
 
@@ -167,7 +167,7 @@ export default function SubmitBox() {
               }}
               disabled={endIndex >= questions.length}
             >
-              next
+              Next
             </button>
           )}
 
