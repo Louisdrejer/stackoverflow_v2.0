@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LogoutButton.css';
+import { CiLogout } from "react-icons/ci";
 
 import Parse from 'parse';
 
@@ -19,7 +20,7 @@ const LogoutButton = () => {
 
   return (
     <button onClick={handleLogout} className="logout-button">
-      Log out
+      <CiLogout className='logoutIcon'/>Log out
     </button>
   );
 };

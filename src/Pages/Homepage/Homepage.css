@@ -97,11 +97,10 @@
 }
 
 .profile {
-  display: flex;
-  flex-direction: column;
+  
   align-items: center;
   position: absolute;
-  bottom: 10px;
+  top: 80%;
   left: 50%;
   /* Center horizontally */
   transform: translateX(-50%);
@@ -114,7 +113,24 @@
   width: 50px;
   height: 50px;
   border-radius: 100px;
-  position: relative;
+  position: absolute;
+  top: 50%;
+}
+
+.userLogoContainer {
+  position: absolute;
+  top: -5%;
+  transform: translateY(-50%);
+}
+
+.userContainer {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .smallUserLogo {

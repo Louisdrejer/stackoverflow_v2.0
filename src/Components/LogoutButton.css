@@ -1,19 +1,27 @@
 .logoutContainer {
-  position: absolute;
-  bottom: 2.5%;
-  right: 33.5%; /* Adjust the right distance as needed */
+  position: relative;
+  top: 70%;
   transform: translateY(-50%);
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .logoutContainer .logout-button {
   background-color: transparent;
   color: white;
-  font-size: 16px;
+  font-size: 12px;
   padding: 10px 15px;
   border: none;
   cursor: pointer;
   transition: border-width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
+.logoutIcon {
+  margin-right: 5px;
+}

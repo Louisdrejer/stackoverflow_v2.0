@@ -5,6 +5,7 @@ import './CodeBlock.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CommentButton from "./CommentButton";
 import { deleteQuestionById } from '../Scripts/Database';
+import { RiDeleteBin2Line } from "react-icons/ri";
 
 export default function SmallQuestionBox(props) {
   const location = useLocation();
@@ -51,7 +52,7 @@ export default function SmallQuestionBox(props) {
         </div>
         {location.pathname === '/Profile' || location.pathname === '/profile' ? (
   <div className="DeleteContainer" onClick={handleDeleteClick}>
-    Delete
+   <RiDeleteBin2Line />
   </div>
 ) : (
   <div className="username">{props.name}</div>
