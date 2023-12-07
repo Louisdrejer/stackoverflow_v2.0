@@ -172,23 +172,31 @@ export const getQuestionsByAuthor = async (name) => {
   };
 
   export const deleteQuestionById = async (objectId) => {
-    const query = new Parse.Query('Questions');
+    const questionQuery = new Parse.Query('Questions');
     
     try {
-      const questionToDelete = await query.get(objectId);
-      
-      // Log the question to be deleted for debugging
-      console.log("Deleting question:", questionToDelete);
+      // Get the question to be deleted
+      const questionToDelete = await questionQuery.get(objectId);
   
-      // Use destroy to delete the object
+      // Delete the question
       await questionToDelete.destroy();
   
-      console.log("Question deleted successfully");
+      // Delete all comments with the same ResponseID (questionId)
+      const relatedCommentsQuery = new Parse.Query('Comments');
+      relatedCommentsQuery.equalTo('ResponseID', objectId); // Using objectId directly
+      const relatedComments = await relatedCommentsQuery.find();
+      await Parse.Object.destroyAll(relatedComments);
+  
+      console.log("Question and related comments deleted successfully");
     } catch (error) {
       console.error("Error deleting question:", error);
       throw error;
     }
   };
+  
+
+  
+  
   
   
 //------------------------Comments------------------------
