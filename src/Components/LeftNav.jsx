@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/Logo.png';
+import LogoutButton from './LogoutButton.jsx';
 
 export default function LeftNav({ onSearchTermChange }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -85,9 +86,6 @@ export default function LeftNav({ onSearchTermChange }) {
       </div>
       ))}
       <div className="profile">
-        <div className="userLogo">
-          <div className="smallUserLogo"></div>
-        </div>
         <div className="profileName">
           {username1}
         </div>
@@ -95,6 +93,9 @@ export default function LeftNav({ onSearchTermChange }) {
           {email1}
         </div>
       </div>
+      <div className="logoutContainer">
+          <LogoutButton />
+        </div>
     </div>
   );
 }
