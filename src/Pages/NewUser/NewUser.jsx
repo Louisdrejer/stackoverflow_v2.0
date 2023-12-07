@@ -38,6 +38,7 @@ export default function NewUser() {
 
           <form action="" style={{ width: '80%', marginLeft: '10%' }} onSubmit={handleSignUp}>
             <h1>Create Your Account</h1>
+            <p className="account-description">Join us and be a part of one of the most newbie-friendly Q&A forums! </p>
 
             <div className="input-box2">
               <input type="text" placeholder="Username" required onChange={(e) => setUsername(e.target.value)} />
