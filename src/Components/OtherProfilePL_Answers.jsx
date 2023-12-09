@@ -15,9 +15,6 @@ export default function OtherProfilePL_Answers() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
-        const currentUser = JSON.parse(currentUserString);
-        const username = currentUser.username;
         const result = await getCommentsByAuthor(username);
         console.log(result);
         setComments(result);
