@@ -11,9 +11,9 @@ export default function SubmitBox() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [questions, setQuestions] = useState([]);
-  const [selectedTopic, setSelectedTopic] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState('');
-  const [selectedSkillLevel, setSelectedSkillLevel] = useState('');
+  const [selectedTopic, setSelectedTopic] = useState('TOPIC');
+  const [selectedLanguage, setSelectedLanguage] = useState('LANGUAGE');
+  const [selectedSkillLevel, setSelectedSkillLevel] = useState('SKILL LEVEL');
   const [currentPage, setCurrentPage] = useState(1);
   const [resetDropdown, setResetDropdown] = useState(1);
   const itemsPerPage = 5;
@@ -23,7 +23,6 @@ export default function SubmitBox() {
       try {
         const result = await getNewestQuestions();
         setQuestions(result);
-        console.log(result);
       } catch (error) {
         console.error('Error fetching questions:', error);
       }
@@ -52,11 +51,13 @@ export default function SubmitBox() {
   
   const handlePostQuestion = async () => {
     try {
+      console.log(selectedTopic)
       const currentUserString = localStorage.getItem(
         'Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser'
       );
       const currentUser = JSON.parse(currentUserString);
       const username1 = currentUser.username;
+      if(selectedTopic!== 'TOPIC'|| selectedLanguage !=='LANGUAGE' || selectedSkillLevel !== 'SKILL LEVEL'){
       const result = await postQuestion({
         title,
         author: username1,
@@ -65,9 +66,13 @@ export default function SubmitBox() {
       });
       setTitle('');
       setDescription('');
+      setSelectedTopic('TOPIC')
+      setSelectedLanguage('LANGUAGE')
+      setSelectedSkillLevel('SKILL LEVEL')
       setResetDropdown(resetDropdown + 1);
       const updatedQuestions = await getNewestQuestions();
       setQuestions(updatedQuestions);
+    }
     } catch (error) {
       console.error('Error posting or fetching questions:', error);
     }
@@ -111,7 +116,7 @@ console.log(questions)
               onTopicChange={handleTopicChange}
               onLanguageChange={handleLanguageChange}
               onSkillLevelChange={handleSkillLevelChange}
-              resetDropdown={resetDropdown} // Pass the prop here
+              resetDropdown={resetDropdown} 
             />
 
           </div>
