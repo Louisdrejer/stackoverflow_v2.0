@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function LanguageDropDown({onLanguageChange}) {
-    const defaultLanguage = 'LANGUAGE';
-
+export default function LanguageDropDown({onLanguageChange, defaultLanguage}) {
     const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
 
     const handleLanguageChange = (language) => {

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './SearchPage.css';
-import DropdownMenues from '../../Components/DropdownMenues';
-import SmallQuestionBox from '../../Components/SmallQuestionBox';
 import { getQuestionsByTags } from '../../Scripts/Database';
-
 import { useLocation } from 'react-router-dom';
 import TopicDropDown from '../../Components/TopicDropDown';
 import LanguageDropDown from '../../Components/LanguageDropDown';
 import SkillLeveDropDown from '../../Components/SkillLeveDropDown';
+import { GrPowerReset } from 'react-icons/gr';
+import SmallQuestionBox from '../../Components/SmallQuestionBox';
+
 
 export default function SearchPage() {
   const defaultTopic = 'TOPIC';
@@ -17,18 +17,18 @@ export default function SearchPage() {
   const queryParams = new URLSearchParams(location.search);
   const searchTermFromQuery = queryParams.get('term');
   const [searchTerm, setSearchTerm] = useState(searchTermFromQuery || '');
-  const searchWordsArray = searchTerm.trim().split(/\s+/).filter(word => word !== '');
+  const searchWordsArray = searchTerm.trim().split(/\s+/).filter((word) => word !== '');
   const [searchTerm2, setsearchTerm2] = useState(searchWordsArray);
   const [selectedTopic, setSelectedTopic] = useState(defaultTopic);
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; 
+  const itemsPerPage = 5;
 
   const handleTopicChange = (topic) => {
     setSelectedTopic(topic);
-    searchQuestions(); 
+    searchQuestions();
   };
 
   const handleLanguageChange = (language) => {
@@ -46,7 +46,7 @@ export default function SearchPage() {
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      const wordsArray = searchTerm.trim().split(/\s+/).filter(word => word !== '');
+      const wordsArray = searchTerm.trim().split(/\s+/).filter((word) => word !== '');
       setsearchTerm2(wordsArray);
     }
     if ((e.key === 'Backspace' || e.key === 'Delete') && searchTerm.length === 1) {
@@ -54,17 +54,22 @@ export default function SearchPage() {
       setSearchTerm('');
     }
   };
-  
+
   const searchQuestions = async () => {
     try {
       const nonEmptyTags = [...searchTerm2, selectedTopic, selectedLanguage, selectedSkillLevel];
-  
+
       const results = await getQuestionsByTags(nonEmptyTags);
       setSearchResults(results);
     } catch (error) {
       console.error('Error searching questions:', error);
     }
   };
+
+  const handleReset = async () => {
+
+  };
+  
 
   useEffect(() => {
     const queryFetch = async () => {
@@ -79,8 +84,7 @@ export default function SearchPage() {
         console.error('Error fetching questions:', error);
       }
     };
-    console.log(selectedLanguage)
-  
+
     queryFetch(); // Call the function here
   }, [selectedTopic, selectedLanguage, selectedSkillLevel, searchTermFromQuery, searchTerm2]);
 
@@ -96,7 +100,6 @@ export default function SearchPage() {
     setCurrentPage((prevPage) => prevPage - 1);
     window.scrollTo(0, 0);
   };
-console.log(searchResults)
 
   return (
     <div className="profileBackground">
@@ -104,9 +107,16 @@ console.log(searchResults)
         <div className="SearchHeader">DISCOVER ANSWERS</div>
         <div className="SearchPageDropDown">
           <div className="filterText">FILTER TAGS</div>
-          <TopicDropDown onTopicChange={handleTopicChange}/>
-          <LanguageDropDown    onLanguageChange={handleLanguageChange} />
-          <SkillLeveDropDown  onSkillLevelChange={handleSkillLevelChange} />
+          <TopicDropDown onTopicChange={handleTopicChange} defaultTopic={defaultTopic} />
+          <LanguageDropDown onLanguageChange={handleLanguageChange} defaultLanguage={defaultLanguage}/>
+          <SkillLeveDropDown
+            onSkillLevelChange={handleSkillLevelChange}
+            defaultSkillLevel={defaultSkillLevel}
+          />
+          <GrPowerReset
+            style={{ color: 'white', marginBottom: '-2px', cursor: 'pointer' }}
+            onClick={handleReset}
+          />
         </div>
         <input
           type="text"
@@ -119,48 +129,54 @@ console.log(searchResults)
         <div className="searchResultsbox">
           <div className="searchResults">SEARCH RESULTS</div>
           {searchResults.slice(startIndex, endIndex).map((question, index) => (
-            <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} objectId={question.objectId} />
+            <SmallQuestionBox
+              key={index}
+              name={question.Author}
+              title={question.Title}
+              text={question.Text}
+              tags={question.Tags}
+              objectId={question.objectId}
+            />
           ))}
-            {searchResults.length >= itemsPerPage && (
-        <div className="pagination">
-          {currentPage !== 1 && (
-            <button
-              style={{
-                background: 'rgb(67, 68, 73)',
-                color: 'white',
-                cursor: 'pointer',
-              }}
-              onClick={() => {
-                prevPage();
-              }}
-              disabled={currentPage === 1}
-            >
-              previous
-            </button>
+          {searchResults.length >= itemsPerPage && (
+            <div className="pagination">
+              {currentPage !== 1 && (
+                <button
+                  style={{
+                    background: 'rgb(67, 68, 73)',
+                    color: 'white',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    prevPage();
+                  }}
+                  disabled={currentPage === 1}
+                >
+                  previous
+                </button>
+              )}
+
+              <div className={`currentPage ${searchResults.length < itemsPerPage ? 'hidden' : ''}`}>
+                {currentPage}
+              </div>
+
+              {endIndex < searchResults.length && (
+                <button
+                  style={{
+                    background: 'rgb(67, 68, 73)',
+                    color: 'white',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    nextPage();
+                  }}
+                  disabled={endIndex >= searchResults.length}
+                >
+                  next
+                </button>
+              )}
+            </div>
           )}
-
-          <div className={`currentPage ${searchResults.length < itemsPerPage ? 'hidden' : ''}`}>
-            {currentPage}
-          </div>
-
-          {endIndex < searchResults.length && (
-            <button
-              style={{
-                background: 'rgb(67, 68, 73)',
-                color: 'white',
-                cursor: 'pointer',
-              }}
-              onClick={() => {
-                nextPage();
-              }}
-              disabled={endIndex >= searchResults.length}
-            >
-              next
-            </button>
-          )}
-
-        </div>
-      )}
         </div>
       </div>
     </div>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import SubmitBox from './SubmitBox';
 
-export default function TopicDropDown({ onTopicChange }) {
-    const defaultTopic = 'TOPIC';
+export default function TopicDropDown({ onTopicChange,defaultTopic }) {
     const [selectedTopic, setSelectedTopic] = useState(defaultTopic);
 
     const handleTopicChange = (topic) => {
