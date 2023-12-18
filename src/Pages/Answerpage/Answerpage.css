@@ -58,20 +58,7 @@
     margin-left: 15%;
   }
   
-  .quickSearchBox{
-    display: flex;
-    justify-content: center;
-  }
-  .quickSearch{
-    background-color: black;
-    color: white;
-    width: 80%;
-    border-radius: 5px;
-    border: none;
-    height: 25px;
-    text-align: center;
-    margin-top: 10px;
-  }
+
   
   .logo {
     margin-left: 10%;
@@ -119,6 +106,7 @@
     width: 50px;
     height: 50px;
     border-radius: 100px;
+    margin-left: -48%;
     position: relative;
   }
   
@@ -133,23 +121,8 @@
     right: 0;
   }
   
-  .profileName {
-    color: white;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  }
   
-  .profileEmailHomepage {
-    color: white;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  
-  }
-  
+
   .QuestionDescriptionContainer {
 
     width: 100%;
@@ -308,13 +281,7 @@
     margin-left: 5%;
   }
   
-  .Headline {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-  }
-  
+
   .smallUserLogo2 {
     background-color: rgb(90, 101, 234);
     width: 10px;
@@ -323,18 +290,6 @@
     margin-right: 10px;
   }
   
-  .username {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-  
-  }
-  
-  .userQ {
-    display: flex;
-    align-items: center;
-  }
   
   .Answerpage .newQuestionBody {
     border-radius: 5px;

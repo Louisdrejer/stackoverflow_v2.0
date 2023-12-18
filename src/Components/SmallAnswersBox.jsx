@@ -7,8 +7,16 @@ import LikeDislikeButtons from './LikeDisLikeButton'
 
 
 export default function SmallAnswerBox(props) {
+  
+  const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
+  const currentUser = JSON.parse(currentUserString);
+  const currentUsername = currentUser.username;
+  
   const navigate = useNavigate()
   const goToAnswerBoxProfile = () => {
+    if (currentUsername === props.name){
+      navigate(`../Profile`)
+    }else 
     navigate(`../OtherProfile`, { state: { username: props.name, email: props.email} });
  
   };

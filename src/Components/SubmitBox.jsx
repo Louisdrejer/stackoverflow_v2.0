@@ -51,16 +51,10 @@ export default function SubmitBox() {
   
   const handlePostQuestion = async () => {
     try {
-      console.log(selectedTopic)
-      const currentUserString = localStorage.getItem(
-        'Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser'
-      );
-      const currentUser = JSON.parse(currentUserString);
-      const username1 = currentUser.username;
       if(selectedTopic!== 'TOPIC'|| selectedLanguage !=='LANGUAGE' || selectedSkillLevel !== 'SKILL LEVEL'){
       const result = await postQuestion({
         title,
-        author: username1,
+        author: currentUsername,
         text: description,
         tags: [selectedTopic, selectedLanguage, selectedSkillLevel],
       });
@@ -130,6 +124,7 @@ console.log(questions)
       {questions.slice(startIndex, endIndex).map((question, index) => (
         <SmallQuestionBox
           key={index}
+          activeUser={currentUsername}
           email={question.email}
           name={question.Author}
           title={question.Title}

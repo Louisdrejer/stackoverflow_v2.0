@@ -112,11 +112,11 @@ export default function SearchPage() {
           <SkillLeveDropDown
             onSkillLevelChange={handleSkillLevelChange}
             defaultSkillLevel={defaultSkillLevel}
-          />
+          />{/** 
           <GrPowerReset
             style={{ color: 'white', marginBottom: '-2px', cursor: 'pointer' }}
             onClick={handleReset}
-          />
+          />*/}
         </div>
         <input
           type="text"

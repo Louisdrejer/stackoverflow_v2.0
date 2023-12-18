@@ -13,22 +13,22 @@ export default function LeftNav({ onSearchTermChange }) {
 
   const allPages = [
     {
-        "id": 0,
-        "name": "Questions"
+      "id": 0,
+      "name": "Questions"
     },
     {
-        "id": 1,
-        "name": "Search"
+      "id": 1,
+      "name": "Search"
     },
     {
-        "id": 2,
-        "name": "Profile"
+      "id": 2,
+      "name": "Profile"
     }
-  ]
+  ];
 
   useEffect(() => {
     const dataFetch = () => {
-  setPages(allPages)
+      setPages(allPages);
     };
 
     dataFetch();
@@ -36,9 +36,8 @@ export default function LeftNav({ onSearchTermChange }) {
   }, []);
 
   const handleInputChange = (e) => {
-      setSearchTerm(e.target.value.toUpperCase());
-    };
-
+    setSearchTerm(e.target.value.toUpperCase());
+  };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -47,8 +46,6 @@ export default function LeftNav({ onSearchTermChange }) {
       window.location.href = `/Search?term=${searchTerm}`;
     }
   };
-  
-
 
   return (
     <div className="Leftcontainer">
@@ -68,30 +65,32 @@ export default function LeftNav({ onSearchTermChange }) {
       </div>
       {pages.map((page) => (
         <div key={page.id} className='pageTitle'>
-        <NavLink
-          to={`/${page.name}`}
-          style={({ isActive }) => ({
-            fontFamily: isActive ? 'InterBold': "",
-            color: isActive ? "white" : "",
-            background: isActive ? "rgb(60, 62, 116)" : "",
-            marginLeft: isActive ? "-5px" : "",
-            padding: isActive ? "5px" : "",
-            paddingRight: isActive ? "max(60%, 10px)": "",
-            borderRadius: isActive ? "5px" : "",
-
-          })}
-        >
-          {page.name}
-        </NavLink>
-      </div>
+          <NavLink
+            to={`/${page.name}`}
+            style={({ isActive }) => ({
+              fontFamily: isActive ? 'InterBold' : "",
+              color: isActive ? "white" : "",
+              background: isActive ? "rgb(60, 62, 116)" : "",
+              marginLeft: isActive ? "-5px" : "",
+              padding: isActive ? "5px" : "",
+              paddingRight: isActive ? "max(60%, 10px)" : "",
+              borderRadius: isActive ? "5px" : "",
+            })}
+          >
+            {page.name}
+          </NavLink>
+        </div>
       ))}
       <div className="profile">
+        <NavLink to={'/Profile'}>
           <div className="userLogoContainer">
             <div className="userLogo">
               <div className="smallUserLogo"></div>
             </div>
           </div>
+        </NavLink>
         <div className="userContainer">
+          
           <div className="profileName">
             {username1}
           </div>
@@ -103,9 +102,6 @@ export default function LeftNav({ onSearchTermChange }) {
           <LogoutButton />
         </div>
       </div>
-      
     </div>
   );
 }
-
-

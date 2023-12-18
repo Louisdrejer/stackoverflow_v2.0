@@ -8,6 +8,7 @@ import { deleteQuestionById } from '../Scripts/Database';
 import { RiDeleteBin2Line } from "react-icons/ri";
 
 export default function SmallQuestionBox(props) {
+  console.log(props)
   const location = useLocation();
   const getColorForTag = (tag) => {
     if (tag === "PYTHON" || tag === "JAVA" || tag === "JAVASCRIPT") {
@@ -41,6 +42,9 @@ export default function SmallQuestionBox(props) {
  
   };
   const goToAnswerBoxProfile = () => {
+    if (props.activeUser === props.name){
+      navigate(`../Profile`)
+    }else 
     navigate(`../OtherProfile`, { state: { username: props.name, email: props.email} });
  
   };
