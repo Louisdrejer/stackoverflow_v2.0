@@ -29,16 +29,6 @@ export default function OtherProfileHeaderBox() {
         PROFILE
       </div>
       <div className="userInfoBox">
-        <div className="userInfo">
-          <div style={{ display: 'flex' }}>
-            <div className="profileUsername">Username</div>
-            <div className="profileUsernametext">{username}</div>
-          </div>
-          <div style={{ display: 'flex' }}>
-            <div className="profileEmail">Email</div>
-            <div className="profileEmailText">{email}</div>
-          </div>
-        </div>
       </div>
     </>
   );

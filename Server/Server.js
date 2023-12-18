@@ -42,39 +42,7 @@ const users = [
         Text:
           'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. ',
         Answers: 4,
-      },
-      {
-        id: 1,
-        languages: 'Python',
-        skillLevel: 'Intermediate',
-        Text:
-          'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. ',
-        Answers: 5,
-      },
-      {
-        id: 2,
-        languages: 'Python',
-        skillLevel: 'Intermediate',
-        Text:
-          'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. ',
-        Answers: 6,
-      },
-      {
-        id: 3,
-        languages: 'Python',
-        skillLevel: 'Intermediate',
-        Text:
-          'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. ',
-        Answers: 2,
-      },
-      {
-        id: 4,
-        languages: 'Python',
-        skillLevel: 'Intermediate',
-        Text:
-          'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. ',
-        Answers: 5,
-      },
+      }
     ],
   },
   {
