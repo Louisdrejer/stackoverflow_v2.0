@@ -49,9 +49,11 @@ export default function LeftNav({ onSearchTermChange }) {
 
   return (
     <div className="Leftcontainer">
-      <div className="logo_name_left">
-        <img src={logo} alt="Logo" />
-      </div>
+      <NavLink to={'/Questions'}>
+        <div className="logo_name_left">
+          <img src={logo} alt="Logo" />
+        </div>
+      </NavLink>
       <hr style={{ width: "80%", border: "1.8px solid white", marginTop: "10px" }} />
       <div className='quickSearchBox'>
         <input

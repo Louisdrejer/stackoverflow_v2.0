@@ -1,9 +1,8 @@
 import Parse from 'parse';
 //import Parse from 'parse/dist/parse.min.js';
 
-Parse.initialize("bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy", "WWyJLRsOVJ9do5ixaS8i1e1ye5qHtZksn21zNiTi");
+Parse.initialize("YfQOnVTr80h23bhnhvlpC9IhNdCTeHu5GuNW7ORa", "brJGP8ndWEL1NXUOM95yKDzdB5X3k5x97uQ1Y65W");
 Parse.serverURL = "https://parseapi.back4app.com/";
-
 
 
 //------------------------User------------------------
@@ -42,6 +41,7 @@ export const createUser = async (username, email, password, confirmPassword) => 
     }));
   };
 
+
 //------------------------Questions------------------------
 
 export const postQuestion = async(data) => {
@@ -56,59 +56,6 @@ export const postQuestion = async(data) => {
 
     await Question.save();
 }
-/**
-export const getQuestionsByTag = async(tags) => {
-    return new Promise(function(resolve, reject) {
-        const query = new Parse.Query('Questions');
-        console.log("hey")
-        for (let i = 0; i < tags.length; i++) {
-            query.contains(tags[i])
-        }
-
-        let result = []
-        let queryResults = query.find().then(results => {
-            results.map(question => {
-                let tmp = {
-                    Author: question.get('Author'),
-                    Title: question.get('Title'),
-                    Text: question.get('Text'),
-                    Date: question.get('Date'),
-                    Tags: question.get('Tags'),
-                }
-                result.push(tmp)
-            })
-        });
-        console.log(result)
-
-        resolve(queryResults)
-    });
-};
-/**
-export const getQuestionsByAuthor = async (name) => {
-    return new Promise(function (resolve, reject) {
-        const query = new Parse.Query('Questions');
-        query.ascending("createdAt");
-
-        let result = []
-        query.equalTo('Author', name)
-        let queryResults = query.find().then(results => {
-            results.map(Question => {
-                //return Question.get("Title") + " - " + Question.get("Author")
-                let tmp = {
-                    Author: Question.get("Author"),
-                    Title: Question.get("Title"),
-                    Text: Question.get("Text"),
-                    Date: Question.get("Date"),
-                    Tags: Question.get("Tags")
-                }
-                result.push(tmp)
-            })
-        });
-        console.log(result)
-
-        resolve(result)
-    });
-};  */
 
 export const getQuestionsByAuthor = async (name) => {
     const query = new Parse.Query('Questions');
@@ -118,7 +65,6 @@ export const getQuestionsByAuthor = async (name) => {
     const results = await query.find();
   
     return results.map((question) => ({
-
       Author: question.get('Author'),
       Title: question.get('Title'),
       Text: question.get('Text'),
@@ -136,24 +82,23 @@ export const getQuestionsByAuthor = async (name) => {
       return count;
   };
   
-
-
   export const getQuestionsByTags = async (tags) => {
-  const query = new Parse.Query('Questions');
-  query.descending('createdAt');
-  query.containedIn('Tags', tags);
-  const results = await query.find();
-  console.log(tags)
-  console.log("hey")
-  console.log(results)
-  return results.map((question) => ({
-    Author: question.get('Author'),
-    Title: question.get('Title'),
-    Text: question.get('Text'),
-    Date: question.get('Date'),
-    Tags: question.get('Tags'),
-    objectId: question.id
-  }));
+    const query = new Parse.Query('Questions');
+    query.descending('createdAt');
+    query.containedIn('Tags', tags);
+    const results = await query.find();
+    console.log(tags)
+    console.log("hey")
+    console.log(results)
+    return results.map((question) => ({
+      Author: question.get('Author'),
+      Title: question.get('Title'),
+      Text: question.get('Text'),
+      Date: question.get('Date'),
+      Tags: question.get('Tags'),
+      objectId: question.id
+    }
+  ));
 };
 
   export const getNewestQuestions = async () => {
@@ -196,10 +141,6 @@ export const getQuestionsByAuthor = async (name) => {
     }
   };
   
-
-  
-  
-  
   
 //------------------------Comments------------------------
 
@@ -216,28 +157,11 @@ export const postComment = async(data) => {
 
 export const getCommentsById = async (responseId) => {
     const query = new Parse.Query('Comments');
+
     //get comments responding to selected question
-    query.descending('createdAt');
     query.equalTo('ResponseID', responseId)
+    query.descending('createdAt');
 
-    // let result = []
-    // let queryResults = query.find().then(results => {
-    //     results.map(Question => {
-    //         //return Question.get("Title") + " - " + Question.get("Author")
-    //         let tmp = {
-    //             Author: Question.get("Author"),
-    //             Text: Question.get("Text"),
-    //             Date: Question.get("Date"),
-    //             ResponseID: Question.get("ResponseID"),
-    //             Likes: Question.get("Likes"),
-    //             DisLikes: comment.get('Dislikes'),
-    //         }
-    //         result.push(tmp)
-    //     })
-    // });
-    // console.log(result)
-
-    // return queryResults
     try {
         const results = await query.find(); 
         return results.map(comment => ({
@@ -252,14 +176,15 @@ export const getCommentsById = async (responseId) => {
         console.error('Error fetching comments:', error);
         return []; 
       }
-    };
+  };
 
 
 export const getCommentsByAuthor = async (name) => {
     const query = new Parse.Query('Comments');
-    query.descending('createdAt');
     query.equalTo('Author', name);
-    console.log("hey")
+    query.descending('createdAt');
+
+    //get comments
     const results = await query.find();
     console.log(results)
   
@@ -268,7 +193,6 @@ export const getCommentsByAuthor = async (name) => {
       const questionId = comment.get('ResponseID');
       const questionQuery = new Parse.Query('Questions');
       const question = await questionQuery.get(questionId);
-
   
       return {
         Author: comment.get('Author'),
@@ -279,15 +203,12 @@ export const getCommentsByAuthor = async (name) => {
         objectId: comment.id,
         QuestionTitle: question.get('Title'),
         QuestionTags: question.get('Tags'),
-       
       };
     }));
   
     return commentsWithQuestionInfo;
   };
   
-  
-
 
 export const deleteCommitsById = async (objectId) => {
   const query = new Parse.Query('Comments');
@@ -343,7 +264,6 @@ export const getNewestCommentsById = async (responseId) => {
 
 export const updateLikesAndDislikes = async (objectId, likeClicked, dislikeClicked) => {
   const query = new Parse.Query('Comments');
-console.log('heyyy')
   try {
     const commentToUpdate = await query.get(objectId);
 
@@ -367,29 +287,6 @@ console.log('heyyy')
     throw error;
   }
 };
-
-export const updateLikesInDatabase = async (objectId, newLikes) => {
-  try {
-    const query = new Parse.Query('Comments');
-    const question = await query.get(objectId);
-    question.set('Likes', newLikes);
-    await question.save();
-  } catch (error) {
-    console.error('Error updating likes in the database:', error.message);
-  }
-};
-
-export const updateDislikesInDatabase = async (objectId, newDislikes) => {
-  try {
-    const query = new Parse.Query('Comments');
-    const question = await query.get(objectId);
-    question.set('Dislikes', newDislikes);
-    await question.save();
-  } catch (error) {
-    console.error('Error updating dislikes in the database:', error.message);
-  }
-};
-
 
 export const updateLikeDislikeDB = async (objectId, type, increment) => {
     try {

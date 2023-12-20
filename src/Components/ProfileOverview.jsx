@@ -10,14 +10,7 @@ export default function ProfileOverview({ onComponentChange }) {
   const [username, setusername] = useState('');
   const [email, setemail] = useState('');
 
-  const getNumberOfQuestions = async () => {
-    return await getNumberOfQuestionsByAuthor(username);
-  };
 
-  const getNumberOfAnswers = async () => {
-    let totalAnswers = 0;
-    return totalAnswers;
-  };
 
   const getNumberOfPL = () => {
     return 0;
