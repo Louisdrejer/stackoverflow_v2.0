@@ -1,7 +1,7 @@
 import Parse from 'parse';
 //import Parse from 'parse/dist/parse.min.js';
 
-Parse.initialize("YfQOnVTr80h23bhnhvlpC9IhNdCTeHu5GuNW7ORa", "brJGP8ndWEL1NXUOM95yKDzdB5X3k5x97uQ1Y65W");
+Parse.initialize("bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy", "WWyJLRsOVJ9do5ixaS8i1e1ye5qHtZksn21zNiTi");
 Parse.serverURL = "https://parseapi.back4app.com/";
 
 
