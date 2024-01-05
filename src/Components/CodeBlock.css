@@ -1,26 +1,4 @@
 /* CodeBlock.css */
-/*  */
-.code {
-    min-width: 100% - 5px;
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-bottom: -5px;
-    border-radius: 5px;
-    height: 100px;
-    margin-bottom: 10px;
-    overflow-y: auto;
-    color:white
-}
-.code:hover {
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-bottom: -5px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  overflow-y: auto;
-  color:white;
-  height: max-content;
-}
 
 .code::-webkit-scrollbar {
     width: 8px;
