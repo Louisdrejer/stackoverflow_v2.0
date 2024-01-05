@@ -13,14 +13,12 @@
 }
 .code:hover {
   padding-top: 5px;
-  min-width: 100%;
   padding-left: 5px;
   padding-bottom: -5px;
   border-radius: 5px;
   margin-bottom: 10px;
   overflow-y: auto;
   color:white;
-  min-height: 100px;
   height: max-content;
 }
 
