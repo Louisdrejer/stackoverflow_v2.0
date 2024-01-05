@@ -5,7 +5,7 @@ import logo from '../../img/Logo.png';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { createUser } from '../../Scripts/Database';
-//fdfdf
+
 
 export default function NewUser() {
   const [username, setUsername] = useState('');
