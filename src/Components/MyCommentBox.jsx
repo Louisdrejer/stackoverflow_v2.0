@@ -3,11 +3,14 @@ import CodeBlock from './CodeBlock';
 import SmallCodeBlock from './SmallCodeBlock'
 import './CodeBlock.css'; 
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 import LikeDislikeButtonNotclick from './LikeDisLikeButtonNotClick';
 import { deleteCommitsById } from '../Scripts/Database';
 import { RiDeleteBin2Line } from "react-icons/ri";
 
 export default function MycommentBox(props) {
+  const navigate = useNavigate()
   const location = useLocation();
   const getColorForTag = (tag) => {
     if (tag === "PYTHON" || tag === "JAVA" || tag === "JAVASCRIPT") {
@@ -36,13 +39,17 @@ export default function MycommentBox(props) {
       console.error("Error deleting question:", error);
     }
   };
+  const goToAnswerBoxPage = () => {
+    navigate(`../Answers/`, { state: { pid: props.objectId, username: props.name, title: props.title, text: props.text, tags: props.tags } });
+ 
+  };
   
   return (
     <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)", width: "90%", marginLeft: "5%" }}>
       <div className="newQustionHeader">
         <div className="userQ">
           <div className="smallUserLogo2"></div>
-          <div className="Headline">{props.title}</div>
+          <div className="Headline" onClick={goToAnswerBoxPage}>{props.title}</div>
         </div>
         {location.pathname === '/OtherProfile' ? (
          <div></div>

@@ -37,6 +37,7 @@ export default function ProfilePL_Answers() {
     setCurrentPage((prevPage) => prevPage - 1);
     window.scrollTo(0, 0);
   };
+  console.log(Comments)
 
   return (
     <div className="myAnswersContainer">
