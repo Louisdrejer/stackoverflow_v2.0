@@ -4,6 +4,7 @@ import SmallCodeBlock from './SmallCodeBlock'
 import './CodeBlock.css'; 
 import { useLocation, useNavigate } from 'react-router-dom';
 import LikeDislikeButtons from './LikeDisLikeButton'
+import Flag from './Flag';
 
 
 export default function SmallAnswerBox(props) {
@@ -26,12 +27,17 @@ export default function SmallAnswerBox(props) {
   return (
     <div className="aCommentBox" style={{ background: "rgb(43, 44, 48)", borderColor: "rgb(43, 44, 48)" }}>
 
-      <div className="aCommentHeader">
-        <div className="userQ">
-          <div className="smallUserLogo2"></div>
-          <div className="userQ" onClick={goToAnswerBoxProfile}>{props.name}</div>
-        </div>
-      </div>
+<div className="aCommentHeader">
+  <div className="userQ">
+    <div className="smallUserLogo2"></div>
+    <div className="userQ" onClick={goToAnswerBoxProfile}>{props.name}</div>
+  </div>
+  {props.questionUser === currentUsername ? (
+    <Flag />
+  ) : (
+    <div></div>
+  )}
+</div>
 
 
 

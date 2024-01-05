@@ -303,6 +303,7 @@
 
   .Answerpage .code {
     width: 99%;
+    margin-top: 0px;
     height: 240px;
   }
   

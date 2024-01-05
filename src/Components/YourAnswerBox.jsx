@@ -96,6 +96,7 @@ return (
                 disLikes={comment.DisLikes}
                 objectId={comment.objectId}
                 date={comment.Date}
+                questionUser={username}
               />
             ))}
             {Comments.length >= itemsPerPage && (
