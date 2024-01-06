@@ -8,7 +8,6 @@ import { deleteQuestionById } from '../Scripts/Database';
 import { RiDeleteBin2Line } from "react-icons/ri";
 
 export default function SmallQuestionBox(props) {
-  console.log(props)
   const location = useLocation();
   const getColorForTag = (tag) => {
     if (tag === "PYTHON" || tag === "JAVA" || tag === "JAVASCRIPT") {

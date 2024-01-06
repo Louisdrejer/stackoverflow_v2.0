@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../img/Logo.png';
 import LogoutButton from './LogoutButton.jsx';
 
 export default function LeftNav({ onSearchTermChange }) {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [pages, setPages] = useState([]);
   const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
@@ -42,8 +43,8 @@ export default function LeftNav({ onSearchTermChange }) {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       console.log(searchTerm);
-      // Navigate to "/Search" with the search term as a query parameter
-      window.location.href = `/Search?term=${searchTerm}`;
+      navigate(`../Search`, { state: { Search: searchTerm} });
+      setSearchTerm('')
     }
   };
 

@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-export default function LanguageDropDown({onLanguageChange, defaultLanguage}) {
+export default function LanguageDropDown({onLanguageChange, defaultLanguage,  updateComponent }) {
     const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
 
     const handleLanguageChange = (language) => {
         setSelectedLanguage(language);
         onLanguageChange(language);
       };
+
+      useEffect(() => {
+        handleLanguageChange (defaultLanguage)
+        }, [updateComponent])
     return (
         <div className="SP2dropdown">
             <span>{selectedLanguage}</span>

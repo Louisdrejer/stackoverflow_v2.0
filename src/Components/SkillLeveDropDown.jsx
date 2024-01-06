@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function SkillLeveDropDown({ onSkillLevelChange, defaultSkillLevel }) {
+export default function SkillLeveDropDown({ onSkillLevelChange, defaultSkillLevel, updateComponent }) {
   const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
 
   const handleSkillLevelChange = (skillLevel) => {
@@ -9,7 +9,8 @@ export default function SkillLeveDropDown({ onSkillLevelChange, defaultSkillLeve
   };
 
   useEffect(() => {
-  }, []);
+    handleSkillLevelChange(defaultSkillLevel)
+  }, [updateComponent]);
 
   return (
     <div className="SP3dropdown">
