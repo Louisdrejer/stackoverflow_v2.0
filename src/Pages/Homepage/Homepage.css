@@ -309,6 +309,7 @@
   font-weight: 800;
   font-size: 16px;
   letter-spacing: 0.12em;
+  cursor: pointer;
 }
 .submitButton:hover {
   background: #575fbe;

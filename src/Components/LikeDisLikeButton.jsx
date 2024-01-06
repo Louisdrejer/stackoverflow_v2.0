@@ -38,6 +38,7 @@ const LikeDislikeButtons = (props) => {
       <div className='likeButton'>
         <div
           className={`likeIcon ${like ? 'clicked2' : ''}`}
+          style={{ cursor:'pointer'}}
           onClick={handleLike}
         >
           <BiSolidLike />
@@ -48,7 +49,7 @@ const LikeDislikeButtons = (props) => {
       <div className='DislikeButton'>
         <div
           className={`DislikeIcon ${dislike ? 'clicked2' : ''}`}
-          style={{ transform: 'scaleX(-1)' }}
+          style={{ transform: 'scaleX(-1)', cursor:'pointer'}}
           onClick={handleDislike}
         >
           <BiSolidDislike />

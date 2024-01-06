@@ -151,7 +151,8 @@
     font-weight: 800;
     font-size: 28px;
     margin-top: 10px;
-    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
     
 
   }
@@ -384,7 +385,8 @@
     font-weight: 800;
     font-size: 28px;
     margin-top: 20px;
-    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
     margin-bottom: 8px
   }
 
