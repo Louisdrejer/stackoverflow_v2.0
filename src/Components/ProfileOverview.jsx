@@ -87,7 +87,7 @@ export default function ProfileOverview({ onComponentChange }) {
           className={`profileOverviewPLLine ${clickedLine === 'ProgrammingLanguages' ? 'clicked' : ''}`}
           onClick={() => handleClick('ProgrammingLanguages')}
         >
-          <div className="PO_PL">Programming Languages</div>
+          <div className="PO_PL">My Programming Languages</div>
           <div className="PO_PLNumber">{/* {numberOfPL} */}</div>
         </div>
 

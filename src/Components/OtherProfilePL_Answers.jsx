@@ -41,7 +41,7 @@ export default function OtherProfilePL_Answers() {
 
   return (
     <div className="myAnswersContainer">
-      <div className="myAnswersHeaderText">{username} COMMENTS</div>
+      <div className="myAnswersHeaderText">THEIR COMMENTS</div>
       {Comments.slice(startIndex, endIndex).map((comment, index) => (
         <MycommentBox
           key={index}

@@ -43,7 +43,7 @@ export default function OtherProfilePL_Questions() {
 
   return (
     <div className="myAnswersContainer">
-    <div className="myAnswersHeaderText">{username} QUESTIONS</div>
+    <div className="myAnswersHeaderText">THEIR QUESTIONS</div>
       {questions.slice(startIndex, endIndex).map((question, index) => (
         <SmallQuestionBox key={index} name={question.Author} title={question.Title} text={question.Text} tags={question.Tags} objectId={question.objectId} setUpdate ={setUpdate} update ={Update}/>
       ))}

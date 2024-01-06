@@ -53,7 +53,7 @@ export default function OtherProfileOVerview({ onComponentChange }) {
           className={`profileOverviewQuestionLine ${clickedLine === 'Questions' ? 'clicked' : ''}`}
           onClick={() => handleClick('Questions')}
         >
-          <div className="PO_Question"> {username} Questions</div>
+          <div className="PO_Question"> Their Questions</div>
           <div className="PO_QuestionNumber">
             {/* {numberOfQuestions} */}
           </div>
@@ -63,14 +63,14 @@ export default function OtherProfileOVerview({ onComponentChange }) {
           className={`profileOverviewAnswersLine ${clickedLine === 'Answers' ? 'clicked' : ''}`}
           onClick={() => handleClick('Answers')}
         >
-          <div className="PO_Answers">{username} Comments</div>
+          <div className="PO_Answers">Their Comments</div>
           <div className="PO_AnswersNumber">{/* {numberOfAnswers} */}</div>
         </div>
         <div
           className={`profileOverviewPLLine ${clickedLine === 'ProgrammingLanguages' ? 'clicked' : ''}`}
           onClick={() => handleClick('ProgrammingLanguages')}
         >
-          <div className="PO_PL">{username}'s Programming Languages</div>
+          <div className="PO_PL">Their Programming Languages</div>
           <div className="PO_PLNumber">{/* {numberOfPL} */}</div>
         </div>
 

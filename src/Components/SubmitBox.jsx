@@ -119,7 +119,7 @@ console.log(questions)
           </button>
         </div>
       </div>
-      <div className="newQustion">RECENT QUESTION</div>
+      <div className="newQustion">RECENT QUESTIONS</div>
 
       {questions.slice(startIndex, endIndex).map((question, index) => (
         <SmallQuestionBox
