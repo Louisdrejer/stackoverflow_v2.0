@@ -4,7 +4,7 @@ export default function AddNewLanguages({ onClick }) {
   return (
     <div className="addNewLanguages" onClick={onClick}>
       <div className="addNewLanguagesButton">+</div>
-      <div className="addNewLanguagesText">Add A New Language</div>
+      <div className="addNewLanguagesText">UPDATE YOUR SKILL LEVEL</div>
     </div>
   );
 }

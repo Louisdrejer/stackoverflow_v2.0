@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ProfilePlOverviewAddLang from './ProfilePL_OverviewAddLang';
 import AddNewLanguages from './AddNewLanguages';
-import { getSkillLevelByAuthor } from '../Scripts/Database';
+import { getSkillLevelByAuthor2 } from '../Scripts/Database';
+
 
 export default function ProfilePL_Overview() {
   const [SkillLevel, setSkillLevel] = useState([]);
@@ -13,10 +14,11 @@ export default function ProfilePL_Overview() {
         const currentUserString = localStorage.getItem('Parse/bCTTcIHsTeO3FRZjfUWQw8BoWEYUSICpeWbm48xy/currentUser');
         const currentUser = JSON.parse(currentUserString);
         const username1 = currentUser.username;
-        const result = await getSkillLevelByAuthor(username1);
-        console.log(result);
+        setUsername(username1)
+        const result = await getSkillLevelByAuthor2(username1);
+        console.log(result[0].SkillLevel);
         setUsername(username1);
-        setSkillLevel(result);
+        setSkillLevel(result[0].SkillLevel);
       } catch (error) {
         console.error('Error fetching questions:', error);
       }
@@ -37,11 +39,11 @@ export default function ProfilePL_Overview() {
     setAddLanguageVisible(true);
   };
 
-  const handleApprove = (newLanguage) => {
-    setSkillLevel((prevSkillLevel) => [...prevSkillLevel, newLanguage]);
-    
+  const handleApprove = async (newLanguage) => {
+    const updatedSkillLevels = [...SkillLevel, newLanguage];
+    setSkillLevel(updatedSkillLevels);
   };
-
+  
   return (
     <div className="profilePLBox">
       <div className="profilePLTitle">PROGRAMMING LANGUAGES</div>
@@ -50,20 +52,21 @@ export default function ProfilePL_Overview() {
           SkillLevel.map((language, index) => (
             <div key={index} className="PLAndSkillLevel">
               <div className="ProgrammingLanguages">
-                <div className="Languagesnr">{`Languages #${index + 1}`}</div>
+                <div className="Languagesnr">{`LANGUAGES #${index + 1}`}</div>
                 <div className="PL">
-                  <span>{language.languages}</span>
+                  <span>{language.LANGUAGE}</span>
                 </div>
               </div>
               <div className="SkillLevel">
-                <div className="SkillLevelHeader">Skill Level</div>
+                <div className="SkillLevelHeader">SKILL LEVEL</div>
                 <div className="SkillLvl">
-                  <span>{language.skillLevel}</span>
+                  <span>{language.SKILLLEVEL}</span>
                 </div>
-                <button className="discardButton" onClick={() => handleDiscard(index)}>
-                  x
-                </button>
               </div>
+              {/* Uncomment the button if needed */}
+              {/* <button className="discardButton" onClick={() => handleDiscard(index)}>
+                x
+              </button> */}
             </div>
           ))}
 
@@ -72,6 +75,8 @@ export default function ProfilePL_Overview() {
             <ProfilePlOverviewAddLang
               onDiscard={() => setAddLanguageVisible(false)}
               onApprove={handleApprove}
+              skillLevel={SkillLevel}
+              username={Username}
             />
           )}
           <AddNewLanguages onClick={handleAddLanguageClick} />

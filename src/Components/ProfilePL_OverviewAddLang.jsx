@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ProfilePl_OverviewAddLang({ onDiscard, setUser, onApprove }) {
-  const defaultLanguage = 'Choose languages';
-  const defaultSkillLevel = 'Your skillLevel';
+import { updateSkillLevel} from '../Scripts/Database';
+export default function ProfilePl_OverviewAddLang({ onDiscard, skillLevel, username}) {
+  const defaultLanguage = 'CHOOSE LANGUAGES';
+  const defaultSkillLevel = 'YOUR SKILLLEVEL';
 
-  const user = {
-    username: 'Louis',
-    email: 'louisdrejer@hotmail.com',
-    password: 'louis1234',
-    programmingLanguages: [],
-  };
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const [selectedSkillLevel, setSelectedSkillLevel] = useState(defaultSkillLevel);
-
+  console.log(skillLevel)
   useEffect(() => {
-    // This effect will run after every render
     if (selectedSkillLevel !== defaultSkillLevel && selectedLanguage !== defaultLanguage) {
       handleApprove();
     }
-  }, [selectedLanguage, selectedSkillLevel]); // Run the effect when either selectedLanguage or selectedSkillLevel changes
+  }, [selectedLanguage, selectedSkillLevel]); 
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -33,85 +27,61 @@ export default function ProfilePl_OverviewAddLang({ onDiscard, setUser, onApprov
   };
 
   const handleApprove = () => {
-    // Check if the programmingLanguages array exists on the user object
-    if (!user.programmingLanguages) {
-      // If not, initialize it as an empty array
-      user.programmingLanguages = [];
-    }
-
-    // Check if the language already exists in the user's programming languages
-    const existingLanguageIndex = user.programmingLanguages.findIndex(
-      (lang) => lang.languages === selectedLanguage
+    const matchedSkillLevelIndex = skillLevel.findIndex(
+      (item) => item.LANGUAGE === selectedLanguage
     );
-
-    if (existingLanguageIndex !== -1) {
-      // If the language already exists
-      const existingSkillLevel = user.programmingLanguages[existingLanguageIndex].skillLevel;
-
-      if (existingSkillLevel === selectedSkillLevel) {
-        // Display an alert if the skill level is the same as before
-        alert('You are trying to change the skill level you already have.');
-        return;
-      } else {
-        // Update the skill level
-        const updatedLanguages = [...user.programmingLanguages];
-        updatedLanguages[existingLanguageIndex].skillLevel = selectedSkillLevel;
-
-        // Update the user object with the modified programmingLanguages array
-        setUser((prevUser) => ({ ...prevUser, programmingLanguages: updatedLanguages }));
-      }
+  
+    if (matchedSkillLevelIndex !== -1) {
+      skillLevel[matchedSkillLevelIndex].SKILLLEVEL = selectedSkillLevel;
     } else {
-      // If the language doesn't exist, add the new language to the user's profile
-      onApprove({
-        languages: selectedLanguage,
-        skillLevel: selectedSkillLevel,
-      });
+      console.log(`Skill level not found for ${selectedLanguage}`);
     }
-
+    updateSkillLevel(username, skillLevel)
     onDiscard();
   };
-
+  
   return (
     <div>
       <div className="PLAndSkillLevel">
         <div className="ProgrammingLanguages">
-          <div className="Languagesnr">Languages</div>
+          <div className="Languagesnr">LANGUAGE</div>
           <div className="PLdropdown">
             <span>{selectedLanguage}</span>
             <div className="PLdropdown-content">
-              <p onClick={() => handleLanguageChange('Python')} style={{ cursor: 'pointer' }}>
-                Python
+              <p onClick={() => handleLanguageChange('PYTHON')} style={{ cursor: 'pointer' }}>
+                PYTHON
               </p>
-              <p onClick={() => handleLanguageChange('Java')} style={{ cursor: 'pointer' }}>
-                Java
+              <p onClick={() => handleLanguageChange('JAVA')} style={{ cursor: 'pointer' }}>
+                JAVA
               </p>
-              <p onClick={() => handleLanguageChange('JavaScript')} style={{ cursor: 'pointer' }}>
-                JavaScript
+              <p onClick={() => handleLanguageChange('JAVASCRIPT')} style={{ cursor: 'pointer' }}>
+                JAVASCRIPT
               </p>
             </div>
             <div className="PLarrow-down"></div>
           </div>
         </div>
         <div className="SkillLevel">
-          <div className="SkillLevelHeader">Skill Level</div>
+          <div className="SkillLevelHeader">SKILL LEVEL</div>
           <div className="SkillLvldropdown">
             <span>{selectedSkillLevel}</span>
             <div className="SkillLvldropdown-content">
-              <p onClick={() => handleSkillLevelChange('Beginner')} style={{ cursor: 'pointer' }}>
-                Beginner
+              <p onClick={() => handleSkillLevelChange('BEGINNER')} style={{ cursor: 'pointer' }}>
+                BEGINNER
               </p>
-              <p onClick={() => handleSkillLevelChange('Intermediate')} style={{ cursor: 'pointer' }}>
-                Intermediate
+              <p onClick={() => handleSkillLevelChange('INTERMEDIATE')} style={{ cursor: 'pointer' }}>
+                INTERMEDIATE
               </p>
-              <p onClick={() => handleSkillLevelChange('Expert')} style={{ cursor: 'pointer' }}>
-                Expert
+              <p onClick={() => handleSkillLevelChange('EXPERT')} style={{ cursor: 'pointer' }}>
+                EXPERT
               </p>
             </div>
             <div className="Skillarrow-down"></div>
           </div>
-          <button className="discardButton" onClick={handleDiscard}>
-            x
-          </button>
+          {/**    <button className="discardButton" onClick={() => handleDiscard(index)}>
+                  x
+                </button>
+                 */} 
         </div>
       </div>
     </div>

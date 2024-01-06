@@ -8,26 +8,35 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 //------------------------User------------------------
 
 export const createUser = async (username, email, password, confirmPassword) => {
-    if (password !== confirmPassword) {
-      throw new Error('Passwords do not match');
-    }
-  
-    try {
-      // Create a new Parse User
-      const user = new Parse.User();
-  
-      user.set('username', username);
-      user.set('email', email);
-      user.set('password', password);
-  
-      // Sign up the user
-      await user.signUp();
-  
-      console.log('User created successfully');
-    } catch (error) {
-      console.error('Error creating user:', error.message);
-    }
-  };
+  if (password !== confirmPassword) {
+    throw new Error('Passwords do not match');
+  }
+
+  try {
+    // Create a new Parse User
+    const user = new Parse.User();
+
+    user.set('username', username);
+    user.set('email', email);
+    user.set('password', password);
+
+    const SkillLevels = [
+      { LANGUAGE: 'PYTHON', SKILLLEVEL: 'BEGINNER' },
+      { LANGUAGE: 'JAVA', SKILLLEVEL: 'BEGINNER' },
+      { LANGUAGE: 'JAVASCRIPT', SKILLLEVEL: 'BEGINNER' }
+    ];
+
+    user.set('Skill', SkillLevels);
+
+    // Sign up the user
+    await user.signUp();
+
+    console.log('User created successfully');
+  } catch (error) {
+    console.error('Error creating user:', error.message);
+  }
+};
+
 
   export const getSkillLevelByAuthor = async (name) => {
     const query = new Parse.Query('User');
@@ -40,6 +49,36 @@ export const createUser = async (username, email, password, confirmPassword) => 
       SkillLevel: question.get('SkillLevel'),
     }));
   };
+
+  export const getSkillLevelByAuthor2 = async (name) => {
+    const query = new Parse.Query('User');
+    query.equalTo('username', name);
+    console.log("hey")
+    const results = await query.find();
+    console.log(results)
+    return results.map((skillLevel) => ({
+      SkillLevel: skillLevel.get('Skill'),
+    }));
+  };
+
+// Import other necessary modules if needed
+
+export const updateSkillLevel = async (username, skillLevel) => {
+  try {
+    const query = new Parse.Query('User');
+    query.equalTo('username', username);
+
+    const user = await query.first(); 
+
+    if (user) {
+      user.set('Skill', skillLevel);
+      await user.save();
+    }
+  } catch (error) {
+    console.error('Error updating skill level:', error.message);
+  }
+};
+
 
 
 //------------------------Questions------------------------

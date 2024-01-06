@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../Pages/Profile/Profile.css';
 import OtherProfileHeaderBox from '../Components/OtherProfileHeaderBox';
 import OtherProfileOVerview from '../Components/OtherProfileOVerview';
-import ProfilePLProgrammingLanguages from '../Components/ProfilePL_ProgrammingLanguages';
+import OtherProfilePLProgrammingLanguages from '../Components/OtherProfilePLProgrammingLanguages';
 import OtherProfilePLAnswers from '../Components/OtherProfilePL_Answers';
 import OtherProfilePLQuestions from '../Components/OtherProfilePL_Questions';
 
@@ -26,7 +26,7 @@ export default function OthersProfile() {
           <OtherProfileOVerview onComponentChange={handleComponentChange} />
           {selectedComponent === 'Questions' && <OtherProfilePLQuestions  />}
           {selectedComponent === 'Answers' && <OtherProfilePLAnswers />}
-          {selectedComponent === 'ProgrammingLanguages' && <ProfilePLProgrammingLanguages />}
+          {selectedComponent === 'ProgrammingLanguages' && <OtherProfilePLProgrammingLanguages />}
         </div>
       </div>
     </div>
