@@ -35,12 +35,9 @@
       };
     
       useEffect(() => {
-        if (resetDropdown) {
-          // Reset dropdown values when resetDropdown changes
           setSelectedTopic(defaultTopic);
           setSelectedLanguage(defaultLanguage);
           setSelectedSkillLevel(defaultSkillLevel);
-        }
       }, [resetDropdown]);
     
       useEffect(() => {

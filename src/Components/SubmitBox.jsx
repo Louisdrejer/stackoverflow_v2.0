@@ -84,7 +84,6 @@ export default function SubmitBox() {
     setCurrentPage((prevPage) => prevPage - 1);
     window.scrollTo(0, 0);
   };
-console.log(questions)
   return (
     <div className="submitAQuestionContainer">
       <div className="submitAQuestionHeader">SUBMIT A QUESTION</div>
