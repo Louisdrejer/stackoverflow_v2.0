@@ -41,6 +41,11 @@ export const createUser = async (username, email, password, confirmPassword) => 
     }));
   };
 
+  //https://www.back4app.com/docs/react/working-with-users/get-current-user-react
+  export const getCurrentUser = async function () {
+    const currentUser = await Parse.User.current();
+    return currentUser.get('username');
+  };
 
 //------------------------Questions------------------------
 
@@ -304,3 +309,21 @@ export const updateLikeDislikeDB = async (objectId, type, increment) => {
         console.error('Error updating dislikes in the database:', error.message);
     }
 }
+
+
+//------------------------Profile------------------------
+export const getLikesAndComments = async(user) => {
+  const query = new Parse.Query('Comments');
+  query.equalTo('Author', user)
+
+  return query.find().then(results => {
+      let count = results.length;
+
+      const sum = results.reduce((accumulator, currentValue) => {
+          return accumulator + currentValue.get("Likes");
+      }, 0);
+
+      return {"Count": count, "Sum": sum}
+  })
+}
+

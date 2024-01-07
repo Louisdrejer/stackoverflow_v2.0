@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getNumberOfQuestionsByAuthor, getNumberOfCommentsByAuthor } from '../Scripts/Database';
+import { getCurrentUser, getLikesAndComments } from '../Scripts/Database';
+import { BiSolidLike, BiSolidDislike } from 'react-icons/bi';
+import { FaRegComment } from "react-icons/fa";
 
 export default function ProfileOverview({ onComponentChange }) {
   const [numberOfAnswers, setNumberOfAnswers] = useState(0);
@@ -40,6 +43,14 @@ export default function ProfileOverview({ onComponentChange }) {
     setNumberOfPL(PL);
   }, []); // Trigger the effect when programmingLanguages changes
 
+  const [stats, setStats] = useState([0, 0])
+  //get number of likes and comments for stats
+  useEffect(() => {
+    getCurrentUser()
+      .then(result => getLikesAndComments(result))
+      .then(result => setStats([result["Sum"], result["Count"]]))
+  }, [username]);
+
   const handleClick = (line) => {
     setClickedLine(line === clickedLine ? 'Questions' : line);
     onComponentChange(line);
@@ -61,6 +72,16 @@ export default function ProfileOverview({ onComponentChange }) {
         </div>
         <div className="profileOverviewProfileEmail">
           {email}
+        </div>
+
+        <div className='stats' style={{width:"150%", color:"white", display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+          <BiSolidLike style={{transform: "scaleX(-1)"}}/>
+          <div  style={{width:"2%"}}></div>
+          <div className='profileLikeStats'>{stats[0]}</div>
+          <div  style={{width:"12%"}}></div>
+          <FaRegComment/>
+          <div  style={{width:"2%"}}></div>
+          <div className='profileCommentsStats'>{stats[1]}</div>
         </div>
       </div>
 
