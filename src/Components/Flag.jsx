@@ -6,7 +6,6 @@ export default function Flag() {
 
   const handleClick = () => {
     setFlagClicked(!isFlagClicked);
-    // You can perform additional actions on flag click if needed
   };
 
   const flagStyle = {

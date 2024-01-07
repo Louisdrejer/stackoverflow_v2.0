@@ -1,5 +1,3 @@
-// LikeDislikeButtons.js
-
 import React, { useState } from 'react';
 import './LikeDislike.css';
 import { BiSolidLike, BiSolidDislike } from 'react-icons/bi';
@@ -16,7 +14,6 @@ const LikeDislikeButtons = (props) => {
     if (!dislike) {
       setLike(!like);
       
-      //increment like in DB if false, else decrement
       updateLikeDislikeDB(props.objectId, "Likes", !like)
 
     }
@@ -27,7 +24,7 @@ const LikeDislikeButtons = (props) => {
     if (!like) {
       setDislike(!dislike);
 
-      //add like to DB
+
       updateLikeDislikeDB(props.objectId, "Dislikes", !dislike)
 
     }

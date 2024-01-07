@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import './CodeBlock.css'; // Import the CSS file for styling
-
+import './CodeBlock.css'; 
 const CodeInput = () => {
   const [code, setCode] = useState('');
 

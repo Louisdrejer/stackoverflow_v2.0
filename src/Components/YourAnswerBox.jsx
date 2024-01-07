@@ -1,6 +1,6 @@
 import arrow from '../img/arrow.svg';
 import React, { useState, useEffect } from 'react'
-import {useParams, useLocation, useNavigate} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import SmallQuestionBox from './SmallQuestionBox';
 import SmallAnswerBox from './SmallAnswersBox';
 import { postComment, getCommentsById, getNewestCommentsById } from '../Scripts/Database';
@@ -12,10 +12,9 @@ export default function CommentPage() {
   const itemsPerPage = 3;
   const [description, setDescription] = useState('');
   const [Comments, setComments] = useState([]);
-  const navigate = useNavigate();
+  
   const location = useLocation();
   const questionState = location.state;
-  console.log(questionState)
   const { username, title, text, tags, pid } = questionState
 
 
@@ -67,7 +66,6 @@ export default function CommentPage() {
     setCurrentPage((prevPage) => prevPage - 1);
     window.scrollTo(0, 0);
   };
-console.log(Comments)
 
 return (
   <div className="Answerpage commentContainer"> 
