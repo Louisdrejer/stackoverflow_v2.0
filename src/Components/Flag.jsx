@@ -14,7 +14,7 @@ export default function Flag() {
   };
 
   return (
-    <div onClick={handleClick} style={flagStyle} title="A disrespectful comment">
+    <div onClick={handleClick} style={flagStyle} title="Report disrespectful comment">
       {isFlagClicked ? <IoFlag /> : <IoFlagOutline />}
     </div>
   );
