@@ -66,8 +66,8 @@
         <div className="SP1dropdown">
             <span>{selectedTopic}</span>
             <div className="SP1dropdown-content">
-            <p onClick={() => handleTopicChange('DATA TYPES')} style={{ cursor: 'pointer' }}>
-                DATA TYPES
+            <p onClick={() => handleTopicChange('DATATYPES')} style={{ cursor: 'pointer' }}>
+                DATATYPES
             </p>
             <p onClick={() => handleTopicChange('LISTS')} style={{ cursor: 'pointer' }}>
                 LISTS

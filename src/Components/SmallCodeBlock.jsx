@@ -12,16 +12,19 @@ const CodeBlock = ({ code }) => {
     paddingTop: '5px',
     paddingLeft: '5px',
     paddingBottom: '-5px',
+    background: 'rgb(67, 68, 73)',
     borderRadius: '5px',
     height: '100px',
     marginBottom: '10px',
     overflowY: 'auto',
-    width: '100%',
+    minWidth: '100%',
     color: 'white',
+    maxWidth: '810px'
   };
 
   const code2Style = {
     paddingTop: '5px',
+    background: 'rgb(67, 68, 73)',
     paddingLeft: '5px',
     paddingBottom: '-5px',
     borderRadius: '5px',
@@ -31,7 +34,10 @@ const CodeBlock = ({ code }) => {
     color: 'white',
     minHeight: '100px',
     height: 'max-content',
+    maxWidth: '810px'
   };
+
+
 
   const appliedStyle = isClicked ? code2Style : code1Style;
 

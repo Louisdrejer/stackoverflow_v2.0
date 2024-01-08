@@ -21,7 +21,7 @@ export default function SmallQuestionBox(props) {
   };
 
   const handleDeleteClick = async () => {
-    const isConfirmed = window.confirm("Are you sure you want to delete this question?");
+    const isConfirmed = window.confirm("Are you sure you want to delete this?");
 
     if (!isConfirmed) {
       return;

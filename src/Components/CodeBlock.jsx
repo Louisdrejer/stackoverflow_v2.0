@@ -11,7 +11,8 @@ const CodeBlock = ({ code }) => {
   };
 
   const code1Style = {
-    minWidth: 'calc(100% - 5px)',
+    minWidth: '100%',
+    background: 'rgb(67, 68, 73)',
     paddingTop: '5px',
     paddingLeft: '5px',
     paddingBottom: '-5px',
@@ -20,29 +21,36 @@ const CodeBlock = ({ code }) => {
     marginBottom: '10px',
     overflowY: 'auto',
     color: 'white',
+    maxWidth: '1000px'
   };
 
   const code2Style = {
     paddingTop: '5px',
     paddingLeft: '5px',
     paddingBottom: '-5px',
+    background: 'rgb(67, 68, 73)',
     borderRadius: '5px',
     marginBottom: '10px',
     overflowY: 'auto',
     color: 'white',
+    minHeight: '100px',
     height: 'max-content',
+    maxWidth: '1000px',
+    minWidth: '100%',
   };
 
   const code3Style = {
     paddingTop: '5px',
     paddingLeft: '5px',
     paddingBottom: '-5px',
+    background: 'rgb(67, 68, 73)',
     borderRadius: '5px',
     marginBottom: '10px',
     overflowY: 'auto',
     color: 'white',
     height: '245px',
-    cursor: 'auto'
+    cursor: 'auto',
+    maxWidth: '1000px'
   };
 
   const appliedStyle = isClicked ? code2Style : code1Style;

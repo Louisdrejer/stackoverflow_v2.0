@@ -266,6 +266,7 @@ export const getCommentsByAuthor = async (name) => {
         objectId: comment.id,
         QuestionTitle: question.get('Title'),
         QuestionTags: question.get('Tags'),
+        QuestionAuther: question.get('Auther')
       };
     }));
   
