@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { getNumberOfQuestionsByAuthor, getNumberOfCommentsByAuthor } from '../Scripts/Database';
 import {useLocation,} from 'react-router-dom';
+import { BiSolidLike, BiSolidDislike } from 'react-icons/bi';
+import { FaRegComment } from "react-icons/fa";
+import { getCurrentUser, getLikesAndComments } from '../Scripts/Database';
 
 export default function OtherProfileOVerview({ onComponentChange }) {
   const [clickedLine, setClickedLine] = useState('Questions');
@@ -11,17 +14,17 @@ export default function OtherProfileOVerview({ onComponentChange }) {
   const { username} = questionState
   console.log(questionState)
 
+  const [stats, setStats] = useState([0, 0])
+
   const getNumberOfPL = () => {
     return 0;
   };
 
+  //get number of likes and comments for stats
   useEffect(() => {
-    const fetchData = async () => {
-
-    };
-
-    fetchData();
-  }, []);
+    getLikesAndComments(username)
+    .then(result => setStats([result["Sum"], result["Count"]]))
+  }, [username]);
 
   const handleClick = (line) => {
     setClickedLine(line === clickedLine ? 'Questions' : line);
@@ -42,6 +45,17 @@ export default function OtherProfileOVerview({ onComponentChange }) {
         <div className="profileOverviewProfileName">
           {username}
         </div>
+
+        <div className='stats' style={{width:"150%", color:"white", display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+          <BiSolidLike style={{transform: "scaleX(-1)"}}/>
+          <div  style={{width:"2%"}}></div>
+          <div className='profileLikeStats'>{stats[0]}</div>
+          <div  style={{width:"12%"}}></div>
+          <FaRegComment/>
+          <div  style={{width:"2%"}}></div>
+          <div className='profileCommentsStats'>{stats[1]}</div>
+        </div>
+
         <div className="profileOverviewProfileEmail">
           {/*email*/}
         </div>

@@ -7,7 +7,6 @@ import OtherProfilePLAnswers from '../Components/OtherProfilePL_Answers';
 import OtherProfilePLQuestions from '../Components/OtherProfilePL_Questions';
 
 export default function OthersProfile() {
-    const [user, setUser] = useState({});
   const [selectedComponent, setSelectedComponent] = useState('Questions');
 
     useEffect(() => {
