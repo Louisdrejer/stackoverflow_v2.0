@@ -241,6 +241,29 @@ export const getCommentsById = async (responseId) => {
       }
   };
 
+export const getCommentsToCurrentUser = async () => {
+    const currentUser = await getCurrentUser();
+    const questions = await getQuestionsByAuthor(currentUser);
+
+    let tmp = [];
+    for (let i = 0; i < questions.length; i++) {
+      let question = questions[i]
+      const id = question["objectId"];
+      let it = await getCommentsById(id)
+
+      let itt = it.map(e => ({...e, 
+        objectId: id, 
+        QuestionTitle: question["Title"], 
+        QuestionTags: question["Tags"],
+        QuestionAuther: question["Author"]
+      }))
+      tmp = tmp.concat(itt)
+    }
+
+    tmp.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+    return tmp;
+  };
+
 
 export const getCommentsByAuthor = async (name) => {
     const query = new Parse.Query('Comments');
