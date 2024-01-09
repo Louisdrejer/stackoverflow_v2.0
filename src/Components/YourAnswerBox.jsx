@@ -83,7 +83,7 @@ return (
       {Comments.length > 0 && (
         <>
          <div className="previousAnswerContainer">
-          <div className="previousAnswerHeader">PREVIOUS ANSWERS</div>
+          <div className="previousAnswerHeader">PREVIOUS COMMENTS</div>
           <div className='commentsContainer'>   
             {Comments.slice(startIndex, endIndex).map((comment, index) => (
               <SmallAnswerBox 
@@ -144,7 +144,7 @@ return (
 
 
     <div className="submitCommentContainer">
-      <div className="submitCommentHeader">YOUR ANSWER</div>
+      <div className="submitCommentHeader">SUBMIT A COMMENT</div>
       <div className="inputComment">
       <div style={{ marginTop: '10px' }}></div>
         <textarea
