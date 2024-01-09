@@ -60,7 +60,7 @@ export default function LeftNav({ onSearchTermChange }) {
         <input
           type="text"
           className='quickSearch'
-          placeholder="Quick search"
+          placeholder="Quick search on tags"
           value={searchTerm}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}

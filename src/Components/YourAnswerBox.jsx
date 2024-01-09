@@ -76,7 +76,7 @@ return (
       <span className="recentQuestionsLabel">Questions</span>
     </div>
     <div className='QuestionDescriptionContainer'>      
-      <SmallQuestionBox name={username} title={title} text={text} tags={tags}  objectId={pid} />  
+      <SmallQuestionBox name={username} title={title} text={text} tags={tags}  objectId={pid} activeUser={currentUsername}/>  
     </div>
     
  

@@ -52,7 +52,7 @@ const [update, setupdate] = useState(1)
       const wordsArray = searchTerm.trim().split(/\s+/).filter((word) => word !== '');
       setsearchTerm2(wordsArray);
     }
-    if ((e.key === 'Backspace' || e.key === 'Delete') && searchTerm.length === 1) {
+    if ((e.key === 'Backspace' || e.key === 'Delete') && searchTerm.length === 0) {
       setsearchTerm2([]);
       setSearchTerm('');
     }
@@ -117,9 +117,9 @@ const [update, setupdate] = useState(1)
   return (
     <div className="profileBackground">
       <div className="profileBackground2">
-        <div className="SearchHeader">DISCOVER ANSWERS</div>
+        <div className="SearchHeader">DISCOVER QUESTIONS</div>
         <div className="SearchPageDropDown">
-          <div className="filterText">FILTER TAGS</div>
+          <div className="filterText">SEARCH TAGS</div>
           <TopicDropDown onTopicChange={handleTopicChange} defaultTopic={defaultTopic} updateComponent={update} />
           <LanguageDropDown onLanguageChange={handleLanguageChange} defaultLanguage={defaultLanguage} updateComponent={update}/>
           <SkillLeveDropDown
@@ -133,16 +133,17 @@ const [update, setupdate] = useState(1)
           />
         </div>
         <input
-          type="text"
-          className="SPSearch"
-          placeholder="Search tags"
-          value={searchTerm}
-          onChange={handleInputChange}
-          onKeyUp={handleKeyPress}
-        />
-        <div className="searchResultsbox">
-          <div className="searchResults">SEARCH RESULTS</div>
-          {searchResults.slice(startIndex, endIndex).map((question, index) => (
+        type="text"
+        className="SPSearch"
+        placeholder="Search on tags"
+        value={searchTerm}
+        onChange={handleInputChange}
+        onKeyUp={handleKeyPress}
+      />
+      <div className="searchResultsbox">
+        <div className="searchResults">SEARCH RESULTS</div>
+        {searchResults.length > 0 ? (
+          searchResults.slice(startIndex, endIndex).map((question, index) => (
             <SmallQuestionBox
               key={index}
               name={question.Author}
@@ -151,8 +152,13 @@ const [update, setupdate] = useState(1)
               tags={question.Tags}
               objectId={question.objectId}
             />
-          ))}
-          {searchResults.length >= itemsPerPage && (
+          ))
+        ) : (
+          <div className="noResultsMessage">
+           You need to make a search, or the search that you have made hasn't returned any questions with those tags.
+          </div>
+        )}
+        {searchResults.length >= itemsPerPage && (
             <div className="pagination">
               {currentPage !== 1 && (
                 <button
