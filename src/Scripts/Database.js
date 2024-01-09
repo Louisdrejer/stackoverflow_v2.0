@@ -165,10 +165,13 @@ export const getQuestionsByTags2 = async (tags) => {
 };
 
   export const getNewestQuestions = async () => {
+    const user = await getCurrentUser();
+
     const query = new Parse.Query('Questions');
+    query.notEqualTo('Author', user)
     query.descending('createdAt');
-    console.log("hey")
     const results = await query.find();
+
   
     return results.map((question) => ({
       Author: question.get('Author'),

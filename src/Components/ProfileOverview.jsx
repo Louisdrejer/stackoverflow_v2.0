@@ -105,17 +105,17 @@ export default function ProfileOverview({ onComponentChange }) {
           <div className="PO_AnswersNumber">{/* {numberOfAnswers} */}</div>
         </div>
         <div
+          className={`profileOverviewNewMessagesLine ${clickedLine === 'NewMessages' ? 'clicked' : ''}`}
+          onClick={() => handleClick('NewMessages')}
+        >
+          <div className="PO_PL">My Responses</div>
+        </div>
+        <div
           className={`profileOverviewPLLine ${clickedLine === 'ProgrammingLanguages' ? 'clicked' : ''}`}
           onClick={() => handleClick('ProgrammingLanguages')}
         >
           <div className="PO_PL">My Programming Languages</div>
           <div className="PO_PLNumber">{/* {numberOfPL} */}</div>
-        </div>
-        <div
-          className={`profileOverviewNewMessagesLine ${clickedLine === 'NewMessages' ? 'clicked' : ''}`}
-          onClick={() => handleClick('NewMessages')}
-        >
-          <div className="PO_PL">My Responses</div>
         </div>
 
       </div>
