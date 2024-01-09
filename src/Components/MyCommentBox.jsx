@@ -1,17 +1,19 @@
-import React from 'react';
-import CodeBlock from './CodeBlock'; 
-import SmallCodeBlock from './SmallCodeBlock'
-import './CodeBlock.css'; 
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import CodeBlock from './CodeBlock';
+import SmallCodeBlock from './SmallCodeBlock';
+import './CodeBlock.css';
 import LikeDislikeButtonNotclick from './LikeDisLikeButtonNotClick';
 import { deleteCommitsById } from '../Scripts/Database';
 import { RiDeleteBin2Line } from "react-icons/ri";
+import ConfirmationModal from './ConfirmationModal';
 
 export default function MycommentBox(props) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const location = useLocation();
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
   const getColorForTag = (tag) => {
     if (tag === "PYTHON" || tag === "JAVA" || tag === "JAVASCRIPT") {
       return "rgb(255, 219, 183)";
@@ -22,28 +24,28 @@ export default function MycommentBox(props) {
     }
   };
 
+  const handleDeleteClick = () => {
+    setShowConfirmation(true);
+  };
 
-  const handleDeleteClick = async () => {
-    const isConfirmed = window.confirm("Are you sure you want to delete this question?");
-
-    if (!isConfirmed) {
-      return;
-    }
-
+  const handleConfirmDelete = async () => {
     try {
-   
       await deleteCommitsById(props.objectId);
-      props.setUpdate(props.update+1)
-     // window.location.reload();
+      props.setUpdate(props.update + 1);
+      setShowConfirmation(false);
     } catch (error) {
-      console.error("Error deleting question:", error);
+      console.error("Error deleting comment:", error);
     }
   };
+
+  const handleCancelDelete = () => {
+    setShowConfirmation(false);
+  };
+
   const goToAnswerBoxPage = () => {
     navigate(`../Answers/`, { state: { pid: props.objectId, username: props.name, title: props.title, text: props.text, tags: props.tags } });
- 
   };
-  
+
   return (
     <div className="newQustionBox" style={{ background: "rgb(53, 54, 58)", borderColor: "rgb(53, 54, 58)", width: "90%", marginLeft: "5%" }}>
       <div className="newQustionHeader">
@@ -52,10 +54,9 @@ export default function MycommentBox(props) {
           <div className="Headline" onClick={goToAnswerBoxPage}>{props.title}</div>
         </div>
         {location.pathname === '/OtherProfile' ? (
-         <div></div>
+          <div></div>
         ) : (
-
-          <div className="DeleteContainer" onClick={handleDeleteClick}>
+          <div className="DeleteContainer" onClick={handleDeleteClick}style={{cursor: 'pointer'}}>
             <RiDeleteBin2Line />
           </div>
         )}
@@ -77,6 +78,8 @@ export default function MycommentBox(props) {
           <LikeDislikeButtonNotclick likes={props.likes} dislikes={props.dislikes} />
         </div>
       </div>
+
+      {showConfirmation && <ConfirmationModal onConfirm={handleConfirmDelete} onCancel={handleCancelDelete} />}
     </div>
   );
-        }
+}

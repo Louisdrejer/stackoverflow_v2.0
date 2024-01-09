@@ -626,3 +626,42 @@ margin-top: 20px;
     padding: 6px;
   }
   
+
+/* Profile.css */
+.confirmation-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(81, 83, 89);
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 2;
+    border-radius: 10px;
+  }
+  
+  .confirmation-modal p {
+    margin-bottom: 15px;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+  }
+  
+  .confirmation-modal button {
+    margin-right: 10px;
+    background: rgb(67, 68, 73);
+    color: white;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+  }
+  .confirmation-modal button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  }
+  
