@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { getCommentsToCurrentUser, getCurrentUser, getQuestionsByAuthor, getCommentsById } from '../Scripts/Database';
-import MycommentBox from './MyCommentBox';
+import MyResponseBox from './MyResponseBox';
 
 export default function ProfilePL_NewMessages() {
   const [Comments, setComments] = useState([]);
@@ -39,7 +39,7 @@ export default function ProfilePL_NewMessages() {
     <div className="myAnswersContainer">
       <div className="myAnswersHeaderText">MY RESPONSES</div>
       {Comments.slice(startIndex, endIndex).map((comment, index) => (
-        <MycommentBox
+        <MyResponseBox
           key={index}
           title={comment.QuestionTitle}
           text={comment.Text}
