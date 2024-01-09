@@ -19,14 +19,10 @@ const LikeDislikeButtons = (props) => {
     }
   };
 
-
   const handleDislike = () => {
     if (!like) {
       setDislike(!dislike);
-
-
       updateLikeDislikeDB(props.objectId, "Dislikes", !dislike)
-
     }
   };
 
@@ -36,8 +32,7 @@ const LikeDislikeButtons = (props) => {
         <div
           className={`likeIcon ${like ? 'clicked2' : ''}`}
           style={{ cursor:'pointer'}}
-          onClick={handleLike}
-        >
+          onClick={handleLike}>
           <BiSolidLike />
         </div>
         <div className='likeCount'>{Number(like) + likes}</div>
